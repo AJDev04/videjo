@@ -410,9 +410,24 @@ hoverElements.forEach((el) => {
 	});
 });
 
-const btn = document.querySelector(".menu-btn");
+// ========================================
+// Menu Toggle
+// ========================================
+const menuBtn = document.querySelector(".menu-btn");
+const navOverlay = document.querySelector(".nav-overlay");
+const navLinks = document.querySelectorAll(".nav-links a");
 
-btn.addEventListener("click", () => {
-	btn.classList.toggle("open");
-	document.body.classList.toggle("nav-open");
-});
+if (menuBtn && navOverlay) {
+	menuBtn.addEventListener("click", () => {
+		menuBtn.classList.toggle("open");
+		document.body.classList.toggle("nav-open");
+	});
+
+	// Close menu when clicking a link
+	navLinks.forEach((link) => {
+		link.addEventListener("click", () => {
+			menuBtn.classList.remove("open");
+			document.body.classList.remove("nav-open");
+		});
+	});
+}
