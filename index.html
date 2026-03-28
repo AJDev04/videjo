@@ -1,0 +1,602 @@
+<!doctype html>
+<html lang="nl">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>VIDEJO</title>
+		<link rel="stylesheet" href="css/style.css" />
+		<link
+			rel="preconnect"
+			href="[fonts.googleapis.com](https://fonts.googleapis.com)"
+		/>
+		<link
+			rel="preconnect"
+			href="[fonts.gstatic.com](https://fonts.gstatic.com)"
+			crossorigin
+		/>
+		<link
+			href="[fonts.googleapis.com](https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap)"
+			rel="stylesheet"
+		/>
+
+		<link
+			rel="apple-touch-icon"
+			sizes="180x180"
+			href="favicon/apple-touch-icon.png"
+		/>
+		<link
+			rel="icon"
+			type="image/png"
+			sizes="32x32"
+			href="favicon/favicon-32x32.png"
+		/>
+		<link
+			rel="icon"
+			type="image/png"
+			sizes="16x16"
+			href="favicon/favicon-16x16.png"
+		/>
+		<link rel="manifest" href="favicon/site.webmanifest" />
+	</head>
+	<body>
+		<!-- Navigation -->
+		<button class="menu-btn">
+			<div class="burger">
+				<span></span>
+				<span></span>
+			</div>
+			<span class="menu-text">Menu</span>
+		</button>
+		<nav class="nav-overlay">
+			<ul class="nav-links">
+				<li>
+					<a class="link-text" href="#" data-text="Home"> Home</a>
+				</li>
+				<li>
+					<a class="link-text" href="#" data-text="Work"
+						><div class="divider"></div>
+						Work</a
+					>
+				</li>
+				<li>
+					<a class="link-text" href="#" data-text="About"
+						><div class="divider"></div>
+						About</a
+					>
+				</li>
+				<li>
+					<a class="link-text" href="#" data-text="Contact"
+						><div class="divider"></div>
+						Contact</a
+					>
+				</li>
+			</ul>
+		</nav>
+
+		<!-- Hero Section -->
+		<section class="hero" id="hero">
+			<div class="orbs">
+				<div class="orb-wrap">
+					<div class="orb orb-1"></div>
+				</div>
+				<div class="orb-wrap">
+					<div class="orb orb-2"></div>
+				</div>
+				<div class="orb-wrap">
+					<div class="orb orb-3"></div>
+				</div>
+			</div>
+			<div class="hero-bg">
+				<div class="hero-overlay"></div>
+			</div>
+			<div class="hero-content">
+				<div class="home-logo">
+					<svg
+						class="logo-svg"
+						viewBox="0 0 365.22 380.4"
+						xmlns="[w3.org](http://www.w3.org/2000/svg)"
+					>
+						<rect
+							width="365.22"
+							height="380.4"
+							rx="31.35"
+							ry="31.35"
+							fill="#262261"
+						/>
+						<g>
+							<path
+								d="M157.22,296.89c-19.33-4.88-24.92-24.2-23.57-41.79.11-1.45,1.45-2.83,2.98-2.83l22.55-.07c1.77,0,3.36-1.35,3.36-3.19l.03-51.02c0-1.71,1.15-3.25,3.07-3.25l38.81-.03c1.69,0,3.09,1.46,3.09,3.05l-.04,68.44c0,5.02-1.06,9.53-2.88,14.01-5.59,13.76-18.76,18.37-32.77,18.33-4.97-.01-9.63-.38-14.63-1.64Z"
+								fill="#fbf7ca"
+							/>
+							<path
+								d="M190.67,189.08l-33.51.06c-2.38,0-3.64-1.52-3.64-3.7l.02-95.44c0-2.05,1.61-3.43,3.59-3.43h33.85c1.73,0,3.25,1.34,3.25,3.05v96.15c0,1.85-1.39,3.31-3.56,3.31Z"
+								fill="#fbf7ca"
+							/>
+							<path
+								d="M143.27,86.53c2.21,0,4.04,1.94,3.57,4.19l-18.6,88.65c-.94,4.47-2.78,9.48-8.25,9.48l-46.46.02c-2.49,0-4.16-1.34-4.73-4.02l-19.96-93.91c-.52-2.44,1.24-4.42,3.5-4.42h29.85c1.68,0,3.29,1.42,3.66,3.04l11.17,48.47c.13.54.52,1.14.87,1.21s1.13-.53,1.22-.94l10.58-47.2c.41-1.81,1.26-4.49,3.59-4.49l29.98-.07Z"
+								fill="#fbf7ca"
+							/>
+							<path
+								d="M313.58,156.45c-5.3,18.59-20.4,27.95-38.6,31.12-5.55.97-10.88,1.62-16.63,1.62h-51.32c-1.72,0-3.87-1.14-3.87-2.99l-.02-96.81c0-1.54,1.44-2.68,2.72-2.8,4.37-.39,8.4-.19,12.83-.18l38.51.1c14.87.04,31.42,3.58,42.86,13.46,7.22,6.23,12.06,14.46,14.22,23.83,2.49,10.81,2.31,22.02-.72,32.65ZM268.82,133.23c-.6-6.58-8.08-8.92-13.44-8.88l-8.22.06-.04,23.57h8.94c2.7,0,5.45-.74,7.89-1.82,5.22-2.31,5.33-7.88,4.88-12.93Z"
+								fill="#fbf7ca"
+							/>
+							<path
+								d="M117.95,258.34h-27.19c-.99,0-1.83.85-1.84,1.71l-.04,5.28c0,.57.8,1.5,1.53,1.5l35.5.02c1.83,0,3.56,1.32,3.56,3.28l.06,23.61c0,1.78-1.3,3.56-3.31,3.56H52.73c-1.95,0-3.19-1.52-3.19-3.32v-96c0-1.98,1.41-2.96,3.23-3.29l76.66.04c2.2,0,3.12,1.73,3.12,3.46l-.03,24.11c0,1.6-1.04,3.26-2.94,3.26l-38.39.06c-1.16,0-2.27.75-2.28,1.87l-.03,5.55c0,.77,1.02,1.6,1.88,1.6l26.95.03c1.54,0,2.8,1.42,2.8,2.84v18.29c-.02,1.37-1.06,2.52-2.55,2.52Z"
+								fill="#fbf7ca"
+							/>
+							<path
+								d="M314.39,229.18c-2.75-13.94-11.89-25.21-25.02-30.69-8.4-3.5-17.28-4.64-26.45-4.59-7.86.04-15.35.87-22.66,3.58-18.68,6.93-26.34,23.71-27.07,42.64-.46,11.88.29,21.77,4.62,32.87,4.84,12.38,15.05,19.85,27.63,23.27,12.69,3.44,30.86,3.05,43.29-1.62,9.06-3.4,16.45-9.58,20.88-18.14,3.06-5.92,4.9-12.05,5.69-18.69,1.16-9.69.96-19.12-.92-28.63ZM280.95,249.49c-14.53,13.88-22.52,14.67-26.46,13.31-1.36-.47-2.39-1.52-2.91-2.81,0,0,0,0,0-.01-.11-.27.06.3,0,.01-2.38-8.29-2.73-20.94-.2-28.97h0s0-.03.01-.04c.43-1.59,1.55-2.71,3.09-3.24,3.95-1.36,11.94-.58,26.47,13.31,2.4,2.3,2.4,6.14,0,8.44Z"
+								fill="#fbf7ca"
+							/>
+						</g>
+					</svg>
+				</div>
+				<h1 class="hero-title">
+					<span class="title-line">Stories in motion,</span>
+					<span class="title-line">captured from every angle.</span>
+				</h1>
+				<p class="hero-subtitle">
+					VIDEJO creëert commerciële video's die merken tot leven brengen. Van
+					concept tot eindproduct — wij vertellen jouw verhaal.
+				</p>
+			</div>
+			<a href="#werk" class="scroll-indicator">
+				<span class="scroll-text">Scroll</span>
+				<span class="scroll-arrow"></span>
+			</a>
+		</section>
+
+		<!-- Werk / Portfolio Section -->
+		<section class="section werk" id="werk">
+			<div class="container">
+				<div class="section-header fade-up">
+					<p class="section-subtitle">Selectie van recente projecten</p>
+					<h2 class="section-title">Ons Werk</h2>
+				</div>
+				<div class="portfolio-grid">
+					<article class="portfolio-item portfolio-large">
+						<div class="portfolio-media">
+							<div
+								class="portfolio-placeholder"
+								style="background: linear-gradient(135deg, #912b61, #df653a)"
+							>
+								<svg viewBox="0 0 24 24" class="play-icon">
+									<polygon points="5,3 19,12 5,21" />
+								</svg>
+							</div>
+						</div>
+						<div class="portfolio-info">
+							<span class="portfolio-category">Commercial</span>
+							<h3 class="portfolio-title">Brand Campaign XYZ</h3>
+							<p class="portfolio-desc">
+								Cinematische merkfilm voor productlancering
+							</p>
+						</div>
+					</article>
+					<article class="portfolio-item">
+						<div class="portfolio-media">
+							<div
+								class="portfolio-placeholder"
+								style="background: linear-gradient(135deg, #3974b7, #26225e)"
+							>
+								<svg viewBox="0 0 24 24" class="play-icon">
+									<polygon points="5,3 19,12 5,21" />
+								</svg>
+							</div>
+						</div>
+						<div class="portfolio-info">
+							<span class="portfolio-category">Drone</span>
+							<h3 class="portfolio-title">Aerial Showcase</h3>
+							<p class="portfolio-desc">Drone opnames voor vastgoed</p>
+						</div>
+					</article>
+					<article class="portfolio-item">
+						<div class="portfolio-media">
+							<div
+								class="portfolio-placeholder"
+								style="background: linear-gradient(135deg, #3e914d, #26225e)"
+							>
+								<svg viewBox="0 0 24 24" class="play-icon">
+									<polygon points="5,3 19,12 5,21" />
+								</svg>
+							</div>
+						</div>
+						<div class="portfolio-info">
+							<span class="portfolio-category">Corporate</span>
+							<h3 class="portfolio-title">Bedrijfsfilm ABC</h3>
+							<p class="portfolio-desc">Interne communicatie video</p>
+						</div>
+					</article>
+					<article class="portfolio-item">
+						<div class="portfolio-media">
+							<div
+								class="portfolio-placeholder"
+								style="background: linear-gradient(135deg, #df653a, #912b61)"
+							>
+								<svg viewBox="0 0 24 24" class="play-icon">
+									<polygon points="5,3 19,12 5,21" />
+								</svg>
+							</div>
+						</div>
+						<div class="portfolio-info">
+							<span class="portfolio-category">Motion</span>
+							<h3 class="portfolio-title">Animated Explainer</h3>
+							<p class="portfolio-desc">Motion graphics voor social media</p>
+						</div>
+					</article>
+				</div>
+			</div>
+		</section>
+
+		<!-- Diensten Section -->
+		<section class="section diensten" id="diensten">
+			<div class="container">
+				<div class="section-header fade-up">
+					<p class="section-subtitle">Van concept tot oplevering</p>
+					<h2 class="section-title">Diensten</h2>
+				</div>
+				<div class="services-grid">
+					<article class="service-card">
+						<span class="service-number">01</span>
+						<div
+							class="service-icon"
+							style="
+								background-color: rgba(223, 101, 58, 0.15);
+								border: 1px solid rgba(223, 101, 58, 0.3);
+							"
+						>
+							<svg viewBox="0 0 24 24">
+								<rect x="2" y="4" width="20" height="16" rx="2" />
+								<polygon points="10,8 16,12 10,16" />
+							</svg>
+						</div>
+						<h3 class="service-title">Commerciële Video</h3>
+						<p class="service-desc">
+							Productlanceringen, merkfilms en advertenties die converteren.
+							Video's die jouw doelgroep raken en resultaat opleveren.
+						</p>
+						<ul class="service-list">
+							<li>TV & online commercials</li>
+							<li>Productfilms</li>
+							<li>Social media content</li>
+						</ul>
+					</article>
+					<article class="service-card">
+						<span class="service-number">02</span>
+						<div
+							class="service-icon"
+							style="
+								background-color: rgba(250, 248, 206, 0.06);
+								border: 1px solid rgba(250, 248, 206, 0.12);
+							"
+						>
+							<svg viewBox="0 0 24 24">
+								<path
+									d="M12 2L2 7v10c0 5.55 3.84 10.74 10 12 6.16-1.26 10-6.45 10-12V7l-10-5z"
+								/>
+								<polygon points="10,8 16,12 10,16" />
+							</svg>
+						</div>
+						<h3 class="service-title">Bedrijfsfilms</h3>
+						<p class="service-desc">
+							Corporate content die je verhaal vertelt. Van testimonials tot
+							interne communicatie, altijd met een professionele touch.
+						</p>
+						<ul class="service-list">
+							<li>Corporate documentaires</li>
+							<li>Testimonials & interviews</li>
+							<li>Employer branding</li>
+						</ul>
+					</article>
+					<article class="service-card">
+						<span class="service-number">03</span>
+						<div
+							class="service-icon"
+							style="
+								background-color: rgba(57, 116, 183, 0.15);
+								border: 1px solid rgba(57, 116, 183, 0.3);
+							"
+						>
+							<svg viewBox="0 0 24 24">
+								<circle cx="12" cy="12" r="3" />
+								<path
+									d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"
+								/>
+							</svg>
+						</div>
+						<h3 class="service-title">Drone Opnames</h3>
+						<p class="service-desc">
+							Cinematische luchtbeelden die indruk maken. Gecertificeerde
+							piloten voor veilige en legale vluchten.
+						</p>
+						<ul class="service-list">
+							<li>Vastgoed & architectuur</li>
+							<li>Evenementen</li>
+							<li>Industriële inspectie</li>
+						</ul>
+					</article>
+					<article class="service-card">
+						<span class="service-number">04</span>
+						<div
+							class="service-icon"
+							style="
+								background-color: rgba(145, 43, 97, 0.15);
+								border: 1px solid rgba(145, 43, 97, 0.3);
+							"
+						>
+							<svg viewBox="0 0 24 24">
+								<rect x="3" y="3" width="18" height="18" rx="2" />
+								<circle cx="8.5" cy="8.5" r="1.5" />
+								<path d="M21 15l-5-5L5 21" />
+							</svg>
+						</div>
+						<h3 class="service-title">Motion Graphics</h3>
+						<p class="service-desc">
+							Animaties en visuele effecten als finishing touch. Van lower
+							thirds tot volledige animated explainers.
+						</p>
+						<ul class="service-list">
+							<li>Logo animaties</li>
+							<li>Infographics</li>
+							<li>Visual effects</li>
+						</ul>
+					</article>
+				</div>
+			</div>
+		</section>
+
+		<!-- Over Section -->
+		<section class="section over" id="over">
+			<div class="container">
+				<div class="over-grid">
+					<div class="over-content fade-up">
+						<h2 class="section-title">Over VIDEJO</h2>
+						<p class="over-lead">
+							De <strong>"JO"</strong> in VIDEJO? Dat ben ik —
+							<strong>Joren Frederickx</strong>. Ik combineer cinematische
+							kwaliteit met een no-nonsense aanpak.
+						</p>
+						<p class="over-text">
+							Geen overbodige meetings of eindeloze revisierondes. Wel heldere
+							communicatie, creatieve oplossingen en video's die daadwerkelijk
+							resultaat leveren voor jouw business.
+						</p>
+						<p class="over-text">
+							Of het nu gaat om een commercial, bedrijfsfilm of social media
+							content — ik zorg ervoor dat jouw verhaal blijft hangen.
+						</p>
+						<div class="over-values">
+							<div class="value-item">
+								<span class="value-label">Bold</span>
+								<span class="value-desc">Creatief uit de hoek</span>
+							</div>
+							<div class="value-item">
+								<span class="value-label">Cinematic</span>
+								<span class="value-desc">Elk frame telt</span>
+							</div>
+							<div class="value-item">
+								<span class="value-label">Resultaat</span>
+								<span class="value-desc">Video's die werken</span>
+							</div>
+						</div>
+					</div>
+					<div class="over-visual fade-up">
+						<div class="over-image-wrapper">
+							<div class="over-image-placeholder">
+								<svg
+									class="logo-svg"
+									viewBox="0 0 365.22 380.4"
+									xmlns="http://www.w3.org/2000/svg"
+								>
+									<rect
+										width="365.22"
+										height="380.4"
+										rx="31.35"
+										ry="31.35"
+										fill="#262261"
+									/>
+									<g>
+										<path
+											d="M157.22,296.89c-19.33-4.88-24.92-24.2-23.57-41.79.11-1.45,1.45-2.83,2.98-2.83l22.55-.07c1.77,0,3.36-1.35,3.36-3.19l.03-51.02c0-1.71,1.15-3.25,3.07-3.25l38.81-.03c1.69,0,3.09,1.46,3.09,3.05l-.04,68.44c0,5.02-1.06,9.53-2.88,14.01-5.59,13.76-18.76,18.37-32.77,18.33-4.97-.01-9.63-.38-14.63-1.64Z"
+											fill="#fbf7ca"
+										/>
+										<path
+											d="M190.67,189.08l-33.51.06c-2.38,0-3.64-1.52-3.64-3.7l.02-95.44c0-2.05,1.61-3.43,3.59-3.43h33.85c1.73,0,3.25,1.34,3.25,3.05v96.15c0,1.85-1.39,3.31-3.56,3.31Z"
+											fill="#fbf7ca"
+										/>
+										<path
+											d="M143.27,86.53c2.21,0,4.04,1.94,3.57,4.19l-18.6,88.65c-.94,4.47-2.78,9.48-8.25,9.48l-46.46.02c-2.49,0-4.16-1.34-4.73-4.02l-19.96-93.91c-.52-2.44,1.24-4.42,3.5-4.42h29.85c1.68,0,3.29,1.42,3.66,3.04l11.17,48.47c.13.54.52,1.14.87,1.21s1.13-.53,1.22-.94l10.58-47.2c.41-1.81,1.26-4.49,3.59-4.49l29.98-.07Z"
+											fill="#fbf7ca"
+										/>
+										<path
+											d="M313.58,156.45c-5.3,18.59-20.4,27.95-38.6,31.12-5.55.97-10.88,1.62-16.63,1.62h-51.32c-1.72,0-3.87-1.14-3.87-2.99l-.02-96.81c0-1.54,1.44-2.68,2.72-2.8,4.37-.39,8.4-.19,12.83-.18l38.51.1c14.87.04,31.42,3.58,42.86,13.46,7.22,6.23,12.06,14.46,14.22,23.83,2.49,10.81,2.31,22.02-.72,32.65ZM268.82,133.23c-.6-6.58-8.08-8.92-13.44-8.88l-8.22.06-.04,23.57h8.94c2.7,0,5.45-.74,7.89-1.82,5.22-2.31,5.33-7.88,4.88-12.93Z"
+											fill="#fbf7ca"
+										/>
+										<path
+											d="M117.95,258.34h-27.19c-.99,0-1.83.85-1.84,1.71l-.04,5.28c0,.57.8,1.5,1.53,1.5l35.5.02c1.83,0,3.56,1.32,3.56,3.28l.06,23.61c0,1.78-1.3,3.56-3.31,3.56H52.73c-1.95,0-3.19-1.52-3.19-3.32v-96c0-1.98,1.41-2.96,3.23-3.29l76.66.04c2.2,0,3.12,1.73,3.12,3.46l-.03,24.11c0,1.6-1.04,3.26-2.94,3.26l-38.39.06c-1.16,0-2.27.75-2.28,1.87l-.03,5.55c0,.77,1.02,1.6,1.88,1.6l26.95.03c1.54,0,2.8,1.42,2.8,2.84v18.29c-.02,1.37-1.06,2.52-2.55,2.52Z"
+											fill="#fbf7ca"
+										/>
+										<path
+											d="M314.39,229.18c-2.75-13.94-11.89-25.21-25.02-30.69-8.4-3.5-17.28-4.64-26.45-4.59-7.86.04-15.35.87-22.66,3.58-18.68,6.93-26.34,23.71-27.07,42.64-.46,11.88.29,21.77,4.62,32.87,4.84,12.38,15.05,19.85,27.63,23.27,12.69,3.44,30.86,3.05,43.29-1.62,9.06-3.4,16.45-9.58,20.88-18.14,3.06-5.92,4.9-12.05,5.69-18.69,1.16-9.69.96-19.12-.92-28.63ZM280.95,249.49c-14.53,13.88-22.52,14.67-26.46,13.31-1.36-.47-2.39-1.52-2.91-2.81,0,0,0,0,0-.01-.11-.27.06.3,0,.01-2.38-8.29-2.73-20.94-.2-28.97h0s0-.03.01-.04c.43-1.59,1.55-2.71,3.09-3.24,3.95-1.36,11.94-.58,26.47,13.31,2.4,2.3,2.4,6.14,0,8.44Z"
+											fill="#fbf7ca"
+										/>
+									</g>
+								</svg>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Contact Section -->
+		<section class="section contact" id="contact">
+			<div class="container">
+				<div class="contact-grid">
+					<div class="contact-info fade-up">
+						<h2 class="section-title">Klaar om jouw verhaal te vertellen?</h2>
+						<p class="contact-text">
+							Neem contact op voor een vrijblijvend gesprek over jouw project.
+							Ik denk graag met je mee over de beste aanpak.
+						</p>
+						<div class="contact-details">
+							<a href="mailto:info@videjo.be" class="contact-link">
+								<svg viewBox="0 0 24 24">
+									<path
+										d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
+									/>
+									<polyline points="22,6 12,13 2,6" />
+								</svg>
+								info@videjo.be
+							</a>
+							<a href="tel:+32123456789" class="contact-link">
+								<svg viewBox="0 0 24 24">
+									<path
+										d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
+									/>
+								</svg>
+								+32 123 45 67 89
+							</a>
+						</div>
+						<div class="contact-social">
+							<a href="#" class="social-link" aria-label="Instagram">
+								<svg viewBox="0 0 24 24">
+									<rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+									<path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+									<line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+								</svg>
+							</a>
+							<a href="#" class="social-link" aria-label="LinkedIn">
+								<svg viewBox="0 0 24 24">
+									<path
+										d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"
+									/>
+									<rect x="2" y="9" width="4" height="12" />
+									<circle cx="4" cy="4" r="2" />
+								</svg>
+							</a>
+							<a href="#" class="social-link" aria-label="Vimeo">
+								<svg viewBox="0 0 24 24">
+									<path
+										d="M22.396 7.164c-.093 2.026-1.507 4.8-4.245 8.32C15.323 19.16 12.93 21 10.97 21c-1.214 0-2.24-1.12-3.08-3.36-.56-2.052-1.118-4.105-1.68-6.158-.622-2.24-1.29-3.36-2.004-3.36-.156 0-.7.328-1.634.98L2 8.335c1.026-.902 2.04-1.805 3.037-2.708C6.39 4.447 7.47 3.812 8.213 3.76c1.494-.143 2.415.878 2.762 3.066.374 2.36.634 3.83.78 4.409.433 1.97.91 2.953 1.43 2.953.404 0 1.012-.638 1.82-1.916.81-1.278 1.243-2.25 1.3-2.916.117-1.1-.316-1.65-1.3-1.65-.463 0-.94.106-1.43.318.95-3.108 2.76-4.62 5.43-4.536 1.98.058 2.915 1.343 2.803 3.855z"
+									/>
+								</svg>
+							</a>
+						</div>
+					</div>
+					<div class="contact-form-wrapper fade-up">
+						<form class="contact-form" id="contact-form">
+							<div class="form-group">
+								<label for="name">Naam</label>
+								<input
+									type="text"
+									id="name"
+									name="name"
+									placeholder="Jouw naam"
+									required
+								/>
+							</div>
+							<div class="form-group">
+								<label for="company">Bedrijf</label>
+								<input
+									type="text"
+									id="company"
+									name="company"
+									placeholder="Bedrijfsnaam (optioneel)"
+								/>
+							</div>
+							<div class="form-group">
+								<label for="email">E-mail</label>
+								<input
+									type="email"
+									id="email"
+									name="email"
+									placeholder="jouw@email.be"
+									required
+								/>
+							</div>
+							<div class="form-group">
+								<label for="message">Project</label>
+								<textarea
+									id="message"
+									name="message"
+									rows="5"
+									placeholder="Vertel over je project..."
+									required
+								></textarea>
+							</div>
+							<button type="submit" class="btn btn-primary btn-full">
+								Verstuur bericht
+							</button>
+						</form>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Footer -->
+		<footer class="footer">
+			<div class="container">
+				<div class="footer-content">
+					<div class="footer-logo">
+						<svg
+							class="logo-svg"
+							viewBox="0 0 365.22 380.4"
+							xmlns="http://www.w3.org/2000/svg"
+						>
+							<rect
+								width="365.22"
+								height="380.4"
+								rx="31.35"
+								ry="31.35"
+								fill="#262261"
+							/>
+							<g>
+								<path
+									d="M157.22,296.89c-19.33-4.88-24.92-24.2-23.57-41.79.11-1.45,1.45-2.83,2.98-2.83l22.55-.07c1.77,0,3.36-1.35,3.36-3.19l.03-51.02c0-1.71,1.15-3.25,3.07-3.25l38.81-.03c1.69,0,3.09,1.46,3.09,3.05l-.04,68.44c0,5.02-1.06,9.53-2.88,14.01-5.59,13.76-18.76,18.37-32.77,18.33-4.97-.01-9.63-.38-14.63-1.64Z"
+									fill="#fbf7ca"
+								/>
+								<path
+									d="M190.67,189.08l-33.51.06c-2.38,0-3.64-1.52-3.64-3.7l.02-95.44c0-2.05,1.61-3.43,3.59-3.43h33.85c1.73,0,3.25,1.34,3.25,3.05v96.15c0,1.85-1.39,3.31-3.56,3.31Z"
+									fill="#fbf7ca"
+								/>
+								<path
+									d="M143.27,86.53c2.21,0,4.04,1.94,3.57,4.19l-18.6,88.65c-.94,4.47-2.78,9.48-8.25,9.48l-46.46.02c-2.49,0-4.16-1.34-4.73-4.02l-19.96-93.91c-.52-2.44,1.24-4.42,3.5-4.42h29.85c1.68,0,3.29,1.42,3.66,3.04l11.17,48.47c.13.54.52,1.14.87,1.21s1.13-.53,1.22-.94l10.58-47.2c.41-1.81,1.26-4.49,3.59-4.49l29.98-.07Z"
+									fill="#fbf7ca"
+								/>
+								<path
+									d="M313.58,156.45c-5.3,18.59-20.4,27.95-38.6,31.12-5.55.97-10.88,1.62-16.63,1.62h-51.32c-1.72,0-3.87-1.14-3.87-2.99l-.02-96.81c0-1.54,1.44-2.68,2.72-2.8,4.37-.39,8.4-.19,12.83-.18l38.51.1c14.87.04,31.42,3.58,42.86,13.46,7.22,6.23,12.06,14.46,14.22,23.83,2.49,10.81,2.31,22.02-.72,32.65ZM268.82,133.23c-.6-6.58-8.08-8.92-13.44-8.88l-8.22.06-.04,23.57h8.94c2.7,0,5.45-.74,7.89-1.82,5.22-2.31,5.33-7.88,4.88-12.93Z"
+									fill="#fbf7ca"
+								/>
+								<path
+									d="M117.95,258.34h-27.19c-.99,0-1.83.85-1.84,1.71l-.04,5.28c0,.57.8,1.5,1.53,1.5l35.5.02c1.83,0,3.56,1.32,3.56,3.28l.06,23.61c0,1.78-1.3,3.56-3.31,3.56H52.73c-1.95,0-3.19-1.52-3.19-3.32v-96c0-1.98,1.41-2.96,3.23-3.29l76.66.04c2.2,0,3.12,1.73,3.12,3.46l-.03,24.11c0,1.6-1.04,3.26-2.94,3.26l-38.39.06c-1.16,0-2.27.75-2.28,1.87l-.03,5.55c0,.77,1.02,1.6,1.88,1.6l26.95.03c1.54,0,2.8,1.42,2.8,2.84v18.29c-.02,1.37-1.06,2.52-2.55,2.52Z"
+									fill="#fbf7ca"
+								/>
+								<path
+									d="M314.39,229.18c-2.75-13.94-11.89-25.21-25.02-30.69-8.4-3.5-17.28-4.64-26.45-4.59-7.86.04-15.35.87-22.66,3.58-18.68,6.93-26.34,23.71-27.07,42.64-.46,11.88.29,21.77,4.62,32.87,4.84,12.38,15.05,19.85,27.63,23.27,12.69,3.44,30.86,3.05,43.29-1.62,9.06-3.4,16.45-9.58,20.88-18.14,3.06-5.92,4.9-12.05,5.69-18.69,1.16-9.69.96-19.12-.92-28.63ZM280.95,249.49c-14.53,13.88-22.52,14.67-26.46,13.31-1.36-.47-2.39-1.52-2.91-2.81,0,0,0,0,0-.01-.11-.27.06.3,0,.01-2.38-8.29-2.73-20.94-.2-28.97h0s0-.03.01-.04c.43-1.59,1.55-2.71,3.09-3.24,3.95-1.36,11.94-.58,26.47,13.31,2.4,2.3,2.4,6.14,0,8.44Z"
+									fill="#fbf7ca"
+								/>
+							</g>
+						</svg>
+					</div>
+					<p class="footer-tagline">
+						Stories in motion, captured from every angle.
+					</p>
+					<div class="footer-links">
+						<a href="#werk">Werk</a>
+						<a href="#diensten">Diensten</a>
+						<a href="#over">Over</a>
+						<a href="#contact">Contact</a>
+					</div>
+					<div class="footer-divider"></div>
+					<p class="footer-copy">
+						&copy; 2026 VIDEJO. Alle rechten voorbehouden.
+					</p>
+				</div>
+			</div>
+		</footer>
+		<div class="custom-cursor"></div>
+		<div class="cursor-dot"></div>
+		<script src="js/scripts.js"></script>
+	</body>
+</html>
