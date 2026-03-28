@@ -1,0 +1,341 @@
+<!doctype html>
+<html lang="nl">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>VIDEJO</title>
+		<link rel="stylesheet" href="../css/reset.css" />
+		<link rel="stylesheet" href="../css/master.css" />
+		<link rel="stylesheet" href="../css/drones.css" />
+		<link
+			rel="preconnect"
+			href="[fonts.googleapis.com](https://fonts.googleapis.com)"
+		/>
+		<link
+			rel="preconnect"
+			href="[fonts.gstatic.com](https://fonts.gstatic.com)"
+			crossorigin
+		/>
+		<link
+			href="[fonts.googleapis.com](https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap)"
+			rel="stylesheet"
+		/>
+
+		<link
+			rel="apple-touch-icon"
+			sizes="180x180"
+			href="../favicon/apple-touch-icon.png"
+		/>
+		<link
+			rel="icon"
+			type="image/png"
+			sizes="32x32"
+			href="../favicon/favicon-32x32.png"
+		/>
+		<link
+			rel="icon"
+			type="image/png"
+			sizes="16x16"
+			href="../favicon/favicon-16x16.png"
+		/>
+		<link rel="manifest" href="../favicon/site.webmanifest" />
+	</head>
+	<body>
+		<!-- Navigation -->
+		<!-- Top Navigation Buttons -->
+		<div class="top-nav">
+			<a href="../index.html#contact" class="contact-btn nav-btn">Contact</a>
+			<button class="menu-btn nav-btn">
+				<div class="burger">
+					<span></span>
+					<span></span>
+				</div>
+				<span class="menu-text">Menu</span>
+			</button>
+		</div>
+
+		<nav class="nav-overlay">
+			<!-- existing nav content -->
+		</nav>
+
+		<nav class="nav-overlay">
+			<ul class="nav-links">
+				<li>
+					<a class="link-text" href="../index.html" data-text="Home"> Home</a>
+				</li>
+				<li>
+					<a class="link-text" href="#expertise" data-text="Expertise"
+						><div class="divider"></div>
+						Onze Expertise</a
+					>
+				</li>
+				<li>
+					<a
+						class="link-text"
+						href="../pages/portfolio.html"
+						data-text="Portfolio"
+						><div class="divider"></div>
+						Portfolio</a
+					>
+				</li>
+				<li>
+					<a class="link-text" href="../pages/about.html" data-text="About"
+						><div class="divider"></div>
+						Over Mij</a
+					>
+				</li>
+			</ul>
+		</nav>
+		<section class="hero">
+			<div class="hero-text">
+				<div class="overline fade-up">My Equipment</div>
+				<h1 class="fade-up">
+					Built for<br />
+					<span class="highlight">The Sky</span>
+				</h1>
+				<p class="hero-desc fade-up">
+					Every shot I deliver starts with the right tool. The
+					<strong>DJI Mini 4 Pro</strong>
+					is my go-to drone — compact enough to fly almost anywhere, powerful
+					enough to capture cinema-grade 4K footage that makes clients stop
+					scrolling.
+				</p>
+				<div class="tags fade-up">
+					<span class="tag">4K / 60fps</span>
+					<span class="tag">10-bit D-Log M</span>
+					<span class="tag">34 min flight time</span>
+					<span class="tag">Omnidirectional obstacle sensing</span>
+				</div>
+			</div>
+
+			<div class="viewer-wrap">
+				<div class="viewer-glow"></div>
+				<div id="canvas-container">
+					<div id="loading">
+						<div class="loader-ring"></div>
+						Loading model…
+					</div>
+				</div>
+				<div class="hint"><span class="hint-icon">↻</span> Drag to rotate</div>
+			</div>
+		</section>
+
+		<section class="specs-section">
+			<div class="section-label">Key Specifications</div>
+			<div class="specs-grid">
+				<div class="spec-card">
+					<div class="spec-icon">🎥</div>
+					<div class="spec-label">Max Resolution</div>
+					<div class="spec-value">4K</div>
+					<div class="spec-sub">60fps — 10-bit D-Log M</div>
+				</div>
+				<div class="spec-card">
+					<div class="spec-icon">🛰️</div>
+					<div class="spec-label">Max Transmission Range</div>
+					<div class="spec-value">20 km</div>
+					<div class="spec-sub">O4 video transmission</div>
+				</div>
+				<div class="spec-card">
+					<div class="spec-icon">⏱️</div>
+					<div class="spec-label">Max Flight Time</div>
+					<div class="spec-value">34 min</div>
+					<div class="spec-sub">Intelligent Flight Battery</div>
+				</div>
+				<div class="spec-card">
+					<div class="spec-icon">⚖️</div>
+					<div class="spec-label">Weight</div>
+					<div class="spec-value">249 g</div>
+					<div class="spec-sub">No registration needed (BE)</div>
+				</div>
+				<div class="spec-card">
+					<div class="spec-icon">🌀</div>
+					<div class="spec-label">Aperture</div>
+					<div class="spec-value">f/1.7</div>
+					<div class="spec-sub">Wide aperture for low light</div>
+				</div>
+				<div class="spec-card">
+					<div class="spec-icon">📡</div>
+					<div class="spec-label">Obstacle Sensing</div>
+					<div class="spec-value">Omni</div>
+					<div class="spec-sub">Forward, backward, lateral, upward</div>
+				</div>
+			</div>
+		</section>
+
+		<footer>
+			<p>© 2026 AerialCraft — Drone Photography & Videography</p>
+			<p>DJI Mini 4 Pro — Available for your project</p>
+		</footer>
+
+		<div class="custom-cursor"></div>
+		<div class="cursor-dot"></div>
+		<script src="../js/scripts.js"></script>
+		<!-- Three.js via CDN -->
+		<script type="importmap">
+			{
+				"imports": {
+					"three": "https://cdn.jsdelivr.net/npm/three@0.165.0/build/three.module.js",
+					"three/addons/": "https://cdn.jsdelivr.net/npm/three@0.165.0/examples/jsm/"
+				}
+			}
+		</script>
+
+		<script type="module">
+			import * as THREE from "three";
+			import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
+			import { OrbitControls } from "three/addons/controls/OrbitControls.js";
+
+			/* ── STARFIELD ── */
+			const starCanvas = document.getElementById("stars");
+			const sCtx = starCanvas.getContext("2d");
+			const stars = Array.from({ length: 160 }, () => ({
+				x: Math.random(),
+				y: Math.random(),
+				r: Math.random() * 1.2 + 0.2,
+				a: Math.random(),
+				s: Math.random() * 0.003 + 0.001,
+			}));
+			function drawStars() {
+				starCanvas.width = window.innerWidth;
+				starCanvas.height = window.innerHeight;
+				sCtx.clearRect(0, 0, starCanvas.width, starCanvas.height);
+				stars.forEach((s) => {
+					s.a += s.s;
+					if (s.a > 1) s.a = 0;
+					sCtx.beginPath();
+					sCtx.arc(
+						s.x * starCanvas.width,
+						s.y * starCanvas.height,
+						s.r,
+						0,
+						Math.PI * 2,
+					);
+					sCtx.fillStyle = `rgba(226,232,240,${Math.abs(Math.sin(s.a))})`;
+					sCtx.fill();
+				});
+				requestAnimationFrame(drawStars);
+			}
+			drawStars();
+
+			/* ── THREE.JS SCENE ── */
+			const container = document.getElementById("canvas-container");
+			const W = container.clientWidth,
+				H = container.clientHeight;
+
+			const renderer = new THREE.WebGLRenderer({
+				antialias: true,
+				alpha: true,
+			});
+			renderer.setSize(W, H);
+			renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+			renderer.outputColorSpace = THREE.SRGBColorSpace;
+			renderer.shadowMap.enabled = true;
+			container.appendChild(renderer.domElement);
+
+			const scene = new THREE.Scene();
+
+			const camera = new THREE.PerspectiveCamera(40, W / H, 0.01, 100);
+			camera.position.set(0, 0.3, 2.2);
+
+			/* Lights */
+			const ambient = new THREE.AmbientLight(0xffffff, 0.4);
+			scene.add(ambient);
+
+			const key = new THREE.DirectionalLight(0x38bdf8, 3.5);
+			key.position.set(2, 3, 3);
+			key.castShadow = true;
+			scene.add(key);
+
+			const fill = new THREE.DirectionalLight(0x818cf8, 1.2);
+			fill.position.set(-3, 1, -2);
+			scene.add(fill);
+
+			const rim = new THREE.DirectionalLight(0xffffff, 1.0);
+			rim.position.set(0, -2, -3);
+			scene.add(rim);
+
+			/* Controls */
+			const controls = new OrbitControls(camera, renderer.domElement);
+			controls.enableDamping = true;
+			controls.dampingFactor = 0.06;
+			controls.enableZoom = true;
+			controls.minDistance = 0.8;
+			controls.maxDistance = 5;
+			controls.autoRotate = true;
+			controls.autoRotateSpeed = 1.4;
+			controls.enablePan = false;
+
+			/* Stop auto-rotate on user interaction */
+			renderer.domElement.addEventListener("pointerdown", () => {
+				controls.autoRotate = false;
+			});
+
+			/* Load GLB */
+			const loader = new GLTFLoader();
+
+			// ⚠️  Replace the URL below with the actual path to your .glb file on your server
+			// e.g. './models/dji_mini4pro.glb'  or a CDN link
+			const MODEL_URL = "../3d-models/dji-mini-4-pro.glb";
+
+			loader.load(
+				MODEL_URL,
+				(gltf) => {
+					const model = gltf.scene;
+
+					/* Centre + scale model automatically */
+					const box = new THREE.Box3().setFromObject(model);
+					const centre = box.getCenter(new THREE.Vector3());
+					const size = box.getSize(new THREE.Vector3());
+					const maxDim = Math.max(size.x, size.y, size.z);
+					const scale = 1.2 / maxDim;
+					model.scale.setScalar(scale);
+					model.position.sub(centre.multiplyScalar(scale));
+
+					scene.add(model);
+					document.getElementById("loading").style.display = "none";
+
+					/* Hover bob animation */
+					let t = 0;
+					function animate() {
+						requestAnimationFrame(animate);
+						t += 0.015;
+						model.position.y = Math.sin(t) * 0.04;
+						controls.update();
+						renderer.render(scene, camera);
+					}
+					animate();
+				},
+				(xhr) => {
+					const pct = Math.round((xhr.loaded / xhr.total) * 100);
+					const el = document.getElementById("loading");
+					if (el) el.lastChild.textContent = `Loading model… ${pct}%`;
+				},
+				(err) => {
+					console.error("GLB load error:", err);
+					const el = document.getElementById("loading");
+					if (el)
+						el.innerHTML =
+							"⚠️ Could not load 3D model.<br/><small>Place your .glb file next to this HTML file<br/>and update the MODEL_URL variable.</small>";
+				},
+			);
+
+			/* Resize */
+			window.addEventListener("resize", () => {
+				const W2 = container.clientWidth,
+					H2 = container.clientHeight;
+				camera.aspect = W2 / H2;
+				camera.updateProjectionMatrix();
+				renderer.setSize(W2, H2);
+			});
+
+			/* Fallback render loop until model loads */
+			(function fallbackLoop() {
+				if (scene.children.length < 4) {
+					controls.update();
+					renderer.render(scene, camera);
+					requestAnimationFrame(fallbackLoop);
+				}
+			})();
+		</script>
+	</body>
+</html>

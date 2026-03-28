@@ -161,7 +161,7 @@ document.addEventListener("DOMContentLoaded", function () {
             max-width: 400px;
             padding: 1rem 1.5rem;
             background-color: ${type === "success" ? "#3e914d" : type === "error" ? "#912b61" : "#26225e"};
-            color: #faf8ce;
+            color: var(--color-cream);
             border-radius: 12px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
             display: flex;
