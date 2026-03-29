@@ -417,9 +417,15 @@
 	transition: all 0.3s ease;
 }
 
-.social-link:hover {
-	border-color: var(--color-film);
-	background: rgba(223, 101, 58, 0.08);
+.instalink:hover {
+	border-color: var(--color-motion);
+	background: var(--color-primary);
+	transform: translateY(-2px);
+}
+
+.linkedlink:hover {
+	border-color: var(--color-drones);
+	background: var(--color-primary);
 	transform: translateY(-2px);
 }
 
