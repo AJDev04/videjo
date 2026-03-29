@@ -572,7 +572,28 @@ ul {
 }
 
 @media (max-width: 480px) {
+	.top-nav {
+		left: 0;
+		right: 0;
+		width: 100%;
+		padding: 0 20px;
+
+		display: flex;
+		justify-content: space-between; /* THIS is the key */
+	}
+
+	.contact-btn {
+		margin-right: auto; /* push it left */
+	}
+
+	.menu-btn {
+		margin-left: auto; /* push it right */
+	}
 	.footer-links {
 		gap: 3.5rem;
+	}
+
+	.home-logo .logo-svg {
+		height: 150px;
 	}
 }
