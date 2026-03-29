@@ -2,6 +2,12 @@
    DRONES PAGE STYLES
    ======================================== */
 
+/* Kleuren kleine upgrade */
+:root {
+	--color-drones-light: rgba(57, 116, 183);
+	--color-drones-soft: rgba(57, 116, 183, 0.15);
+}
+
 /* ===== HERO SECTION ===== */
 .drone-hero {
 	position: relative;
@@ -10,7 +16,7 @@
 	align-items: center;
 	justify-content: center;
 	overflow: hidden;
-	background: linear-gradient(180deg, var(--color-primary) 0%, #0a0916 100%);
+	background: linear-gradient(180deg, #0a0916 0%, var(--color-primary) 100%);
 }
 
 .drone-canvas-container {
@@ -151,7 +157,7 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	background: rgba(57, 116, 183, 0.1);
+	background: var(--color-drones-soft);
 	border-radius: 16px;
 }
 
@@ -213,7 +219,7 @@
 .stat-number {
 	font-size: 2.5rem;
 	font-weight: 800;
-	color: var(--color-drones);
+	color: var(--color-drones-light);
 }
 
 .stat-label {
@@ -310,7 +316,7 @@
 	height: 600px;
 	background: radial-gradient(
 		circle,
-		rgba(57, 116, 183, 0.15) 0%,
+		var(--color-drones-soft) 0%,
 		transparent 70%
 	);
 	pointer-events: none;

@@ -30,7 +30,7 @@ import { DRACOLoader } from "three/examples/jsm/loaders/DRACOLoader.js";
 	};
 
 	function init() {
-		const canvas = document.getElementById("drone-canvas");
+		const canvas = document.getElementById("film-canvas");
 		if (!canvas) return;
 
 		scene = new THREE.Scene();
