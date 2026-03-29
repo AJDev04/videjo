@@ -26,6 +26,16 @@
 			href="../favicon/favicon-16x16.png"
 		/>
 		<link rel="manifest" href="../favicon/site.webmanifest" />
+
+		<script type="importmap">
+			{
+				"imports": {
+					"three": "https://cdn.jsdelivr.net/npm/three@0.128.0/build/three.module.js",
+					"three/examples/jsm/loaders/GLTFLoader.js": "https://cdn.jsdelivr.net/npm/three@0.128.0/examples/jsm/loaders/GLTFLoader.js",
+					"three/examples/jsm/loaders/DRACOLoader.js": "https://cdn.jsdelivr.net/npm/three@0.128.0/examples/jsm/loaders/DRACOLoader.js"
+				}
+			}
+		</script>
 	</head>
 	<body>
 		<!-- Navigation -->
@@ -73,6 +83,177 @@
 				</li>
 			</ul>
 		</nav>
+
+		<!-- Hero Section with 3D Drone -->
+		<section class="drone-hero" id="drone-hero">
+			<div class="drone-hero-content">
+				<p class="drone-label">Drone Services</p>
+				<h1 class="drone-title">
+					<span class="title-line">Perspectives</span>
+					<span class="title-line">from above</span>
+				</h1>
+				<p class="drone-subtitle">
+					Cinematische luchtbeelden die je verhaal naar nieuwe hoogtes tillen
+				</p>
+			</div>
+			<div class="scroll-hint">
+				<span>Scroll om te verkennen</span>
+				<div class="scroll-line"></div>
+			</div>
+		</section>
+		<!-- Features Section -->
+		<section class="drone-features" id="features">
+			<div class="container">
+				<div class="feature-card fade-up">
+					<div class="feature-icon">
+						<svg
+							viewBox="0 0 24 24"
+							fill="none"
+							stroke="currentColor"
+							stroke-width="1.5"
+						>
+							<path
+								d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"
+							/>
+						</svg>
+					</div>
+					<h3>4K Cinematisch</h3>
+					<p>
+						Ultra HD beeldkwaliteit met professionele kleurcorrectie voor
+						adembenemende resultaten
+					</p>
+				</div>
+				<div class="feature-card fade-up">
+					<div class="feature-icon">
+						<svg
+							viewBox="0 0 24 24"
+							fill="none"
+							stroke="currentColor"
+							stroke-width="1.5"
+						>
+							<circle cx="12" cy="12" r="10" />
+							<path d="M12 6v6l4 2" />
+						</svg>
+					</div>
+					<h3>Vliegtijd tot 34 min</h3>
+					<p>
+						Langere vluchten betekenen meer creatieve mogelijkheden en
+						uitgebreide coverage
+					</p>
+				</div>
+				<div class="feature-card fade-up">
+					<div class="feature-icon">
+						<svg
+							viewBox="0 0 24 24"
+							fill="none"
+							stroke="currentColor"
+							stroke-width="1.5"
+						>
+							<path
+								d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"
+							/>
+							<path d="M3.27 6.96L12 12.01l8.73-5.05M12 22.08V12" />
+						</svg>
+					</div>
+					<h3>3-Axis Gimbal</h3>
+					<p>
+						Vloeiende, stabiele beelden zelfs bij wind dankzij geavanceerde
+						stabilisatie
+					</p>
+				</div>
+			</div>
+		</section>
+		<!-- Showcase Section -->
+		<section class="drone-showcase" id="showcase">
+			<div class="showcase-text">
+				<div class="container">
+					<h2 class="section-title fade-up">Van vastgoed tot events</h2>
+					<p class="showcase-description fade-up">
+						Of het nu gaat om spectaculaire vastgoedfotografie, dynamische
+						evenementencoverage, of meeslepende bedrijfsvideo's — met drone
+						cinematografie geef ik jouw project een uniek perspectief dat blijft
+						hangen.
+					</p>
+					<div class="showcase-stats fade-up">
+						<div class="stat">
+							<span class="stat-number">50+</span>
+							<span class="stat-label">Projecten</span>
+						</div>
+						<div class="stat">
+							<span class="stat-number">A1/A3</span>
+							<span class="stat-label">Gecertificeerd</span>
+						</div>
+						<div class="stat">
+							<span class="stat-number">4K</span>
+							<span class="stat-label">Resolutie</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- Services Grid -->
+		<section class="drone-services" id="services">
+			<div class="container">
+				<div class="section-header fade-up">
+					<p class="section-subtitle">Toepassingen</p>
+					<h2 class="section-title">Waar ik voor vlieg</h2>
+				</div>
+				<div class="services-grid">
+					<div class="service-item fade-up">
+						<div class="service-number">01</div>
+						<h3>Vastgoed</h3>
+						<p>Luchtopnames die eigenschappen van hun beste kant laten zien</p>
+					</div>
+					<div class="service-item fade-up">
+						<div class="service-number">02</div>
+						<h3>Events</h3>
+						<p>
+							Dynamische coverage van festivals, wedstrijden en
+							bedrijfsevenementen
+						</p>
+					</div>
+					<div class="service-item fade-up">
+						<div class="service-number">03</div>
+						<h3>Commercials</h3>
+						<p>Cinematische shots voor reclame en merkproducties</p>
+					</div>
+					<div class="service-item fade-up">
+						<div class="service-number">04</div>
+						<h3>Toerisme</h3>
+						<p>Promotievideo's voor hotels, resorts en bestemmingen</p>
+					</div>
+					<div class="service-item fade-up">
+						<div class="service-number">05</div>
+						<h3>Bouw & Inspectie</h3>
+						<p>Voortgangsdocumentatie en inspecties vanuit de lucht</p>
+					</div>
+					<div class="service-item fade-up">
+						<div class="service-number">06</div>
+						<h3>Natuur & Landschap</h3>
+						<p>Adembenemende beelden van natuur en landschappen</p>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- CTA Section -->
+		<section class="drone-cta" id="contact-drones">
+			<div class="drone-canvas-container">
+				<canvas id="drone-canvas"></canvas>
+			</div>
+			<div class="container">
+				<div class="cta-content fade-up">
+					<h2>Klaar om te stijgen?</h2>
+					<p>
+						Laten we bespreken hoe drone cinematografie jouw project naar een
+						hoger niveau kan tillen.
+					</p>
+					<a href="../index.html#contact" class="btn btn-primary"
+						>Neem contact op</a
+					>
+				</div>
+			</div>
+		</section>
+
 		<!-- Footer -->
 		<footer class="footer">
 			<div class="container">
@@ -134,8 +315,10 @@
 				</div>
 			</div>
 		</footer>
+
 		<div class="custom-cursor"></div>
 		<div class="cursor-dot"></div>
 		<script src="../js/scripts.js"></script>
+		<script type="module" src="../js/drone-scene.js"></script>
 	</body>
 </html>
