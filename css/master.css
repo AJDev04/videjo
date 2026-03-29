@@ -559,3 +559,14 @@ ul {
 .stagger-children.visible > *:nth-child(4) {
 	transition-delay: 0.35s;
 }
+
+@media (max-width: 768px) {
+	.custom-cursor {
+		display: none;
+	}
+
+	/* Small center dot */
+	.cursor-dot {
+		display: none;
+	}
+}
