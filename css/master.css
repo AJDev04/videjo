@@ -422,11 +422,12 @@ ul {
 }
 
 .home-logo .logo-svg {
-	height: 250px;
+	height: 150px;
 	width: auto;
 	border-radius: 6px;
 	transition: transform var(--transition);
 	z-index: 10;
+	margin-bottom: var(--space-md);
 }
 
 .footer-logo .logo-svg {
