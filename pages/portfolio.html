@@ -6,8 +6,7 @@
 		<title>VIDEJO</title>
 		<link rel="stylesheet" href="../css/reset.css" />
 		<link rel="stylesheet" href="../css/master.css" />
-		<link rel="stylesheet" href="../css/drones.css" />
-
+		<link rel="stylesheet" href="../css/portfolio.css" />
 		<link
 			rel="apple-touch-icon"
 			sizes="180x180"
@@ -28,22 +27,15 @@
 		<link rel="manifest" href="../favicon/site.webmanifest" />
 	</head>
 	<body>
-		<!-- Navigation -->
-		<!-- Top Navigation Buttons -->
 		<div class="top-nav">
 			<a href="../index.html#contact" class="contact-btn nav-btn">Contact</a>
 			<button class="menu-btn nav-btn">
-				<div class="burger">
-					<span></span>
-					<span></span>
-				</div>
+				<div class="burger"><span></span><span></span></div>
 				<span class="menu-text">Menu</span>
 			</button>
 		</div>
 
-		<nav class="nav-overlay">
-			<!-- existing nav content -->
-		</nav>
+		<nav class="nav-overlay"></nav>
 
 		<nav class="nav-overlay">
 			<ul class="nav-links">
@@ -73,7 +65,47 @@
 				</li>
 			</ul>
 		</nav>
-		<!-- Footer -->
+
+		<div class="vj-wrap">
+			<div class="vj-left">
+				<!-- HERO -->
+				<section class="hero">
+					<div class="hero-bg"></div>
+					<div class="hero-top-fade"></div>
+					<div class="hero-bottom-fade"></div>
+
+					<div class="shape s1"></div>
+					<div class="shape s2"></div>
+					<div class="shape s3"></div>
+					<div class="shape s4"></div>
+					<div class="shape s5"></div>
+
+					<div class="hero-content">
+						<div class="hero-badge">
+							<p class="port-label">Portfolio</p>
+						</div>
+
+						<h1 class="hero-title">
+							<span class="title-top">My Work</span>
+						</h1>
+
+						<p class="hero-subtitle">
+							Mijn portfolio van creatieve projecten, van cinematografie tot
+							motion graphics.
+						</p>
+					</div>
+
+					<a href="#accordion" class="scroll-hint">
+						<span>Scroll om te verkennen</span>
+						<div class="scroll-line"></div>
+					</a>
+				</section>
+			</div>
+
+			<div class="vj-accordion" id="accordion"></div>
+			<div class="vj-dots" id="dots"></div>
+		</div>
+
 		<footer class="footer">
 			<div class="container">
 				<div class="footer-content">
@@ -134,8 +166,98 @@
 				</div>
 			</div>
 		</footer>
+
 		<div class="custom-cursor"></div>
 		<div class="cursor-dot"></div>
 		<script src="../js/scripts.js"></script>
+		<script>
+			const panels = [
+				{
+					num: "01",
+					name: "Cinematic Shots",
+					cat: "Dynamisch",
+					img: "../images/film.jpg",
+					href: "portfolio/cinematic-shots.html",
+				},
+				{
+					num: "02",
+					name: "Drone Shots",
+					cat: "Aesthetic",
+					img: "../images/drone.jpg",
+					href: "portfolio/drone-shots.html",
+				},
+				{
+					num: "03",
+					name: "Motion Graphics",
+					cat: "Animatie",
+					img: "../images/mg.png",
+					href: "portfolio/motion-graphics.html",
+				},
+				{
+					num: "04",
+					name: "Auto Shots",
+					cat: "Actie",
+					img: "../images/auto.jpg",
+					href: "portfolio/auto-shots.html",
+				},
+				{
+					num: "05",
+					name: "Fotografie",
+					cat: "Kwaliteit",
+					img: "../images/fotografie.jpg",
+					href: "portfolio/fotografie.html",
+				},
+			];
+
+			let active = 2;
+			const acc = document.getElementById("accordion");
+			const dotsEl = document.getElementById("dots");
+
+			function init() {
+				panels.forEach((p, i) => {
+					const div = document.createElement("div");
+					div.className = "vj-panel" + (i === active ? " active" : "");
+					div.dataset.index = i;
+					div.style.cursor = "pointer";
+					div.innerHTML = `
+	<img src="${p.img}" alt="${p.name}"
+	     onerror="this.onerror=null; this.src='https://placehold.co/600x800/26225e/faf8ce?text=${encodeURIComponent(p.name)}'">
+	<div class="vj-panel-overlay"></div>
+	<div class="vj-panel-label">
+		<div class="vj-panel-num">${p.num}</div>
+		<div class="vj-panel-name">${p.name}</div>
+		<div class="vj-panel-cat">${p.cat}</div>
+	</div>
+`;
+					div.addEventListener("mouseenter", () => setActive(i));
+					div.addEventListener("click", () => {
+						window.location.href = p.href;
+					});
+					acc.appendChild(div);
+
+					const dot = document.createElement("div");
+					dot.className = "vj-dot" + (i === active ? " active" : "");
+					dot.dataset.index = i;
+					dot.addEventListener("click", (e) => {
+						e.stopPropagation(); // prevent panel click when clicking dots
+						setActive(i);
+					});
+					dotsEl.appendChild(dot);
+				});
+			}
+
+			function setActive(index) {
+				if (index === active) return;
+				active = index;
+				acc.querySelectorAll(".vj-panel").forEach((panel, i) => {
+					panel.classList.toggle("active", i === active);
+				});
+				dotsEl.querySelectorAll(".vj-dot").forEach((dot, i) => {
+					dot.classList.toggle("active", i === active);
+				});
+			}
+
+			init();
+		</script>
 	</body>
 </html>

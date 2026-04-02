@@ -272,7 +272,7 @@ import { DRACOLoader } from "three/examples/jsm/loaders/DRACOLoader.js";
 			targetRotationX = -0.3 + p * 0.3;
 			targetScale = 0.05;
 		} else {
-			const p = scrollProgress - 0.7;
+			const p = scrollProgress - 1.2;
 			targetPositionX = 2.3;
 			targetPositionY = 0.9;
 			targetRotationY = 2.3;
