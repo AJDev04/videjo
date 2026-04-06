@@ -94,6 +94,10 @@ a {
 	text-decoration: none;
 }
 
+b {
+	font-weight: 900;
+}
+
 img,
 svg {
 	max-width: 100%;
