@@ -59,7 +59,7 @@
 	border: 1.5px solid none;
 	opacity: 0;
 	animation:
-		shapeIn 2.4s cubic-bezier(0.23, 0.86, 0.39, 0.96) forwards,
+		shapeIn 1.4s cubic-bezier(0.23, 0.86, 0.39, 0.96) forwards,
 		shapeFloat 12s ease-in-out infinite;
 }
 
@@ -441,7 +441,6 @@
 
 .vj-panel-num {
 	font-family: var(--font-main);
-	color: var(--color-film);
 	margin-bottom: 6px;
 	opacity: 0;
 	transition: opacity 0.5s 0.2s var(--ease-out);
@@ -457,7 +456,6 @@
 	overflow: hidden;
 	text-overflow: ellipsis;
 	writing-mode: vertical-lr;
-	transform: rotate(180deg);
 	transition: all 0.5s var(--ease-out);
 }
 
@@ -484,6 +482,21 @@
 .vj-panel.active .vj-panel-cat {
 	opacity: 1;
 	max-height: 24px;
+}
+.vj-panel:nth-child(1) .vj-panel-num {
+	color: var(--color-film);
+}
+.vj-panel:nth-child(2) .vj-panel-num {
+	color: var(--color-drones);
+}
+.vj-panel:nth-child(3) .vj-panel-num {
+	color: var(--color-motion);
+}
+.vj-panel:nth-child(4) .vj-panel-num {
+	color: var(--color-auto);
+}
+.vj-panel:nth-child(5) .vj-panel-num {
+	color: var(--color-photography);
 }
 
 .vj-dots {
@@ -548,5 +561,260 @@
 	}
 	.vj-panel-label {
 		padding: var(--space-xs);
+	}
+}
+
+/* ========================================
+   RESPONSIVE - TABLET
+   ======================================== */
+@media (max-width: 1024px) {
+	.vj-wrap {
+		flex-direction: column;
+		padding: var(--space-md);
+		min-height: auto;
+	}
+
+	.vj-left {
+		flex: none;
+		width: 100%;
+		margin-bottom: var(--space-md);
+		text-align: center;
+	}
+
+	.vj-accordion {
+		margin: 0 var(--space-md) var(--space-lg);
+		height: auto;
+		flex-direction: column;
+		gap: var(--space-sm);
+	}
+
+	.vj-panel {
+		flex: none;
+		height: 120px;
+		border-radius: var(--radius);
+	}
+
+	.vj-panel.active {
+		flex: none;
+		height: 120px;
+	}
+
+	.vj-panel-name {
+		writing-mode: horizontal-tb;
+		font-size: 1.1rem;
+		font-weight: 600;
+		letter-spacing: 0.05em;
+	}
+
+	.vj-panel-num {
+		opacity: 1;
+	}
+
+	.vj-panel-cat {
+		opacity: 1;
+		max-height: 24px;
+	}
+
+	.vj-panel-label {
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-end;
+		height: 100%;
+	}
+
+	.vj-dots {
+		display: none;
+	}
+
+	/* Hero shapes kleiner */
+	.s1 {
+		width: 400px;
+		height: 100px;
+	}
+	.s2 {
+		width: 350px;
+		height: 90px;
+	}
+	.s3 {
+		width: 200px;
+		height: 60px;
+	}
+	.s4 {
+		width: 150px;
+		height: 45px;
+	}
+	.s5 {
+		width: 100px;
+		height: 30px;
+	}
+}
+
+/* ========================================
+   RESPONSIVE - MOBILE
+   ======================================== */
+@media (max-width: 768px) {
+	.hero {
+		min-height: 80vh;
+	}
+
+	.hero-content {
+		padding: 0 var(--space-sm);
+	}
+
+	.hero-title {
+		font-size: clamp(2.5rem, 10vw, 4rem);
+		margin-bottom: 1rem;
+	}
+
+	.hero-subtitle {
+		font-size: 0.9rem;
+		margin-bottom: 2rem;
+		max-width: 100%;
+	}
+
+	.port-label {
+		font-size: 0.65rem;
+		padding: 0.4rem 1rem;
+	}
+
+	/* Verberg shapes op mobiel */
+	.shape {
+		display: none;
+	}
+
+	.scroll-hint {
+		bottom: 1.5rem;
+	}
+
+	.scroll-line {
+		height: 35px;
+	}
+
+	/* Accordion wordt grid */
+	.vj-accordion {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: var(--space-sm);
+		margin: 0 var(--space-sm) var(--space-md);
+		height: auto;
+	}
+
+	.vj-panel {
+		height: 180px;
+		border-radius: var(--radius);
+	}
+
+	.vj-panel.active {
+		height: 180px;
+	}
+
+	.vj-panel img {
+		filter: saturate(1) brightness(1);
+	}
+
+	.vj-panel-overlay {
+		background: linear-gradient(
+			to top,
+			rgba(38, 34, 94, 0.9) 0%,
+			rgba(38, 34, 94, 0.2) 50%,
+			transparent 100%
+		);
+	}
+
+	.vj-panel-label {
+		padding: var(--space-sm);
+	}
+
+	.vj-panel-name {
+		font-size: 0.9rem;
+		writing-mode: horizontal-tb;
+		font-weight: 600;
+		letter-spacing: 0.02em;
+	}
+
+	.vj-panel-num {
+		opacity: 1;
+		font-size: 0.75rem;
+		margin-bottom: 4px;
+	}
+
+	.vj-panel-cat {
+		opacity: 1;
+		max-height: 20px;
+		font-size: 0.65rem;
+	}
+
+	.vj-dots {
+		display: none;
+	}
+}
+
+/* ========================================
+   RESPONSIVE - SMALL MOBILE
+   ======================================== */
+@media (max-width: 480px) {
+	.hero {
+		min-height: 70vh;
+	}
+
+	.hero-title {
+		font-size: clamp(2rem, 12vw, 3rem);
+	}
+
+	.hero-subtitle {
+		font-size: 0.85rem;
+		line-height: 1.6;
+	}
+
+	/* Single column op kleine schermen */
+	.vj-accordion {
+		grid-template-columns: 1fr;
+		gap: var(--space-sm);
+		margin: 0 var(--space-sm) var(--space-md);
+	}
+
+	.vj-panel {
+		height: 140px;
+	}
+
+	.vj-panel.active {
+		height: 140px;
+	}
+
+	.vj-panel-name {
+		font-size: 1rem;
+	}
+
+	.vj-panel-label {
+		padding: var(--space-sm);
+	}
+}
+
+/* ========================================
+   RESPONSIVE - MOBILE
+   ======================================== */
+@media (max-width: 768px) {
+	/* ... bestaande styles ... */
+
+	.vj-accordion {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: var(--space-sm);
+		margin: 0 auto var(--space-md);
+		padding: 0 var(--space-sm);
+		max-width: 500px;
+		width: 100%;
+		height: auto;
+	}
+}
+
+@media (max-width: 480px) {
+	/* ... bestaande styles ... */
+
+	.vj-accordion {
+		grid-template-columns: 1fr;
+		max-width: 400px;
+		margin: 0 auto var(--space-md);
+		padding: 0 var(--space-sm);
 	}
 }

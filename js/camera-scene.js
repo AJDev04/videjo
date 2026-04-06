@@ -222,7 +222,7 @@ import { DRACOLoader } from "three/examples/jsm/loaders/DRACOLoader.js";
 			const p = scrollProgress / 0.39;
 
 			targetScale = p * 0; // Scales from 0 to 1.0
-			targetPositionX = 1.5; // Stays on the right
+			targetPositionX = 2.2; // Stays on the right
 			targetPositionY = p * 0.5; // Rises slightly
 			targetRotationY = 3.14 + (p * Math.PI) / 4; // Gentle turn
 			targetRotationX = 0;
@@ -235,7 +235,7 @@ import { DRACOLoader } from "three/examples/jsm/loaders/DRACOLoader.js";
 			const p = scrollProgress / 0.4;
 
 			targetScale = 0.08; // Scales from 0 to 1.0
-			targetPositionX = 1.5; // Stays on the right
+			targetPositionX = 2.2; // Stays on the right
 			targetPositionY = p * 0.5; // Rises slightly
 			targetRotationY = 3.14 + (p * Math.PI) / 4; // Gentle turn
 			targetRotationX = 1;
@@ -246,7 +246,7 @@ import { DRACOLoader } from "three/examples/jsm/loaders/DRACOLoader.js";
 		else if (scrollProgress < 0.6) {
 			const p = scrollProgress - 0.6;
 			targetScale = 0.08; // Scales from 0 to 1.0
-			targetPositionX = 1.5; // Stays on the right
+			targetPositionX = 2.2; // Stays on the right
 			targetPositionY = p * 0.5; // Rises slightly
 			targetRotationY = 3.14 + (p * Math.PI) / 4; // Gentle turn
 			targetRotationX = 1;

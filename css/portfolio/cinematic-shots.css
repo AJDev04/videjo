@@ -1,0 +1,135 @@
+/* ========================================
+   CINEMATIC SHOTS SECTION
+   ======================================== */
+
+.cinematic-section {
+	padding: var(--space-xl) 0 var(--space-2xl);
+}
+
+/* Grid Layout */
+.cinematic-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+	gap: var(--space-lg);
+}
+
+/* Individual Card */
+.cinematic-card {
+	background: rgba(250, 248, 206, 0.03);
+	border: 1px solid rgba(250, 248, 206, 0.08);
+	border-radius: var(--radius-lg);
+	overflow: hidden;
+	transition:
+		transform 0.4s var(--ease-out),
+		border-color 0.3s ease,
+		box-shadow 0.4s ease;
+}
+
+.cinematic-card:hover {
+	transform: translateY(-8px);
+	border-color: var(--color-film);
+	box-shadow: 0 20px 60px rgba(145, 43, 97, 0.15);
+}
+
+.cinematic-video {
+	position: relative;
+	/* aspect-ratio: 16 / 9;  ← verwijder deze regel */
+	overflow: hidden;
+	background: var(--color-primary);
+}
+
+.cinematic-video video {
+	width: 100%;
+	height: auto; /* was: 100% */
+	display: block;
+	object-fit: contain;
+	transition: transform 0.6s var(--ease-out);
+}
+
+.cinematic-card:hover .cinematic-video video {
+	transform: scale(1.05);
+}
+
+/* Play Button */
+.play-btn {
+	position: absolute;
+	inset: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: rgba(38, 34, 94, 0.5);
+	border: none;
+	color: var(--color-cream);
+	transition:
+		background 0.3s ease,
+		opacity 0.3s ease;
+}
+
+.play-btn svg {
+	width: 64px;
+	height: 64px;
+	filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.3));
+	transition: transform 0.3s var(--ease-out);
+}
+
+.play-btn:hover svg {
+	transform: scale(1.15);
+}
+
+/* Hide play button when playing */
+.cinematic-card.playing .play-btn {
+	opacity: 0;
+	pointer-events: none;
+}
+
+/* Project Info */
+.cinematic-info {
+	padding: var(--space-md);
+}
+
+.cinematic-title {
+	font-size: 1.25rem;
+	font-weight: 700;
+	margin-bottom: 0.5rem;
+	color: var(--color-cream);
+}
+
+.cinematic-desc {
+	font-size: 0.9rem;
+	color: rgba(250, 248, 206, 0.5);
+	line-height: 1.5;
+}
+
+.section-subtitle {
+	color: var(--color-film);
+}
+
+/* ========================================
+   RESPONSIVE
+   ======================================== */
+
+@media (max-width: 768px) {
+	.cinematic-grid {
+		grid-template-columns: 1fr;
+		gap: var(--space-md);
+	}
+
+	.play-btn svg {
+		width: 48px;
+		height: 48px;
+	}
+
+	.cinematic-info {
+		padding: var(--space-sm) var(--space-md);
+	}
+}
+
+@media (max-width: 480px) {
+	.cinematic-section {
+		padding: var(--space-lg) 0;
+	}
+
+	.cinematic-grid {
+		grid-template-columns: 1fr;
+	}
+}

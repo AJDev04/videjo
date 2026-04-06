@@ -6,7 +6,7 @@
 		<title>VIDEJO</title>
 		<link rel="stylesheet" href="../../css/reset.css" />
 		<link rel="stylesheet" href="../../css/master.css" />
-		<link rel="stylesheet" href="../../css/motion.css" />
+		<link rel="stylesheet" href="../../css/portfolio/motion-graphics.css" />
 
 		<link
 			rel="apple-touch-icon"
@@ -75,6 +75,40 @@
 				</li>
 			</ul>
 		</nav>
+		<!-- Motion Graphics Portfolio Section -->
+		<section class="section motion-section">
+			<div class="container">
+				<header class="section-header fade-up">
+					<p class="section-subtitle">Portfolio</p>
+					<h2 class="section-title">Motion Graphics</h2>
+				</header>
+
+				<div class="motion-grid stagger-children">
+					<!-- Project 1 -->
+					<article class="motion-card fade-up">
+						<div class="motion-video">
+							<video
+								src="../../images/LOGO_ANIMATION.mp4"
+								poster="../../images/logo.png"
+								muted
+								playsinline
+							></video>
+							<button class="play-btn" aria-label="Afspelen">
+								<svg viewBox="0 0 24 24" fill="currentColor">
+									<path d="M8 5v14l11-7z" />
+								</svg>
+							</button>
+						</div>
+						<div class="motion-info">
+							<h3 class="motion-title">Logo Animatie</h3>
+							<p class="motion-desc">VIDEOJO</p>
+						</div>
+					</article>
+
+					<!-- Kopieer dit blok voor meer projecten -->
+				</div>
+			</div>
+		</section>
 
 		<!-- Footer -->
 		<footer class="footer">
@@ -141,5 +175,38 @@
 		<div class="custom-cursor"></div>
 		<div class="cursor-dot"></div>
 		<script src="../../js/scripts.js"></script>
+		<script>
+			// ========================================
+			// Motion Graphics Video Player
+			// ========================================
+			document.querySelectorAll(".motion-card").forEach((card) => {
+				const video = card.querySelector("video");
+				const playBtn = card.querySelector(".play-btn");
+
+				if (!video || !playBtn) return;
+
+				// Click to toggle full playback with sound
+				playBtn.addEventListener("click", () => {
+					card.classList.add("playing");
+					video.muted = false;
+					video.play();
+				});
+
+				// Click video to pause
+				video.addEventListener("click", () => {
+					if (card.classList.contains("playing")) {
+						video.pause();
+						video.muted = true;
+						card.classList.remove("playing");
+					}
+				});
+
+				// Reset when video ends
+				video.addEventListener("ended", () => {
+					video.muted = true;
+					card.classList.remove("playing");
+				});
+			});
+		</script>
 	</body>
 </html>

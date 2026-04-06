@@ -160,14 +160,14 @@ document.addEventListener("DOMContentLoaded", function () {
             right: 20px;
             max-width: 400px;
             padding: 1rem 1.5rem;
-            background-color: ${type === "success" ? "#3e914d" : type === "error" ? "#912b61" : "#26225e"};
+            background-color: ${type === "success" ? "var(--color-web)" : type === "error" ? "var(--color-motion)" : "var(--color-primary)"};
             color: var(--color-cream);
             border-radius: 12px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
             display: flex;
             align-items: center;
             gap: 1rem;
-            z-index: 9999;
+            z-index: 999;
             animation: slideIn 0.3s ease;
         `;
 

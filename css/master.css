@@ -12,10 +12,13 @@
 :root {
 	--color-primary: #26225e;
 	--color-cream: #faf8ce;
+	--color-accent-light: #ffe066;
+
 	--color-motion: #912b61;
 	--color-film: #df653a;
 	--color-drones: #3974b7;
-	--color-web: #3e914d;
+	--color-photography: #3e914d;
+	--color-auto: #00d4aa;
 
 	--font-main: "Outfit", -apple-system, BlinkMacSystemFont, sans-serif;
 	--font-display:
@@ -375,8 +378,9 @@ ul {
 /* behalve degene waar je op hovert */
 .nav-links a:hover {
 	opacity: 1;
-	color: var(--color-film);
+	color: var(--color-accent-light);
 }
+
 .nav-links a .divider {
 	display: block;
 	height: 1px;
@@ -384,7 +388,9 @@ ul {
 	transform-origin: left;
 	transition: transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
 }
-
+.nav-links a:hover .divider {
+	opacity: 1;
+}
 /* ========================================
    GLOBAL SECTION BASE
    ======================================== */
@@ -422,7 +428,6 @@ ul {
 .home-logo .logo-svg {
 	height: 150px;
 	width: auto;
-	border-radius: 6px;
 	transition: transform var(--transition);
 	z-index: 10;
 	margin-bottom: var(--space-md);
@@ -455,7 +460,7 @@ ul {
 .footer-logo .logo-svg {
 	height: 52px;
 	width: auto;
-	border-radius: 8px;
+	border-radius: 11px;
 	opacity: 0.85;
 	transition: opacity 0.3s;
 }
