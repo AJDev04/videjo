@@ -234,7 +234,7 @@ import { DRACOLoader } from "three/examples/jsm/loaders/DRACOLoader.js";
 			// 'p' goes from 0 to 1 as you scroll the first 20%
 			const p = scrollProgress / 0.4;
 
-			targetScale = 0.08; // Scales from 0 to 1.0
+			targetScale = 0.06; // Scales from 0 to 1.0
 			targetPositionX = 2.2; // Stays on the right
 			targetPositionY = p * 0.5; // Rises slightly
 			targetRotationY = 3.14 + (p * Math.PI) / 4; // Gentle turn
@@ -245,7 +245,7 @@ import { DRACOLoader } from "three/examples/jsm/loaders/DRACOLoader.js";
 		// ... keep your other else-if blocks for the rest of the scroll
 		else if (scrollProgress < 0.6) {
 			const p = scrollProgress - 0.6;
-			targetScale = 0.08; // Scales from 0 to 1.0
+			targetScale = 0.06; // Scales from 0 to 1.0
 			targetPositionX = 2.2; // Stays on the right
 			targetPositionY = p * 0.5; // Rises slightly
 			targetRotationY = 3.14 + (p * Math.PI) / 4; // Gentle turn
