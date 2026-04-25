@@ -119,7 +119,7 @@ document.addEventListener("DOMContentLoaded", function () {
 			submitBtn.disabled = true;
 
 			emailjs
-				.send("service_a5tynms", "u31q8oh", {
+				.send("service_a5tynms", "rfqih28", {
 					name: data.name,
 					company: data.company || "Niet opgegeven",
 					email: data.email,
@@ -146,7 +146,7 @@ document.addEventListener("DOMContentLoaded", function () {
 		});
 	}
 
-	console.log("VIDEJO Website - contact Loaded");
+	console.log("test2");
 
 	// ========================================
 	// Notification System
