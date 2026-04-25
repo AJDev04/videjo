@@ -119,7 +119,7 @@ document.addEventListener("DOMContentLoaded", function () {
 			submitBtn.disabled = true;
 
 			emailjs
-				.send("service_a5tynms", "rfqih28", {
+				.send("service_a5tynms", "template_rfqih28", {
 					name: data.name,
 					company: data.company || "Niet opgegeven",
 					email: data.email,
@@ -146,7 +146,7 @@ document.addEventListener("DOMContentLoaded", function () {
 		});
 	}
 
-	console.log("test2");
+	console.log("test3");
 
 	// ========================================
 	// Notification System
