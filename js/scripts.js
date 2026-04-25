@@ -99,41 +99,54 @@ document.addEventListener("DOMContentLoaded", function () {
 		contactForm.addEventListener("submit", function (e) {
 			e.preventDefault();
 
-			// Get form data
 			const formData = new FormData(contactForm);
 			const data = Object.fromEntries(formData);
 
-			// Basic validation
 			if (!data.name || !data.email || !data.message) {
 				showNotification("Vul alle verplichte velden in.", "error");
 				return;
 			}
 
-			// Email validation
 			const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 			if (!emailRegex.test(data.email)) {
 				showNotification("Vul een geldig e-mailadres in.", "error");
 				return;
 			}
 
-			// Simulate form submission
 			const submitBtn = contactForm.querySelector('button[type="submit"]');
 			const originalText = submitBtn.textContent;
 			submitBtn.textContent = "Verzenden...";
 			submitBtn.disabled = true;
 
-			// Simulate API call
-			setTimeout(() => {
-				showNotification(
-					"Bedankt voor je bericht! Ik neem zo snel mogelijk contact met je op.",
-					"success",
-				);
-				contactForm.reset();
-				submitBtn.textContent = originalText;
-				submitBtn.disabled = false;
-			}, 1500);
+			emailjs
+				.send("service_a5tynms", "u31q8oh", {
+					name: data.name,
+					company: data.company || "Niet opgegeven",
+					email: data.email,
+					message: data.message,
+				})
+				.then(() => {
+					showNotification(
+						"Bedankt voor je bericht! Ik neem zo snel mogelijk contact met je op.",
+						"success",
+					);
+					contactForm.reset();
+				})
+				.catch((error) => {
+					console.error("EmailJS fout:", error);
+					showNotification(
+						"Er is iets misgegaan. Probeer het later opnieuw.",
+						"error",
+					);
+				})
+				.finally(() => {
+					submitBtn.textContent = originalText;
+					submitBtn.disabled = false;
+				});
 		});
 	}
+
+	console.log("VIDEJO Website - contact Loaded");
 
 	// ========================================
 	// Notification System
