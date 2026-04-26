@@ -1,236 +1,285 @@
 <!doctype html>
 <html lang="nl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>VIDEJO</title>
+    <link rel="stylesheet" href="../css/reset.css" />
+    <link rel="stylesheet" href="../css/master.css" />
+    <link rel="stylesheet" href="../css/film.css" />
 
-<head>
-	<meta charset="UTF-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<title>VIDEJO</title>
-	<link rel="stylesheet" href="../css/reset.css" />
-	<link rel="stylesheet" href="../css/master.css" />
-	<link rel="stylesheet" href="../css/film.css" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="../favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="../favicon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="../favicon/favicon-16x16.png"
+    />
+    <link rel="manifest" href="../favicon/site.webmanifest" />
 
-	<link rel="apple-touch-icon" sizes="180x180" href="../favicon/apple-touch-icon.png" />
-	<link rel="icon" type="image/png" sizes="32x32" href="../favicon/favicon-32x32.png" />
-	<link rel="icon" type="image/png" sizes="16x16" href="../favicon/favicon-16x16.png" />
-	<link rel="manifest" href="../favicon/site.webmanifest" />
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://cdn.jsdelivr.net/npm/three@0.128.0/build/three.module.js",
+          "three/examples/jsm/loaders/GLTFLoader.js": "https://cdn.jsdelivr.net/npm/three@0.128.0/examples/jsm/loaders/GLTFLoader.js",
+          "three/examples/jsm/loaders/DRACOLoader.js": "https://cdn.jsdelivr.net/npm/three@0.128.0/examples/jsm/loaders/DRACOLoader.js"
+        }
+      }
+    </script>
+  </head>
 
-	<script type="importmap">
-			{
-				"imports": {
-					"three": "https://cdn.jsdelivr.net/npm/three@0.128.0/build/three.module.js",
-					"three/examples/jsm/loaders/GLTFLoader.js": "https://cdn.jsdelivr.net/npm/three@0.128.0/examples/jsm/loaders/GLTFLoader.js",
-					"three/examples/jsm/loaders/DRACOLoader.js": "https://cdn.jsdelivr.net/npm/three@0.128.0/examples/jsm/loaders/DRACOLoader.js"
-				}
-			}
-		</script>
-</head>
+  <body>
+    <!-- Navigation -->
+    <!-- Top Navigation Buttons -->
+    <div class="top-nav">
+      <a href="../index.html#contact" class="contact-btn nav-btn">Contact</a>
+      <button class="menu-btn nav-btn">
+        <div class="burger">
+          <span></span>
+          <span></span>
+        </div>
+        <span class="menu-text">Menu</span>
+      </button>
+    </div>
 
-<body>
-	<!-- Navigation -->
-	<!-- Top Navigation Buttons -->
-	<div class="top-nav">
-		<a href="../index.html#contact" class="contact-btn nav-btn">Contact</a>
-		<button class="menu-btn nav-btn">
-			<div class="burger">
-				<span></span>
-				<span></span>
-			</div>
-			<span class="menu-text">Menu</span>
-		</button>
-	</div>
+    <nav class="nav-overlay">
+      <!-- existing nav content -->
+    </nav>
 
-	<nav class="nav-overlay">
-		<!-- existing nav content -->
-	</nav>
+    <nav class="nav-overlay">
+      <ul class="nav-links">
+        <li>
+          <a class="link-text" href="../index.html" data-text="Home"> Home</a>
+        </li>
+        <li>
+          <div class="divider"></div>
+          <a
+            class="link-text"
+            href="../index.html#expertise"
+            data-text="Expertise"
+          >
+            Expertise
+          </a>
+        </li>
+        <li>
+          <div class="divider"></div>
+          <a
+            class="link-text"
+            href="../pages/portfolio.html"
+            data-text="Portfolio"
+          >
+            Portfolio
+          </a>
+        </li>
+        <li>
+          <div class="divider"></div>
+          <a class="link-text" href="../pages/about.html" data-text="About">
+            Over Ons
+          </a>
+        </li>
+      </ul>
+    </nav>
 
-	<nav class="nav-overlay">
-		<ul class="nav-links">
-			<li>
-				<a class="link-text" href="../index.html" data-text="Home"> Home</a>
-			</li>
-			<li>
-				<a class="link-text" href="../index.html#expertise" data-text="Expertise">
-					<div class="divider"></div>
-					Expertise
-				</a>
-			</li>
-			<li>
-				<a class="link-text" href="../pages/portfolio.html" data-text="Portfolio">
-					<div class="divider"></div>
-					Portfolio
-				</a>
-			</li>
-			<li>
-				<a class="link-text" href="../pages/about.html" data-text="About">
-					<div class="divider"></div>
-					Over Ons
-				</a>
-			</li>
-		</ul>
-	</nav>
+    <section class="film-hero" id="film-hero">
+      <div class="film-hero-content">
+        <p class="film-label">Videografie</p>
+        <h1 class="film-title">
+          <span class="title-line">Unique visions</span>
+          <span class="title-line">set in frame</span>
+        </h1>
+        <p class="film-subtitle">Dynamische beelden vastgelegd en verwerkt.</p>
+      </div>
+      <a href="#showcase" class="scroll-hint">
+        <span>Scroll om te verkennen</span>
+        <div class="scroll-line"></div>
+      </a>
+    </section>
 
-	<section class="film-hero" id="film-hero">
-		<div class="film-hero-content">
-			<p class="film-label">Videografie</p>
-			<h1 class="film-title">
-				<span class="title-line">Unique visions</span>
-				<span class="title-line">set in frame</span>
-			</h1>
-			<p class="film-subtitle">Dynamische beelden vastgelegd en verwerkt.</p>
-		</div>
-		<a href="#showcase" class="scroll-hint">
-			<span>Scroll om te verkennen</span>
-			<div class="scroll-line"></div>
-		</a>
-	</section>
+    <!-- Showcase Section -->
+    <section class="film-showcase">
+      <div class="container" id="showcase">
+        <div class="showcase-text">
+          <div class="container">
+            <h2 class="section-title fade-up">Ons Materiaal</h2>
+            <p class="showcase-description fade-up">
+              We maken gebruik van hoogwaardig en doordacht gekozen camera gear
+              om elk project visueel tot zijn recht te laten komen. Dankzij onze
+              focus op kwaliteit en detail creëren we sterke, professionele
+              beelden die perfect inspelen op de verwachtingen van onze klanten.
+              Van opname tot afwerking streven we telkens naar het beste
+              resultaat.
+            </p>
+            <div class="showcase-stats fade-up">
+              <div class="stat">
+                <span class="stat-number">4K</span>
+                <span class="stat-label">Resolutie</span>
+              </div>
+              <div class="stat">
+                <span class="stat-number">Voor Elke</span>
+                <span class="stat-label">Situatie</span>
+              </div>
+              <div class="stat">
+                <span class="stat-number">Ultieme</span>
+                <span class="stat-label">Stabilisatie</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Services Grid -->
+    <section class="film-services" id="services">
+      <div class="container">
+        <div class="section-header fade-up">
+          <p class="section-subtitle">Toepassingen</p>
+          <h2 class="section-title">Waar wij voor filmen</h2>
+        </div>
+        <div class="services-grid">
+          <div class="service-item fade-up">
+            <div class="service-number">01</div>
+            <h3>Vastgoed</h3>
+            <p>Shots vanbinnen en buiten.</p>
+          </div>
+          <div class="service-item fade-up">
+            <div class="service-number">02</div>
+            <h3>Events</h3>
+            <p>De mooiste momenten van evenementen vastleggen.</p>
+          </div>
+          <div class="service-item fade-up">
+            <div class="service-number">03</div>
+            <h3>Commercials</h3>
+            <p>Professionele reclamevideo's voor uw merk.</p>
+          </div>
+          <div class="service-item fade-up">
+            <div class="service-number">04</div>
+            <h3>Toerisme</h3>
+            <p>Prachtige beelden van toeristische bestemmingen.</p>
+          </div>
+          <div class="service-item fade-up">
+            <div class="service-number">05</div>
+            <h3>Auto Shots</h3>
+            <p>Buiten en binnen shots van uw auto.</p>
+          </div>
+          <div class="service-item fade-up">
+            <div class="service-number">06</div>
+            <h3>Sociale Media</h3>
+            <p>Een reclameboost voor uw sociale media presence.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- CTA Section -->
+    <section class="film-cta" id="contact-film">
+      <div class="film-canvas-container">
+        <canvas id="film-canvas"></canvas>
+      </div>
+      <div class="container">
+        <div class="cta-content fade-up">
+          <h2>Klaar om visies naar realiteit te brengen?</h2>
+          <p>
+            Laten we bespreken hoe videografie jouw project naar een hoger
+            niveau kan tillen.
+          </p>
+          <a href="../index.html#contact" class="btn btn-primary"
+            >Neem contact op</a
+          >
+        </div>
+      </div>
+    </section>
 
-	<!-- Showcase Section -->
-	<section class="film-showcase">
-		<div class="container" id="showcase">
-			<div class="showcase-text">
-				<div class="container">
-					<h2 class="section-title fade-up">Ons Materiaal</h2>
-					<p class="showcase-description fade-up">
-						We maken gebruik van hoogwaardig en doordacht gekozen camera gear om elk project visueel tot
-						zijn recht te laten komen. Dankzij onze focus op kwaliteit en detail creëren we sterke,
-						professionele beelden die perfect inspelen op de verwachtingen van onze klanten. Van opname tot
-						afwerking streven we telkens naar het beste resultaat.
-					</p>
-					<div class="showcase-stats fade-up">
-						<div class="stat">
-							<span class="stat-number">4K</span>
-							<span class="stat-label">Resolutie</span>
-						</div>
-						<div class="stat">
-							<span class="stat-number">Voor Elke</span>
-							<span class="stat-label">Situatie</span>
-						</div>
-						<div class="stat">
-							<span class="stat-number">Ultieme</span>
-							<span class="stat-label">Stabilisatie</span>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-	<!-- Services Grid -->
-	<section class="film-services" id="services">
-		<div class="container">
-			<div class="section-header fade-up">
-				<p class="section-subtitle">Toepassingen</p>
-				<h2 class="section-title">Waar wij voor filmen</h2>
-			</div>
-			<div class="services-grid">
-				<div class="service-item fade-up">
-					<div class="service-number">01</div>
-					<h3>Vastgoed</h3>
-					<p>Shots vanbinnen en buiten.</p>
-				</div>
-				<div class="service-item fade-up">
-					<div class="service-number">02</div>
-					<h3>Events</h3>
-					<p>De mooiste momenten van evenementen vastleggen.</p>
-				</div>
-				<div class="service-item fade-up">
-					<div class="service-number">03</div>
-					<h3>Commercials</h3>
-					<p>Professionele reclamevideo's voor uw merk.</p>
-				</div>
-				<div class="service-item fade-up">
-					<div class="service-number">04</div>
-					<h3>Toerisme</h3>
-					<p>Prachtige beelden van toeristische bestemmingen.</p>
-				</div>
-				<div class="service-item fade-up">
-					<div class="service-number">05</div>
-					<h3>Auto Shots</h3>
-					<p>Buiten en binnen shots van uw auto.</p>
-				</div>
-				<div class="service-item fade-up">
-					<div class="service-number">06</div>
-					<h3>Sociale Media</h3>
-					<p>Een reclameboost voor uw sociale media presence.</p>
-				</div>
-			</div>
-		</div>
-	</section>
-	<!-- CTA Section -->
-	<section class="film-cta" id="contact-film">
-		<div class="film-canvas-container">
-			<canvas id="film-canvas"></canvas>
-		</div>
-		<div class="container">
-			<div class="cta-content fade-up">
-				<h2>Klaar om visies naar realiteit te brengen?</h2>
-				<p>
-					Laten we bespreken hoe videografie jouw project naar een hoger
-					niveau kan tillen.
-				</p>
-				<a href="../index.html#contact" class="btn btn-primary">Neem contact op</a>
-			</div>
-		</div>
-	</section>
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-logo">
+            <svg
+              class="logo-svg"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 176.15 183.48"
+            >
+              <rect
+                width="176.15"
+                height="183.48"
+                rx="22.42"
+                ry="22.42"
+                fill="#f05a28"
+              />
+              <g>
+                <path
+                  d="M36.42,128.34h11.04v2.92h-6.95v2.28h6.5v2.93h-6.5v4.53h-4.09v-12.66Z"
+                  fill="#fbf7ca"
+                />
+                <path
+                  d="M53.1,128.34v12.66h-4.12v-12.66h4.12Z"
+                  fill="#fbf7ca"
+                />
+                <path
+                  d="M55.63,128.34h4.13v9.73h6.8l-.48,2.93h-10.44v-12.66Z"
+                  fill="#fbf7ca"
+                />
+                <path
+                  d="M79.49,136.74c0-2.01.04-4.44.13-5.93h-.04c-.61,2.45-1.42,5.72-2.68,10.2h-3.38c-1-4.16-1.82-7.66-2.44-10.22h-.03c.08,1.48.22,3.92.22,6.09v4.13h-3.68v-12.66h5.89c.82,2.85,1.62,5.96,1.98,8.1h.02c.48-2.24,1.29-5.2,2.14-8.1h5.87v12.66h-4.01v-4.27Z"
+                  fill="#fbf7ca"
+                />
+              </g>
+              <g>
+                <path
+                  d="M78.07,120.14c-7.69-1.94-9.91-9.62-9.37-16.62.04-.58.58-1.12,1.18-1.13l8.97-.03c.7,0,1.34-.54,1.34-1.27v-20.29c.01-.68.47-1.29,1.23-1.29h15.43c.67-.01,1.23.57,1.23,1.2v27.22c-.02,2-.43,3.79-1.16,5.57-2.22,5.47-7.46,7.31-13.03,7.29-1.98,0-3.83-.15-5.82-.65Z"
+                  fill="#fbf7ca"
+                />
+                <path
+                  d="M91.37,77.26l-13.33.02c-.95,0-1.45-.6-1.45-1.47v-37.95c0-.82.65-1.36,1.43-1.36h13.46c.69,0,1.29.53,1.29,1.21v38.24c0,.73-.55,1.32-1.41,1.32Z"
+                  fill="#fbf7ca"
+                />
+                <path
+                  d="M72.52,36.48c.88,0,1.61.77,1.42,1.67l-7.4,35.25c-.37,1.78-1.1,3.77-3.28,3.77h-18.48c-.99,0-1.66-.53-1.88-1.59l-7.94-37.34c-.21-.97.49-1.76,1.39-1.76h11.87c.67,0,1.31.57,1.46,1.21l4.44,19.28c.05.22.21.45.35.48s.45-.21.49-.38l4.21-18.77c.16-.72.5-1.78,1.43-1.79l11.92-.03Z"
+                  fill="#fbf7ca"
+                />
+                <path
+                  d="M140.25,64.29c-2.11,7.39-8.11,11.12-15.35,12.38-2.21.38-4.33.64-6.61.64h-20.41c-.68,0-1.54-.45-1.54-1.19v-38.5c0-.61.57-1.07,1.08-1.11,1.74-.15,3.34-.08,5.1-.07l15.31.04c5.91.02,12.49,1.42,17.04,5.35,2.87,2.48,4.8,5.75,5.65,9.48.99,4.3.92,8.76-.28,12.98ZM122.45,55.06c-.24-2.62-3.21-3.55-5.34-3.53l-3.27.03-.02,9.37h3.55c1.07,0,2.17-.29,3.14-.72,2.08-.92,2.12-3.13,1.94-5.14Z"
+                  fill="#fbf7ca"
+                />
+                <path
+                  d="M62.45,104.81h-10.81c-.39,0-.73.34-.73.68l-.02,2.1c0,.23.32.6.61.6h14.12c.73,0,1.42.53,1.42,1.31l.02,9.39c0,.71-.52,1.42-1.31,1.42h-29.23c-.78,0-1.27-.6-1.27-1.32v-38.18c0-.79.56-1.18,1.28-1.31l30.49.02c.88,0,1.24.69,1.24,1.38v9.59c-.01.64-.42,1.3-1.18,1.3l-15.27.02c-.46,0-.9.3-.9.75v2.21c-.01.31.39.64.74.64h10.72c.61.01,1.11.58,1.11,1.14v7.27c0,.54-.42,1-1.02,1Z"
+                  fill="#fbf7ca"
+                />
+                <path
+                  d="M140.57,93.21c-1.09-5.54-4.73-10.03-9.95-12.2-3.34-1.39-6.87-1.84-10.52-1.82-3.13.02-6.11.35-9.01,1.42-7.43,2.76-10.47,9.43-10.76,16.96-.18,4.72.11,8.66,1.84,13.07,1.92,4.92,5.98,7.9,10.99,9.25,5.05,1.37,12.27,1.21,17.22-.65,3.6-1.35,6.54-3.81,8.3-7.21,1.22-2.35,1.95-4.79,2.26-7.43.46-3.85.38-7.6-.36-11.39ZM127.27,101.29c-5.78,5.52-8.95,5.83-10.52,5.29-.54-.19-.95-.6-1.16-1.12,0,0,0,0,0,0-.04-.11.03.12,0,0-.95-3.3-1.08-8.33-.08-11.52h0s0-.01,0-.01c.17-.63.61-1.08,1.23-1.29,1.57-.54,4.75-.23,10.52,5.29.96.92.96,2.44,0,3.36Z"
+                  fill="#fbf7ca"
+                />
+              </g>
+            </svg>
+          </div>
+          <p class="footer-tagline">
+            Stories in motion, captured from every angle.
+          </p>
+          <div class="footer-links">
+            <a href="../index.html">Home</a>
+            <a href="../index.html#expertise">Expertise</a>
+            <a href="portfolio.html">Portfolio</a>
+            <a href="about.html">Over Ons</a>
+          </div>
+          <div class="footer-divider"></div>
+          <p class="footer-copy">
+            &copy; 2026 VIDEJO. Alle rechten voorbehouden.
+          </p>
+        </div>
+      </div>
+    </footer>
 
-	<!-- Footer -->
-	<footer class="footer">
-		<div class="container">
-			<div class="footer-content">
-				<div class="footer-logo">
-					<svg class="logo-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 176.15 183.48">
-						<rect width="176.15" height="183.48" rx="22.42" ry="22.42" fill="#f05a28" />
-						<g>
-							<path d="M36.42,128.34h11.04v2.92h-6.95v2.28h6.5v2.93h-6.5v4.53h-4.09v-12.66Z"
-								fill="#fbf7ca" />
-							<path d="M53.1,128.34v12.66h-4.12v-12.66h4.12Z" fill="#fbf7ca" />
-							<path d="M55.63,128.34h4.13v9.73h6.8l-.48,2.93h-10.44v-12.66Z" fill="#fbf7ca" />
-							<path
-								d="M79.49,136.74c0-2.01.04-4.44.13-5.93h-.04c-.61,2.45-1.42,5.72-2.68,10.2h-3.38c-1-4.16-1.82-7.66-2.44-10.22h-.03c.08,1.48.22,3.92.22,6.09v4.13h-3.68v-12.66h5.89c.82,2.85,1.62,5.96,1.98,8.1h.02c.48-2.24,1.29-5.2,2.14-8.1h5.87v12.66h-4.01v-4.27Z"
-								fill="#fbf7ca" />
-						</g>
-						<g>
-							<path
-								d="M78.07,120.14c-7.69-1.94-9.91-9.62-9.37-16.62.04-.58.58-1.12,1.18-1.13l8.97-.03c.7,0,1.34-.54,1.34-1.27v-20.29c.01-.68.47-1.29,1.23-1.29h15.43c.67-.01,1.23.57,1.23,1.2v27.22c-.02,2-.43,3.79-1.16,5.57-2.22,5.47-7.46,7.31-13.03,7.29-1.98,0-3.83-.15-5.82-.65Z"
-								fill="#fbf7ca" />
-							<path
-								d="M91.37,77.26l-13.33.02c-.95,0-1.45-.6-1.45-1.47v-37.95c0-.82.65-1.36,1.43-1.36h13.46c.69,0,1.29.53,1.29,1.21v38.24c0,.73-.55,1.32-1.41,1.32Z"
-								fill="#fbf7ca" />
-							<path
-								d="M72.52,36.48c.88,0,1.61.77,1.42,1.67l-7.4,35.25c-.37,1.78-1.1,3.77-3.28,3.77h-18.48c-.99,0-1.66-.53-1.88-1.59l-7.94-37.34c-.21-.97.49-1.76,1.39-1.76h11.87c.67,0,1.31.57,1.46,1.21l4.44,19.28c.05.22.21.45.35.48s.45-.21.49-.38l4.21-18.77c.16-.72.5-1.78,1.43-1.79l11.92-.03Z"
-								fill="#fbf7ca" />
-							<path
-								d="M140.25,64.29c-2.11,7.39-8.11,11.12-15.35,12.38-2.21.38-4.33.64-6.61.64h-20.41c-.68,0-1.54-.45-1.54-1.19v-38.5c0-.61.57-1.07,1.08-1.11,1.74-.15,3.34-.08,5.1-.07l15.31.04c5.91.02,12.49,1.42,17.04,5.35,2.87,2.48,4.8,5.75,5.65,9.48.99,4.3.92,8.76-.28,12.98ZM122.45,55.06c-.24-2.62-3.21-3.55-5.34-3.53l-3.27.03-.02,9.37h3.55c1.07,0,2.17-.29,3.14-.72,2.08-.92,2.12-3.13,1.94-5.14Z"
-								fill="#fbf7ca" />
-							<path
-								d="M62.45,104.81h-10.81c-.39,0-.73.34-.73.68l-.02,2.1c0,.23.32.6.61.6h14.12c.73,0,1.42.53,1.42,1.31l.02,9.39c0,.71-.52,1.42-1.31,1.42h-29.23c-.78,0-1.27-.6-1.27-1.32v-38.18c0-.79.56-1.18,1.28-1.31l30.49.02c.88,0,1.24.69,1.24,1.38v9.59c-.01.64-.42,1.3-1.18,1.3l-15.27.02c-.46,0-.9.3-.9.75v2.21c-.01.31.39.64.74.64h10.72c.61.01,1.11.58,1.11,1.14v7.27c0,.54-.42,1-1.02,1Z"
-								fill="#fbf7ca" />
-							<path
-								d="M140.57,93.21c-1.09-5.54-4.73-10.03-9.95-12.2-3.34-1.39-6.87-1.84-10.52-1.82-3.13.02-6.11.35-9.01,1.42-7.43,2.76-10.47,9.43-10.76,16.96-.18,4.72.11,8.66,1.84,13.07,1.92,4.92,5.98,7.9,10.99,9.25,5.05,1.37,12.27,1.21,17.22-.65,3.6-1.35,6.54-3.81,8.3-7.21,1.22-2.35,1.95-4.79,2.26-7.43.46-3.85.38-7.6-.36-11.39ZM127.27,101.29c-5.78,5.52-8.95,5.83-10.52,5.29-.54-.19-.95-.6-1.16-1.12,0,0,0,0,0,0-.04-.11.03.12,0,0-.95-3.3-1.08-8.33-.08-11.52h0s0-.01,0-.01c.17-.63.61-1.08,1.23-1.29,1.57-.54,4.75-.23,10.52,5.29.96.92.96,2.44,0,3.36Z"
-								fill="#fbf7ca" />
-						</g>
-					</svg>
-				</div>
-				<p class="footer-tagline">
-					Stories in motion, captured from every angle.
-				</p>
-				<div class="footer-links">
-					<a href="../index.html">Home</a>
-					<a href="../index.html#expertise">Expertise</a>
-					<a href="portfolio.html">Portfolio</a>
-					<a href="about.html">Over Ons</a>
-				</div>
-				<div class="footer-divider"></div>
-				<p class="footer-copy">
-					&copy; 2026 VIDEJO. Alle rechten voorbehouden.
-				</p>
-			</div>
-		</div>
-	</footer>
-
-	<div class="custom-cursor"></div>
-	<div class="cursor-dot"></div>
-	<script src="../js/scripts.js"></script>
-	<script type="module" src="../js/camera-scene.js"></script>
-</body>
-
+    <div class="custom-cursor"></div>
+    <div class="cursor-dot"></div>
+    <script src="../js/scripts.js"></script>
+    <script type="module" src="../js/camera-scene.js"></script>
+  </body>
 </html>

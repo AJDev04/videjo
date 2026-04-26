@@ -146,7 +146,6 @@ document.addEventListener("DOMContentLoaded", function () {
 		});
 	}
 
-	console.log("test3");
 
 	// ========================================
 	// Notification System
