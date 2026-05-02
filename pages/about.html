@@ -3,7 +3,24 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>VIDEJO</title>
+    <title>Over Ons | VIDEJO — Joren & Alexandre</title>
+    <meta
+      name="description"
+      content="Leer VIDEJO kennen: Joren Frederickx en Alexandre Rutkowski, twee jonge Belgische creatievelingen gepassioneerd door videografie, drone en storytelling."
+    />
+    <link rel="canonical" href="https://videjo.be/pages/about.html" />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Over Ons | VIDEJO — Joren & Alexandre" />
+    <meta
+      property="og:description"
+      content="Maak kennis met de mensen achter VIDEJO: twee gepassioneerde videomakers uit België."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://videjo.be/pages/about.html" />
+    <meta property="og:image" content="https://videjo.be/images/og-image.jpg" />
+    <meta property="og:locale" content="nl_BE" />
+    <meta name="robots" content="index, follow" />
     <link rel="stylesheet" href="../css/reset.css" />
     <link rel="stylesheet" href="../css/master.css" />
     <link rel="stylesheet" href="../css/about.css" />
@@ -628,7 +645,8 @@
           </div>
           <div class="footer-divider"></div>
           <p class="footer-copy">
-            &copy; 2026 VIDEJO. Alle rechten voorbehouden.
+            &copy; 2026 VIDEJO. Alle rechten voorbehouden |
+            <a href="cookies.html">Cookiebeleid</a>
           </p>
         </div>
       </div>
@@ -652,6 +670,48 @@
       document
         .querySelectorAll(".fade-up, .fade-in")
         .forEach((el) => observer.observe(el));
+    </script>
+
+    <div id="cookie-bar">
+      <span>
+        Deze site gebruikt technisch noodzakelijke cookies.
+        <a
+          href="cookies.html"
+          style="color: var(--color-accent-light); text-underline-offset: 3px"
+          >Meer info</a
+        >
+      </span>
+      <button
+        onclick="sluitCookiebar()"
+        onmouseover="
+          this.style.borderColor = 'rgba(251,247,202,0.6)';
+          this.style.color = '#fbf7ca';
+        "
+        onmouseout="
+          this.style.borderColor = 'rgba(251,247,202,0.2)';
+          this.style.color = 'rgba(251,247,202,0.8)';
+        "
+      >
+        Begrepen
+      </button>
+    </div>
+
+    <script>
+      (function () {
+        var bar = document.getElementById("cookie-bar");
+        if (localStorage.getItem("videjo_cookie_ok")) {
+          bar.style.display = "none";
+        }
+      })();
+
+      function sluitCookiebar() {
+        var bar = document.getElementById("cookie-bar");
+        bar.style.transform = "translateY(100%)";
+        localStorage.setItem("videjo_cookie_ok", "1");
+        setTimeout(function () {
+          bar.style.display = "none";
+        }, 400);
+      }
     </script>
   </body>
 </html>

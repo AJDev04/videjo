@@ -4,7 +4,19 @@
 <head>
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<title>VIDEJO</title>
+<title>VIDEJO | Commerciële Videoproductie in België</title>	<meta name="description" content="VIDEJO maakt commerciële video's die merken tot leven brengen. Van concept tot eindproduct — wij vertellen jouw verhaal. Gevestigd in België.">
+
+	<meta name="keywords" content="videoproductie België, commerciële video, videograaf, drone video, motion graphics, branded content">
+	<meta name="author" content="VIDEJO">
+	<link rel="canonical" href="https://videjo.be/">
+<meta property="og:title" content="VIDEJO | Commerciële Videoproductie in België">
+	<meta property="og:description" content="Wij maken commerciële video's die merken tot leven brengen. Van concept tot eindproduct.">
+	<meta property="og:type" content="website">
+	<meta property="og:url" content="https://videjo.be/">
+	<meta property="og:image" content="https://videjo.be/images/og-image.jpg"> <!--1200x600px-->
+	<meta property="og:locale" content="nl_BE">
+	<meta name="robots" content="index, follow">
+
 	<link rel="stylesheet" href="css/reset.css" />
 	<link rel="stylesheet" href="css/master.css" />
 	<link rel="stylesheet" href="css/index.css" />
@@ -16,6 +28,25 @@
 
 	<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 	<script>emailjs.init("wUePWDWhK8hurRVcU");</script>
+	<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "VIDEJO",
+  "description": "Commerciële videoproductie in België",
+  "url": "https://videjo.be",
+  "email": "videjo.be@gmail.com",
+  "telephone": "+32494276276",
+  "address": {
+    "@type": "PostalAddress",
+    "addressCountry": "BE"
+  },
+  "founders": [
+    { "@type": "Person", "name": "Joren Frederickx" },
+    { "@type": "Person", "name": "Alexandre Rutkowski" }
+  ]
+}
+</script>
 </head>
 
 <body>
@@ -375,7 +406,7 @@
 				</div>
 				<div class="footer-divider"></div>
 				<p class="footer-copy">
-					&copy; 2026 VIDEJO. Alle rechten voorbehouden.
+					&copy; 2026 VIDEJO. Alle rechten voorbehouden | <a href="pages/cookies.html">Cookiebeleid</a>
 				</p>
 			</div>
 		</div>
@@ -383,6 +414,36 @@
 	<div class="custom-cursor"></div>
 	<div class="cursor-dot"></div>
 	<script src="js/scripts.js"></script>
+
+
+<div id="cookie-bar">
+  <span>
+    Deze site gebruikt technisch noodzakelijke cookies. 
+    <a href="pages/cookies.html" style="color: var(--color-accent-light); text-underline-offset: 3px;">Meer info</a>
+  </span>
+  <button onclick="sluitCookiebar()"
+  onmouseover="this.style.borderColor='rgba(251,247,202,0.6)';this.style.color='#fbf7ca'"
+     onmouseout="this.style.borderColor='rgba(251,247,202,0.2)';this.style.color='rgba(251,247,202,0.8)'">
+    Begrepen
+  </button>
+</div>
+
+<script>
+  (function() {
+    var bar = document.getElementById('cookie-bar');
+    if (localStorage.getItem('videjo_cookie_ok')) {
+      bar.style.display = 'none';
+    }
+  })();
+
+  function sluitCookiebar() {
+    var bar = document.getElementById('cookie-bar');
+    bar.style.transform = 'translateY(100%)';
+    localStorage.setItem('videjo_cookie_ok', '1');
+    setTimeout(function() { bar.style.display = 'none'; }, 400);
+  }
+</script>
+
 </body>
 
 </html>
