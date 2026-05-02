@@ -1,0 +1,165 @@
+:root {
+  --color-primary: #26225e;
+  --color-cream: #faf8ce;
+  --color-accent-light: #ffe066;
+
+  --color-motion: #912b61;
+  --color-film: #df653a;
+  --color-drones: #3974b7;
+  --color-photography: #3e914d;
+  --color-auto: #00d4aa;
+
+  --font-main: "Outfit", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-display:
+    "Acumin Variable Concept", -apple-system, BlinkMacSystemFont, sans-serif;
+
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 2rem;
+  --space-lg: 4rem;
+  --space-xl: 6rem;
+  --space-2xl: 8rem;
+  --space-cards: 20rem;
+
+  --transition: 0.3s ease;
+  --radius: 11px;
+  --radius-lg: 24px;
+
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.87, 0, 0.13, 1);
+}
+body {
+  background: var(--color-primary);
+  color: var(--color-cream);
+  font-family: var(--font-main);
+  line-height: 1.8;
+  min-height: 100vh;
+}
+.back-link {
+  display: block;
+  color: var(--color-cream);
+  text-decoration: none;
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 2rem 2.5rem;
+  transition: color 0.2s;
+  font-family: var(--font-main);
+}
+.back-link:hover {
+  color: var(--color-cream);
+}
+.page-wrapper {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 2rem 6rem;
+}
+.page-header {
+  border-bottom: 1px solid var(--color-cream);
+  padding-bottom: 2.5rem;
+  margin-bottom: 3rem;
+}
+.label {
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-cream);
+  margin-bottom: 1rem;
+  font-family: var(--font-main);
+}
+h1 {
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 400;
+  color: var(--color-cream);
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+.last-updated {
+  margin-top: 1rem;
+  font-size: 12px;
+  color: var(--color-cream);
+  font-family: var(--font-main);
+}
+.intro-block {
+  background: var(--color-drones);
+  border: 1px solid var(--color-cream);
+  border-left: 2px solid var(--color-cream);
+  padding: 1.5rem 2rem;
+  margin-bottom: 3rem;
+  font-size: 15px;
+}
+h2 {
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: var(--color-cream);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-family: var(--font-main);
+  margin-bottom: 1rem;
+}
+.section {
+  margin-bottom: 3rem;
+}
+p {
+  font-size: 15px;
+  margin-bottom: 1rem;
+}
+ul {
+  margin: 0.5rem 0 1rem 1.5rem;
+  font-size: 15px;
+}
+ul li {
+  margin-bottom: 0.4rem;
+}
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+  font-size: 13px;
+}
+.data-table th {
+  text-align: left;
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--color-cream);
+  color: var(--color-cream);
+  font-weight: 400;
+  font-family: var(--font-main);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.data-table td {
+  padding: 1rem;
+  border-bottom: 1px solid var(--color-cream);
+  vertical-align: top;
+}
+.data-table tr:last-child td {
+  border-bottom: none;
+}
+.contact-block {
+  background: var(--color-drones);
+  border: 1px solid var(--color-cream);
+  padding: 1.5rem 2rem;
+  margin-top: 1rem;
+  font-size: 14px;
+}
+a {
+  color: var(--color-cream);
+  text-underline-offset: 3px;
+}
+.footer-note {
+  margin-top: 4rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--color-cream);
+  font-size: 12px;
+  color: var(--color-cream);
+  font-family: var(--font-main);
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+strong {
+  color: var(--color-cream);
+  font-weight: 400;
+}
