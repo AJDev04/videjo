@@ -1,19 +1,17 @@
 /* ========================================
-   VIDEJO Website Styles
+   VIDEJO Master Styles
    ======================================== */
 
-/* Fonts */
-/*Outfit*/
 @import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap");
-
-/*Acumin Variable Concept*/
 @import url(https://db.onlinewebfonts.com/c/066ce24dae3730ed6c648b09efaea93a?family=Acumin+Variable+Concept);
-/* CSS Variables */
+
+/* ========================================
+   CSS Variables
+   ======================================== */
 :root {
   --color-primary: #26225e;
   --color-cream: #faf8ce;
   --color-accent-light: #ffe066;
-
   --color-motion: #912b61;
   --color-film: #df653a;
   --color-drones: #3974b7;
@@ -30,54 +28,17 @@
   --space-lg: 4rem;
   --space-xl: 6rem;
   --space-2xl: 8rem;
-  --space-cards: 20rem;
 
   --transition: 0.3s ease;
   --radius: 11px;
   --radius-lg: 24px;
-
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
   --ease-in-out: cubic-bezier(0.87, 0, 0.13, 1);
 }
 
-#cookie-bar {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  z-index: 9998;
-  background: var(--color-drones);
-  backdrop-filter: blur(8px);
-  border-top: 1px solid var(--color-cream);
-  padding: 1rem 2rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1.5rem;
-  flex-wrap: wrap;
-  font-family: var(--font-main);
-  font-size: 12px;
-  color: var(--color-cream);
-  transform: translateY(0);
-  transition: transform 0.4s ease;
-}
-
-#cookie-bar button {
-  background: none;
-  border: 1px solid var(--color-cream);
-  color: var(--color-cream);
-  padding: 6px 18px;
-  font-family: var(--font-main);
-  font-size: 12px;
-  letter-spacing: 0.08em;
-  cursor: pointer;
-  white-space: nowrap;
-  transition:
-    border-color 0.2s,
-    color 0.2s;
-}
-
-/* Reset & Base */
+/* ========================================
+   Reset & Base
+   ======================================== */
 *,
 *::before,
 *::after {
@@ -96,15 +57,14 @@ body {
   font-weight: 400;
   line-height: 1.6;
   color: var(--color-cream);
-
   background-color: var(--color-primary);
   overflow-x: hidden;
-  -webkit-user-select: none; /* Safari */
-  -ms-user-select: none; /* IE 10 and Elder */
+  -webkit-user-select: none;
+  -ms-user-select: none;
   user-select: none;
-  scroll-behavior: smooth;
   transition: opacity 0.35s ease;
 }
+
 html,
 body,
 * {
@@ -131,21 +91,20 @@ a {
   color: inherit;
   text-decoration: none;
 }
-
 b {
   font-weight: 900;
 }
-
 img,
 svg {
   max-width: 100%;
 }
-
 ul {
   list-style: none;
 }
 
-/* ===== CUSTOM CURSOR ===== */
+/* ========================================
+   Custom Cursor
+   ======================================== */
 .custom-cursor {
   position: fixed;
   top: 0;
@@ -163,7 +122,6 @@ ul {
   z-index: 9999;
 }
 
-/* Small center dot */
 .cursor-dot {
   position: fixed;
   top: 0;
@@ -177,17 +135,14 @@ ul {
   z-index: 9999;
 }
 
-.cursor-dot:hover {
-  transform: translate(-50%, -50%) scale(1.5);
-  background: var(--color-cream);
-}
-
-/* Hover effect */
 .cursor-hover {
   transform: translate(-50%, -50%) scale(1.5);
   border-color: var(--color-drones);
 }
-/* Container */
+
+/* ========================================
+   Container
+   ======================================== */
 .container {
   width: 100%;
   max-width: 1200px;
@@ -198,7 +153,6 @@ ul {
 /* ========================================
    Navigation
    ======================================== */
-
 .top-nav {
   position: fixed;
   top: 20px;
@@ -227,11 +181,9 @@ ul {
   letter-spacing: 2.3px;
 }
 
-/* MENU BUTTON */
 .menu-btn {
   background-color: var(--color-cream);
   letter-spacing: 0.3px;
-  text-transform: none;
 }
 
 .menu-btn:hover {
@@ -244,7 +196,6 @@ ul {
   background: var(--color-cream);
 }
 
-/* CONTACT BUTTON */
 .contact-btn {
   background-color: var(--color-primary);
   color: var(--color-cream);
@@ -257,7 +208,6 @@ ul {
   transform: translateY(-2px);
 }
 
-/* BURGER ICON */
 .burger {
   width: 18px;
   height: 11px;
@@ -278,7 +228,6 @@ ul {
     background 0.3s ease;
 }
 
-/* Burger kleur voor de menu-btn (donkere achtergrond = lichte spans) */
 .menu-btn .burger span {
   background: var(--color-primary);
 }
@@ -287,7 +236,6 @@ ul {
   width: 60%;
 }
 
-/* OPEN STATE */
 .menu-btn.open .burger span:first-child {
   transform: rotate(45deg);
   width: 18px;
@@ -301,7 +249,6 @@ ul {
 /* ========================================
    Nav Overlay
    ======================================== */
-
 .nav-overlay {
   position: fixed;
   top: 0;
@@ -337,10 +284,6 @@ ul {
 .nav-open .nav-overlay {
   clip-path: circle(150% at calc(100% - 45px) 45px);
 }
-
-/* ========================================
-   Nav Links
-   ======================================== */
 
 .nav-links {
   list-style: none;
@@ -382,24 +325,18 @@ ul {
   transition: opacity 0.3s ease;
 }
 
-/* Hover op de lijst: alles dimmen */
 .nav-links:hover a,
 .nav-links:hover .divider {
   opacity: 0.2;
 }
 
-/* Gehovered link (inclusief zijn eigen divider erboven) helder houden */
 .nav-links a:hover {
   opacity: 1;
   color: var(--color-accent-light);
 }
 
-.nav-links a:hover .divider {
-  opacity: 1;
-}
-
 /* ========================================
-   GLOBAL SECTION BASE
+   Global Section
    ======================================== */
 .section {
   padding: var(--space-xl) 0;
@@ -424,14 +361,110 @@ ul {
 }
 
 /* ========================================
-   Logo Styles
+   Scroll Hint (shared)
    ======================================== */
-
-.over-image-placeholder .logo-svg {
-  height: 150px;
-  width: auto;
+.scroll-hint {
+  position: absolute;
+  bottom: var(--space-lg);
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  z-index: 10;
 }
 
+.scroll-hint span {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: rgba(250, 248, 206, 0.4);
+}
+
+.scroll-line {
+  width: 1px;
+  height: 60px;
+  background: linear-gradient(180deg, var(--color-cream), transparent);
+  animation: scrollPulse 2s ease-in-out infinite;
+}
+
+@keyframes scrollPulse {
+  0%,
+  100% {
+    transform: scaleY(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scaleY(0.6);
+    opacity: 0.5;
+  }
+}
+
+/* ========================================
+   Buttons
+   ======================================== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 1rem 2.25rem;
+  font-family: var(--font-main);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border-radius: 100px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.35s var(--ease-out);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateX(-100%) skewX(-15deg);
+  transition: transform 0.4s var(--ease-out);
+}
+
+.btn:hover::after {
+  transform: translateX(110%) skewX(-15deg);
+}
+
+.btn-primary {
+  background: var(--color-cream);
+  color: var(--color-primary);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 40px rgba(250, 248, 206, 0.15);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--color-cream);
+  border: 1.5px solid rgba(250, 248, 206, 0.4);
+}
+
+.btn-secondary:hover {
+  border-color: var(--color-cream);
+  background: rgba(250, 248, 206, 0.08);
+  transform: translateY(-3px);
+}
+
+.btn-full {
+  width: 100%;
+}
+
+/* ========================================
+   Logo Sizes
+   ======================================== */
 .home-logo .logo-svg {
   height: 150px;
   width: auto;
@@ -441,12 +474,24 @@ ul {
 }
 
 .footer-logo .logo-svg {
-  height: 60px;
+  height: 52px;
+  width: auto;
+  border-radius: 11px;
+  opacity: 0.85;
+  transition: opacity 0.3s;
+}
+
+.footer-logo:hover .logo-svg {
+  opacity: 1;
+}
+
+.over-image-placeholder .logo-svg {
+  height: 150px;
   width: auto;
 }
 
 /* ========================================
-   FOOTER
+   Footer
    ======================================== */
 .footer {
   background-color: #07060f;
@@ -462,18 +507,6 @@ ul {
   align-items: center;
   text-align: center;
   gap: 2rem;
-}
-
-.footer-logo .logo-svg {
-  height: 52px;
-  width: auto;
-  border-radius: 11px;
-  opacity: 0.85;
-  transition: opacity 0.3s;
-}
-
-.footer-logo:hover .logo-svg {
-  opacity: 1;
 }
 
 .footer-tagline {
@@ -515,8 +548,68 @@ ul {
   letter-spacing: 0.04em;
 }
 
+.footer-copy a {
+  color: rgba(250, 248, 206, 0.35);
+  transition: color 0.3s;
+}
+
+.footer-copy a:hover {
+  color: var(--color-cream);
+}
+
 /* ========================================
-   SCROLL REVEAL ANIMATIONS
+   Cookie Bar
+   ======================================== */
+#cookie-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 9998;
+  background: rgba(13, 13, 30, 0.97);
+  backdrop-filter: blur(8px);
+  border-top: 1px solid rgba(250, 248, 206, 0.1);
+  padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  font-family: var(--font-main);
+  font-size: 12px;
+  color: rgba(250, 248, 206, 0.6);
+  transform: translateY(0);
+  transition: transform 0.4s ease;
+}
+
+#cookie-bar a {
+  color: var(--color-accent-light);
+  text-underline-offset: 3px;
+  text-decoration: underline;
+}
+
+#cookie-bar button {
+  background: none;
+  border: 1px solid rgba(250, 248, 206, 0.2);
+  color: rgba(250, 248, 206, 0.8);
+  padding: 6px 18px;
+  font-family: var(--font-main);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+  white-space: nowrap;
+  transition:
+    border-color 0.2s,
+    color 0.2s;
+}
+
+#cookie-bar button:hover {
+  border-color: rgba(250, 248, 206, 0.6);
+  color: var(--color-cream);
+}
+
+/* ========================================
+   Scroll Reveal Animations
    ======================================== */
 .fade-up {
   opacity: 0;
@@ -544,7 +637,6 @@ ul {
   transform: translateY(0);
 }
 
-/* Stagger */
 .stagger-children > * {
   opacity: 0;
   transform: translateY(24px);
@@ -571,40 +663,80 @@ ul {
   transition-delay: 0.35s;
 }
 
-@media (max-width: 768px) {
-  .custom-cursor {
-    display: none;
+/* Notification keyframes (used by scripts.js) */
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
   }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
 
-  /* Small center dot */
+@keyframes slideOut {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
+/* ========================================
+   Responsive
+   ======================================== */
+@media (max-width: 992px) {
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+  }
+}
+
+@media (max-width: 768px) {
+  .custom-cursor,
   .cursor-dot {
     display: none;
   }
 }
 
 @media (max-width: 480px) {
+  :root {
+    --space-md: 1.5rem;
+    --space-lg: 2.5rem;
+    --space-xl: 4rem;
+    --space-2xl: 5rem;
+  }
+
   .top-nav {
     left: 0;
     right: 0;
     width: 100%;
     padding: 0 20px;
-
     display: flex;
-    justify-content: space-between; /* THIS is the key */
+    justify-content: space-between;
   }
 
   .contact-btn {
-    margin-right: auto; /* push it left */
+    margin-right: auto;
+  }
+  .menu-btn {
+    margin-left: auto;
   }
 
-  .menu-btn {
-    margin-left: auto; /* push it right */
-  }
   .footer-links {
-    gap: 3.5rem;
+    gap: 1.5rem;
   }
 
   .home-logo .logo-svg {
-    height: 150px;
+    height: 120px;
+    margin-bottom: 50px;
+  }
+
+  .section {
+    padding: var(--space-2xl) 0;
   }
 }

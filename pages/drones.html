@@ -3,8 +3,27 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>VIDEJO</title>
+    <title>Drone Video | VIDEJO — Cinematische Dronebeelden</title>
+    <meta
+      name="description"
+      content="VIDEJO maakt cinematische dronebeelden voor vastgoed, events, commercials en meer. A1/A3 gecertificeerd, professionele DJI-uitrusting."
+    />
     <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://videjo.be/pages/drones.html" />
+
+    <meta
+      property="og:title"
+      content="Drone Video | VIDEJO — Cinematische Dronebeelden"
+    />
+    <meta
+      property="og:description"
+      content="Cinematische dronebeelden die jouw verhaal naar nieuwe hoogtes tillen. A1/A3 gecertificeerd."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://videjo.be/pages/drones.html" />
+    <meta property="og:image" content="https://videjo.be/images/og-image.jpg" />
+    <meta property="og:locale" content="nl_BE" />
+
     <link rel="stylesheet" href="../css/reset.css" />
     <link rel="stylesheet" href="../css/master.css" />
     <link rel="stylesheet" href="../css/drones.css" />
@@ -41,26 +60,18 @@
 
   <body>
     <!-- Navigation -->
-    <!-- Top Navigation Buttons -->
     <div class="top-nav">
       <a href="../index.html#contact" class="contact-btn nav-btn">Contact</a>
       <button class="menu-btn nav-btn">
-        <div class="burger">
-          <span></span>
-          <span></span>
-        </div>
+        <div class="burger"><span></span><span></span></div>
         <span class="menu-text">Menu</span>
       </button>
     </div>
 
     <nav class="nav-overlay">
-      <!-- existing nav content -->
-    </nav>
-
-    <nav class="nav-overlay">
       <ul class="nav-links">
         <li>
-          <a class="link-text" href="../index.html" data-text="Home"> Home</a>
+          <a class="link-text" href="../index.html" data-text="Home">Home</a>
         </li>
         <li>
           <div class="divider"></div>
@@ -68,9 +79,8 @@
             class="link-text"
             href="../index.html#expertise"
             data-text="Expertise"
+            >Expertise</a
           >
-            Expertise
-          </a>
         </li>
         <li>
           <div class="divider"></div>
@@ -78,20 +88,24 @@
             class="link-text"
             href="../pages/portfolio.html"
             data-text="Portfolio"
+            >Portfolio</a
           >
-            Portfolio
-          </a>
         </li>
         <li>
           <div class="divider"></div>
-          <a class="link-text" href="../pages/about.html" data-text="About">
-            Over Ons
-          </a>
+          <a class="link-text" href="../pages/about.html" data-text="About"
+            >Over Ons</a
+          >
         </li>
       </ul>
     </nav>
 
-    <!-- Hero Section with 3D Drone -->
+    <!-- 3D Canvas (hidden on mobile via CSS) -->
+    <div class="drone-canvas-container">
+      <canvas id="drone-canvas"></canvas>
+    </div>
+
+    <!-- Hero -->
     <section class="drone-hero" id="drone-hero">
       <div class="drone-hero-content">
         <p class="drone-label">Drone Video</p>
@@ -109,38 +123,37 @@
       </a>
     </section>
 
-    <!-- Showcase Section -->
-    <section class="drone-showcase">
-      <div class="container" id="showcase">
+    <!-- Showcase -->
+    <section class="drone-showcase" id="showcase">
+      <div class="container">
         <div class="showcase-text">
-          <div class="container">
-            <h2 class="section-title fade-up">Ons Materiaal</h2>
-            <p class="showcase-description fade-up">
-              Wij werken met moderne en performante drones om hoogwaardige
-              luchtbeelden te realiseren. Dankzij onze flexibele en compacte
-              apparatuur kunnen we op uiteenlopende locaties vliegen en inspelen
-              op de noden van elk project. Dit stelt ons in staat om creatieve,
-              professionele beelden te leveren die perfect passen binnen
-              commerciële toepassingen.
-            </p>
-            <div class="showcase-stats fade-up">
-              <div class="stat">
-                <span class="stat-number">4K</span>
-                <span class="stat-label">Cinematisch</span>
-              </div>
-              <div class="stat">
-                <span class="stat-number">ActiveTrack</span>
-                <span class="stat-label">Functie</span>
-              </div>
-              <div class="stat">
-                <span class="stat-number">3-Axis</span>
-                <span class="stat-label">Gimbal</span>
-              </div>
+          <h2 class="section-title fade-up">Ons Materiaal</h2>
+          <p class="showcase-description fade-up">
+            Wij werken met moderne en performante drones om hoogwaardige
+            luchtbeelden te realiseren. Dankzij onze flexibele en compacte
+            apparatuur kunnen we op uiteenlopende locaties vliegen en inspelen
+            op de noden van elk project. Dit stelt ons in staat om creatieve,
+            professionele beelden te leveren die perfect passen binnen
+            commerciële toepassingen.
+          </p>
+          <div class="showcase-stats fade-up">
+            <div class="stat">
+              <span class="stat-number">4K</span>
+              <span class="stat-label">Cinematisch</span>
+            </div>
+            <div class="stat">
+              <span class="stat-number">ActiveTrack</span>
+              <span class="stat-label">Functie</span>
+            </div>
+            <div class="stat">
+              <span class="stat-number">3-Axis</span>
+              <span class="stat-label">Gimbal</span>
             </div>
           </div>
         </div>
       </div>
     </section>
+
     <!-- Services Grid -->
     <section class="drone-services" id="services">
       <div class="container">
@@ -171,7 +184,7 @@
             <div class="service-number">03</div>
             <h3>Commercials</h3>
             <p>
-              Cinematische droneshots die jouw merkvideo’s onmiddellijk naar een
+              Cinematische droneshots die jouw merkvideo's onmiddellijk naar een
               hoger niveau tillen.
             </p>
           </div>
@@ -179,7 +192,7 @@
             <div class="service-number">04</div>
             <h3>Toerisme</h3>
             <p>
-              Aantrekkelijke dronebeelden die regio’s, hotels en bestemmingen
+              Aantrekkelijke dronebeelden die regio's, hotels en bestemmingen
               visueel onweerstaanbaar maken.
             </p>
           </div>
@@ -202,11 +215,9 @@
         </div>
       </div>
     </section>
-    <!-- CTA Section -->
+
+    <!-- CTA -->
     <section class="drone-cta" id="contact-drones">
-      <div class="drone-canvas-container">
-        <canvas id="drone-canvas"></canvas>
-      </div>
       <div class="container">
         <div class="cta-content fade-up">
           <h2>Klaar om op te stijgen?</h2>
@@ -230,71 +241,7 @@
       <div class="container">
         <div class="footer-content">
           <div class="footer-logo">
-            <svg
-              class="logo-svg"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 176.15 183.48"
-            >
-              <rect
-                width="176.15"
-                height="183.48"
-                rx="22.42"
-                ry="22.42"
-                fill="#1b75bb"
-              />
-              <g>
-                <path
-                  d="M36.42,131.37h6.42c4.57,0,6.89,2.8,6.89,6.13,0,3.91-2.86,6.54-6.93,6.54h-6.38v-12.66ZM40.54,141.19h1.78c2.04,0,3.06-1.23,3.06-3.59,0-1.94-.81-3.37-3.05-3.39h-1.78v6.98Z"
-                  fill="#fbf7ca"
-                />
-                <path
-                  d="M55.56,139.38v4.66h-4.04v-12.66h7.66c3.15,0,4.79,1.54,4.79,3.64,0,1.63-.95,2.61-2.19,3.03.68.29,1.85.9,1.85,3.05v.69c0,.72,0,1.64.17,2.26h-4.1c-.21-.53-.26-1.31-.26-2.62v-.43c0-1.18-.38-1.61-1.97-1.61h-1.92ZM55.56,136.75h2.52c1.12,0,1.75-.41,1.75-1.32,0-.84-.58-1.32-1.75-1.32h-2.52v2.64Z"
-                  fill="#fbf7ca"
-                />
-                <path
-                  d="M79.46,137.67c0,3.58-2.36,6.65-7.34,6.65-4.57,0-7.09-2.92-7.09-6.63,0-3.49,2.45-6.61,7.28-6.61,4.57,0,7.15,3,7.15,6.59ZM69.37,137.63c0,2.2.88,3.83,2.95,3.83s2.8-1.87,2.8-3.76c0-2.2-.78-3.81-2.92-3.81s-2.84,1.67-2.84,3.74Z"
-                  fill="#fbf7ca"
-                />
-                <path
-                  d="M81.26,144.04v-12.66h4.8c2.8,4.54,3.75,6.18,4.57,7.81h.07c-.11-1.19-.11-3.48-.11-5.58v-2.24h3.71v12.66h-4.53c-.99-1.76-4.1-7.15-4.85-8.69h-.06c.12,1.45.13,3.13.13,5.61v3.08h-3.71Z"
-                  fill="#fbf7ca"
-                />
-                <path
-                  d="M107.63,139h-6.77v2.11h7.57l-.47,2.92h-11.15v-12.66h11.18v2.93h-7.13v1.76h6.77v2.93Z"
-                  fill="#fbf7ca"
-                />
-                <path
-                  d="M113.27,140.22c.27.84.92,1.47,2.57,1.47,1.46,0,1.92-.44,1.92-1.07,0-.67-.41-1.07-2.78-1.48-4.68-.82-5.35-2.42-5.35-4.08,0-2.5,2.36-3.96,5.82-3.96,4.21,0,5.9,1.95,6.07,3.82h-4c-.14-.56-.5-1.21-2.07-1.21-1.11,0-1.64.36-1.64.96s.53.86,2.49,1.21c4.79.86,5.71,2.36,5.71,4.27,0,2.42-2.03,4.17-6.33,4.17s-6.14-1.8-6.52-4.09h4.12Z"
-                  fill="#fbf7ca"
-                />
-              </g>
-              <g>
-                <path
-                  d="M78.07,123.17c-7.69-1.94-9.91-9.62-9.37-16.62.04-.58.58-1.12,1.18-1.13l8.97-.03c.7,0,1.34-.54,1.34-1.27v-20.29c.01-.68.47-1.29,1.23-1.29h15.43c.67-.01,1.23.57,1.23,1.2v27.22c-.02,2-.43,3.79-1.16,5.57-2.22,5.47-7.46,7.31-13.03,7.29-1.98,0-3.83-.15-5.82-.65Z"
-                  fill="#fbf7ca"
-                />
-                <path
-                  d="M91.37,80.29l-13.33.02c-.95,0-1.45-.6-1.45-1.47v-37.95c0-.82.65-1.36,1.43-1.36h13.46c.69,0,1.29.53,1.29,1.21v38.24c0,.73-.55,1.32-1.41,1.32Z"
-                  fill="#fbf7ca"
-                />
-                <path
-                  d="M72.52,39.51c.88,0,1.61.77,1.42,1.67l-7.4,35.25c-.37,1.78-1.1,3.77-3.28,3.77h-18.48c-.99,0-1.66-.53-1.88-1.59l-7.94-37.34c-.21-.97.49-1.76,1.39-1.76h11.87c.67,0,1.31.57,1.46,1.21l4.44,19.28c.05.22.21.45.35.48s.45-.21.49-.38l4.21-18.77c.16-.72.5-1.78,1.43-1.79l11.92-.03Z"
-                  fill="#fbf7ca"
-                />
-                <path
-                  d="M140.25,67.32c-2.11,7.39-8.11,11.12-15.35,12.38-2.21.38-4.33.64-6.61.64h-20.41c-.68,0-1.54-.45-1.54-1.19v-38.5c0-.61.57-1.07,1.08-1.11,1.74-.15,3.34-.08,5.1-.07l15.31.04c5.91.02,12.49,1.42,17.04,5.35,2.87,2.48,4.8,5.75,5.65,9.48.99,4.3.92,8.76-.28,12.98ZM122.45,58.09c-.24-2.62-3.21-3.55-5.34-3.53l-3.27.03-.02,9.37h3.55c1.07,0,2.17-.29,3.14-.72,2.08-.92,2.12-3.13,1.94-5.14Z"
-                  fill="#fbf7ca"
-                />
-                <path
-                  d="M62.45,107.84h-10.81c-.39,0-.73.34-.73.68l-.02,2.1c0,.23.32.6.61.6h14.12c.73,0,1.42.53,1.42,1.31l.02,9.39c0,.71-.52,1.42-1.31,1.42h-29.23c-.78,0-1.27-.6-1.27-1.32v-38.18c0-.79.56-1.18,1.28-1.31l30.49.02c.88,0,1.24.69,1.24,1.38v9.59c-.01.64-.42,1.3-1.18,1.3l-15.27.02c-.46,0-.9.3-.9.75v2.21c-.01.31.39.64.74.64h10.72c.61.01,1.11.58,1.11,1.14v7.27c0,.54-.42,1-1.02,1Z"
-                  fill="#fbf7ca"
-                />
-                <path
-                  d="M140.57,96.24c-1.09-5.54-4.73-10.03-9.95-12.2-3.34-1.39-6.87-1.84-10.52-1.82-3.13.02-6.11.35-9.01,1.42-7.43,2.76-10.47,9.43-10.76,16.96-.18,4.72.11,8.66,1.84,13.07,1.92,4.92,5.98,7.9,10.99,9.25,5.05,1.37,12.27,1.21,17.22-.65,3.6-1.35,6.54-3.81,8.3-7.21,1.22-2.35,1.95-4.79,2.26-7.43.46-3.85.38-7.6-.36-11.39ZM127.27,104.32c-5.78,5.52-8.95,5.83-10.52,5.29-.54-.19-.95-.6-1.16-1.12,0,0,0,0,0,0-.04-.11.03.12,0,0-.95-3.3-1.08-8.33-.08-11.52h0s0-.01,0-.01c.17-.63.61-1.08,1.23-1.29,1.57-.54,4.75-.23,10.52,5.29.96.92.96,2.44,0,3.36Z"
-                  fill="#fbf7ca"
-                />
-              </g>
-            </svg>
+            <img src="../images/logo.png" alt="VIDEJO logo" class="logo-svg" />
           </div>
           <p class="footer-tagline">
             Stories in motion, captured from every angle.
@@ -318,49 +265,17 @@
 
     <div class="custom-cursor"></div>
     <div class="cursor-dot"></div>
-    <script src="../js/scripts.js"></script>
-    <script type="module" src="../js/drone-scene.js"></script>
 
+    <!-- Cookie Bar -->
     <div id="cookie-bar">
       <span>
         Deze site gebruikt technisch noodzakelijke cookies.
-        <a
-          href="cookies.html"
-          style="color: var(--color-accent-light); text-underline-offset: 3px"
-          >Meer info</a
-        >
+        <a href="cookies.html">Meer info</a>
       </span>
-      <button
-        onclick="sluitCookiebar()"
-        onmouseover="
-          this.style.borderColor = 'rgba(251,247,202,0.6)';
-          this.style.color = '#fbf7ca';
-        "
-        onmouseout="
-          this.style.borderColor = 'rgba(251,247,202,0.2)';
-          this.style.color = 'rgba(251,247,202,0.8)';
-        "
-      >
-        Begrepen
-      </button>
+      <button onclick="sluitCookiebar()">Begrepen</button>
     </div>
 
-    <script>
-      (function () {
-        var bar = document.getElementById("cookie-bar");
-        if (localStorage.getItem("videjo_cookie_ok")) {
-          bar.style.display = "none";
-        }
-      })();
-
-      function sluitCookiebar() {
-        var bar = document.getElementById("cookie-bar");
-        bar.style.transform = "translateY(100%)";
-        localStorage.setItem("videjo_cookie_ok", "1");
-        setTimeout(function () {
-          bar.style.display = "none";
-        }, 400);
-      }
-    </script>
+    <script src="../js/scripts.js"></script>
+    <script type="module" src="../js/drone-scene.js"></script>
   </body>
 </html>
