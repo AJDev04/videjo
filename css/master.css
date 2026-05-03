@@ -601,7 +601,7 @@ ul {
     margin-left: auto; /* push it right */
   }
   .footer-links {
-    gap: 3.5rem;
+    gap: 0.7rem;
   }
 
   .home-logo .logo-svg {
