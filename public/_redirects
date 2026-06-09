@@ -1,0 +1,14 @@
+# Oude .html-paden -> nieuwe schone URL's (301)
+/pages/portfolio.html                 /portfolio                 301
+/pages/about.html                     /about                     301
+/pages/drones.html                    /drones                    301
+/pages/film.html                      /film                      301
+/pages/motion.html                    /motion                    301
+/pages/privacy.html                   /privacy                   301
+/pages/voorwaarden.html               /voorwaarden               301
+/pages/cookies.html                   /cookies                   301
+/pages/portfolio/auto-shots.html      /portfolio/auto-shots      301
+/pages/portfolio/cinematic-shots.html /portfolio/cinematic-shots 301
+/pages/portfolio/drone-shots.html     /portfolio/drone-shots     301
+/pages/portfolio/fotografie.html      /portfolio/fotografie      301
+/pages/portfolio/motion-graphics.html /portfolio/motion-graphics 301
