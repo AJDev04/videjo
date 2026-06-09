@@ -443,3 +443,36 @@ if (menuBtn && navOverlay) {
 		});
 	});
 }
+
+// ========================================
+// Portfolio Item Video Player
+// (gedeeld door alle portfolio-item pagina's, werkt op .pf-card)
+// ========================================
+document.querySelectorAll(".pf-card").forEach((card) => {
+	const video = card.querySelector("video");
+	const playBtn = card.querySelector(".play-btn");
+
+	if (!video || !playBtn) return;
+
+	// Click to toggle full playback with sound
+	playBtn.addEventListener("click", () => {
+		card.classList.add("playing");
+		video.muted = false;
+		video.play();
+	});
+
+	// Click video to pause
+	video.addEventListener("click", () => {
+		if (card.classList.contains("playing")) {
+			video.pause();
+			video.muted = true;
+			card.classList.remove("playing");
+		}
+	});
+
+	// Reset when video ends
+	video.addEventListener("ended", () => {
+		video.muted = true;
+		card.classList.remove("playing");
+	});
+});

@@ -7,7 +7,7 @@
     <meta name="robots" content="index, follow" />
     <link rel="stylesheet" href="../css/reset.css" />
     <link rel="stylesheet" href="../css/master.css" />
-    <link rel="stylesheet" href="../css/motion.css" />
+    <link rel="stylesheet" href="../css/service.css" />
 
     <link
       rel="apple-touch-icon"
@@ -39,7 +39,7 @@
     </script>
   </head>
 
-  <body>
+  <body class="svc-motion">
     <!-- Navigation -->
     <!-- Top Navigation Buttons -->
     <div class="top-nav">
@@ -91,14 +91,14 @@
       </ul>
     </nav>
 
-    <section class="motion-hero" id="motion-hero">
-      <div class="motion-hero-content">
-        <p class="motion-label">Motion Graphics</p>
-        <h1 class="motion-title">
+    <section class="svc-hero" id="motion-hero">
+      <div class="svc-hero-content">
+        <p class="svc-label">Motion Graphics</p>
+        <h1 class="svc-title">
           <span class="title-line">Graphic Designs</span>
           <span class="title-line">Brought To Life</span>
         </h1>
-        <p class="motion-subtitle">
+        <p class="svc-subtitle">
           Grafische elementen die worden geanimeerd om verhalen te vertellen.
         </p>
       </div>
@@ -109,7 +109,7 @@
     </section>
 
     <!-- Showcase Section -->
-    <section class="motion-showcase">
+    <section class="svc-showcase">
       <div class="container" id="showcase">
         <div class="showcase-text">
           <div class="container">
@@ -143,7 +143,7 @@
       </div>
     </section>
     <!-- Services Grid -->
-    <section class="motion-services" id="services">
+    <section class="svc-services" id="services">
       <div class="container">
         <div class="section-header fade-up">
           <p class="section-subtitle">Toepassingen</p>
@@ -169,9 +169,9 @@
       </div>
     </section>
     <!-- CTA Section -->
-    <section class="motion-cta" id="contact-motion">
-      <div class="motion-canvas-container">
-        <canvas id="motion-canvas"></canvas>
+    <section class="svc-cta" id="contact-motion">
+      <div class="svc-canvas-container">
+        <canvas id="motion-canvas" class="svc-canvas"></canvas>
       </div>
       <div class="container">
         <div class="cta-content fade-up">
@@ -269,7 +269,7 @@
           </div>
           <div class="footer-divider"></div>
           <p class="footer-copy">
-            &copy; 2026 VIDEJO. Alle rechten voorbehouden |
+            BTW BE1037894456 | &copy; 2026 VIDEJO. Alle rechten voorbehouden |
             <a href="cookies.html">Cookiebeleid</a> |
             <a href="privacy.html">Privacybeleid</a> |
             <a href="voorwaarden.html">Algemene Voorwaarden</a>
@@ -294,14 +294,6 @@
       </span>
       <button
         onclick="sluitCookiebar()"
-        onmouseover="
-          this.style.borderColor = 'rgba(251,247,202,0.6)';
-          this.style.color = '#fbf7ca';
-        "
-        onmouseout="
-          this.style.borderColor = 'rgba(251,247,202,0.2)';
-          this.style.color = 'rgba(251,247,202,0.8)';
-        "
       >
         Begrepen
       </button>

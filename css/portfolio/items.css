@@ -1,20 +1,39 @@
 /* ========================================
-    FOTOGRAPHIE SECTION
+   PORTFOLIO ITEM PAGES (shared)
+   Used by auto-shots, cinematic-shots, drone-shots,
+   fotografie en motion-graphics. Accentkleur per pagina
+   via de --pf-accent variabele (modifier-class op .pf-section).
    ======================================== */
 
-.fotografie-section {
+.pf-auto {
+	--pf-accent: var(--color-auto);
+}
+.pf-cinematic {
+	--pf-accent: var(--color-film);
+}
+.pf-drone {
+	--pf-accent: var(--color-drones);
+}
+.pf-fotografie {
+	--pf-accent: var(--color-photography);
+}
+.pf-motion {
+	--pf-accent: var(--color-motion);
+}
+
+.pf-section {
 	padding: var(--space-xl) 0 var(--space-2xl);
 }
 
 /* Grid Layout */
-.fotografie-grid {
+.pf-grid {
 	display: grid;
 	grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
 	gap: var(--space-lg);
 }
 
 /* Individual Card */
-.fotografie-card {
+.pf-card {
 	background: rgba(250, 248, 206, 0.03);
 	border: 1px solid rgba(250, 248, 206, 0.08);
 	border-radius: var(--radius-lg);
@@ -25,28 +44,27 @@
 		box-shadow 0.4s ease;
 }
 
-.fotografie-card:hover {
+.pf-card:hover {
 	transform: translateY(-8px);
-	border-color: var(--color-photography);
+	border-color: var(--pf-accent);
 	box-shadow: 0 20px 60px rgba(145, 43, 97, 0.15);
 }
 
-.fotografie-video {
+.pf-video {
 	position: relative;
-	/* aspect-ratio: 16 / 9;  ← verwijder deze regel */
 	overflow: hidden;
 	background: var(--color-primary);
 }
 
-.fotografie-video video {
+.pf-video video {
 	width: 100%;
-	height: auto; /* was: 100% */
+	height: auto;
 	display: block;
 	object-fit: contain;
 	transition: transform 0.6s var(--ease-out);
 }
 
-.fotografie-card:hover .fotografie-video video {
+.pf-card:hover .pf-video video {
 	transform: scale(1.05);
 }
 
@@ -77,31 +95,31 @@
 }
 
 /* Hide play button when playing */
-.fotografie-card.playing .play-btn {
+.pf-card.playing .play-btn {
 	opacity: 0;
 	pointer-events: none;
 }
 
 /* Project Info */
-.fotografie-info {
+.pf-info {
 	padding: var(--space-md);
 }
 
-.fotografie-title {
+.pf-title {
 	font-size: 1.25rem;
 	font-weight: 700;
 	margin-bottom: 0.5rem;
 	color: var(--color-cream);
 }
 
-.fotografie-desc {
+.pf-desc {
 	font-size: 0.9rem;
 	color: rgba(250, 248, 206, 0.5);
 	line-height: 1.5;
 }
 
 .section-subtitle {
-	color: var(--color-photography);
+	color: var(--pf-accent);
 }
 
 /* ========================================
@@ -109,7 +127,7 @@
    ======================================== */
 
 @media (max-width: 768px) {
-	.fotografie-grid {
+	.pf-grid {
 		grid-template-columns: 1fr;
 		gap: var(--space-md);
 	}
@@ -119,17 +137,17 @@
 		height: 48px;
 	}
 
-	.fotografie-info {
+	.pf-info {
 		padding: var(--space-sm) var(--space-md);
 	}
 }
 
 @media (max-width: 480px) {
-	.fotografie-section {
+	.pf-section {
 		padding: var(--space-lg) 0;
 	}
 
-	.fotografie-grid {
+	.pf-grid {
 		grid-template-columns: 1fr;
 	}
 }

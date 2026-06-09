@@ -7,7 +7,7 @@
     <meta name="robots" content="index, follow" />
     <link rel="stylesheet" href="../css/reset.css" />
     <link rel="stylesheet" href="../css/master.css" />
-    <link rel="stylesheet" href="../css/film.css" />
+    <link rel="stylesheet" href="../css/service.css" />
 
     <link
       rel="apple-touch-icon"
@@ -39,7 +39,7 @@
     </script>
   </head>
 
-  <body>
+  <body class="svc-film">
     <!-- Navigation -->
     <!-- Top Navigation Buttons -->
     <div class="top-nav">
@@ -91,14 +91,14 @@
       </ul>
     </nav>
 
-    <section class="film-hero" id="film-hero">
-      <div class="film-hero-content">
-        <p class="film-label">Videografie</p>
-        <h1 class="film-title">
+    <section class="svc-hero" id="film-hero">
+      <div class="svc-hero-content">
+        <p class="svc-label">Videografie</p>
+        <h1 class="svc-title">
           <span class="title-line">Unique visions</span>
           <span class="title-line">set in frame</span>
         </h1>
-        <p class="film-subtitle">Dynamische beelden vastgelegd en verwerkt.</p>
+        <p class="svc-subtitle">Dynamische beelden vastgelegd en verwerkt.</p>
       </div>
       <a href="#showcase" class="scroll-hint">
         <span>Scroll om te verkennen</span>
@@ -107,7 +107,7 @@
     </section>
 
     <!-- Showcase Section -->
-    <section class="film-showcase">
+    <section class="svc-showcase">
       <div class="container" id="showcase">
         <div class="showcase-text">
           <div class="container">
@@ -139,7 +139,7 @@
       </div>
     </section>
     <!-- Services Grid -->
-    <section class="film-services" id="services">
+    <section class="svc-services" id="services">
       <div class="container">
         <div class="section-header fade-up">
           <p class="section-subtitle">Toepassingen</p>
@@ -180,9 +180,9 @@
       </div>
     </section>
     <!-- CTA Section -->
-    <section class="film-cta" id="contact-film">
-      <div class="film-canvas-container">
-        <canvas id="film-canvas"></canvas>
+    <section class="svc-cta" id="contact-film">
+      <div class="svc-canvas-container">
+        <canvas id="film-canvas" class="svc-canvas"></canvas>
       </div>
       <div class="container">
         <div class="cta-content fade-up">
@@ -272,7 +272,7 @@
           </div>
           <div class="footer-divider"></div>
           <p class="footer-copy">
-            &copy; 2026 VIDEJO. Alle rechten voorbehouden |
+            BTW BE1037894456 | &copy; 2026 VIDEJO. Alle rechten voorbehouden |
             <a href="cookies.html">Cookiebeleid</a> |
             <a href="privacy.html">Privacybeleid</a> |
             <a href="voorwaarden.html">Algemene Voorwaarden</a>
@@ -295,19 +295,7 @@
           >Meer info</a
         >
       </span>
-      <button
-        onclick="sluitCookiebar()"
-        onmouseover="
-          this.style.borderColor = 'rgba(251,247,202,0.6)';
-          this.style.color = '#fbf7ca';
-        "
-        onmouseout="
-          this.style.borderColor = 'rgba(251,247,202,0.2)';
-          this.style.color = 'rgba(251,247,202,0.8)';
-        "
-      >
-        Begrepen
-      </button>
+      <button onclick="sluitCookiebar()">Begrepen</button>
     </div>
 
     <script>

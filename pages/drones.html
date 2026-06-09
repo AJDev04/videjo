@@ -7,7 +7,7 @@
     <meta name="robots" content="index, follow" />
     <link rel="stylesheet" href="../css/reset.css" />
     <link rel="stylesheet" href="../css/master.css" />
-    <link rel="stylesheet" href="../css/drones.css" />
+    <link rel="stylesheet" href="../css/service.css" />
 
     <link
       rel="apple-touch-icon"
@@ -39,7 +39,7 @@
     </script>
   </head>
 
-  <body>
+  <body class="svc-drones">
     <!-- Navigation -->
     <!-- Top Navigation Buttons -->
     <div class="top-nav">
@@ -92,14 +92,14 @@
     </nav>
 
     <!-- Hero Section with 3D Drone -->
-    <section class="drone-hero" id="drone-hero">
-      <div class="drone-hero-content">
-        <p class="drone-label">Drone Video</p>
-        <h1 class="drone-title">
+    <section class="svc-hero" id="drone-hero">
+      <div class="svc-hero-content">
+        <p class="svc-label">Drone Video</p>
+        <h1 class="svc-title">
           <span class="title-line">Perspectives</span>
           <span class="title-line">from above</span>
         </h1>
-        <p class="drone-subtitle">
+        <p class="svc-subtitle">
           Cinematische dronebeelden die jouw verhaal naar nieuwe hoogtes tillen.
         </p>
       </div>
@@ -110,7 +110,7 @@
     </section>
 
     <!-- Showcase Section -->
-    <section class="drone-showcase">
+    <section class="svc-showcase">
       <div class="container" id="showcase">
         <div class="showcase-text">
           <div class="container">
@@ -142,7 +142,7 @@
       </div>
     </section>
     <!-- Services Grid -->
-    <section class="drone-services" id="services">
+    <section class="svc-services" id="services">
       <div class="container">
         <div class="section-header fade-up">
           <p class="section-subtitle">Toepassingen</p>
@@ -203,9 +203,9 @@
       </div>
     </section>
     <!-- CTA Section -->
-    <section class="drone-cta" id="contact-drones">
-      <div class="drone-canvas-container">
-        <canvas id="drone-canvas"></canvas>
+    <section class="svc-cta" id="contact-drones">
+      <div class="svc-canvas-container">
+        <canvas id="drone-canvas" class="svc-canvas"></canvas>
       </div>
       <div class="container">
         <div class="cta-content fade-up">
@@ -307,7 +307,7 @@
           </div>
           <div class="footer-divider"></div>
           <p class="footer-copy">
-            &copy; 2026 VIDEJO. Alle rechten voorbehouden |
+            BTW BE1037894456 | &copy; 2026 VIDEJO. Alle rechten voorbehouden |
             <a href="cookies.html">Cookiebeleid</a> |
             <a href="privacy.html">Privacybeleid</a> |
             <a href="voorwaarden.html">Algemene Voorwaarden</a>
@@ -332,14 +332,6 @@
       </span>
       <button
         onclick="sluitCookiebar()"
-        onmouseover="
-          this.style.borderColor = 'rgba(251,247,202,0.6)';
-          this.style.color = '#fbf7ca';
-        "
-        onmouseout="
-          this.style.borderColor = 'rgba(251,247,202,0.2)';
-          this.style.color = 'rgba(251,247,202,0.8)';
-        "
       >
         Begrepen
       </button>

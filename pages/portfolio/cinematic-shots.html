@@ -7,7 +7,7 @@
     <meta name="robots" content="index, follow" />
     <link rel="stylesheet" href="../../css/reset.css" />
     <link rel="stylesheet" href="../../css/master.css" />
-    <link rel="stylesheet" href="../../css/portfolio/cinematic-shots.css" />
+    <link rel="stylesheet" href="../../css/portfolio/items.css" />
 
     <link
       rel="apple-touch-icon"
@@ -78,17 +78,17 @@
       </ul>
     </nav>
     <!-- cinematic Graphics Portfolio Section -->
-    <section class="section cinematic-section">
+    <section class="section pf-section pf-cinematic">
       <div class="container">
         <header class="section-header fade-up">
           <p class="section-subtitle">Portfolio</p>
           <h2 class="section-title">Cinematic Shots</h2>
         </header>
 
-        <div class="cinematic-grid stagger-children">
+        <div class="pf-grid stagger-children">
           <!-- Project 1 -->
-          <article class="cinematic-card fade-up">
-            <div class="cinematic-video">
+          <article class="pf-card fade-up">
+            <div class="pf-video">
               <video
                 src="../../images/LOGO_ANIMATION.mp4"
                 poster="../../images/logo.png"
@@ -101,9 +101,9 @@
                 </svg>
               </button>
             </div>
-            <div class="cinematic-info">
-              <h3 class="cinematic-title">Logo Animatie</h3>
-              <p class="cinematic-desc">VIDEOJO</p>
+            <div class="pf-info">
+              <h3 class="pf-title">Logo Animatie</h3>
+              <p class="pf-desc">VIDEOJO</p>
             </div>
           </article>
 
@@ -168,7 +168,7 @@
           </div>
           <div class="footer-divider"></div>
           <p class="footer-copy">
-            &copy; 2026 VIDEJO. Alle rechten voorbehouden |
+            BTW BE1037894456 | &copy; 2026 VIDEJO. Alle rechten voorbehouden |
             <a href="../cookies.html">Cookiebeleid</a> |
             <a href="../privacy.html">Privacybeleid</a> |
             <a href="../voorwaarden.html">Algemene Voorwaarden</a>
@@ -180,39 +180,6 @@
     <div class="custom-cursor"></div>
     <div class="cursor-dot"></div>
     <script src="../../js/scripts.js"></script>
-    <script>
-      // ========================================
-      // cinematic Graphics Video Player
-      // ========================================
-      document.querySelectorAll(".cinematic-card").forEach((card) => {
-        const video = card.querySelector("video");
-        const playBtn = card.querySelector(".play-btn");
-
-        if (!video || !playBtn) return;
-
-        // Click to toggle full playback with sound
-        playBtn.addEventListener("click", () => {
-          card.classList.add("playing");
-          video.muted = false;
-          video.play();
-        });
-
-        // Click video to pause
-        video.addEventListener("click", () => {
-          if (card.classList.contains("playing")) {
-            video.pause();
-            video.muted = true;
-            card.classList.remove("playing");
-          }
-        });
-
-        // Reset when video ends
-        video.addEventListener("ended", () => {
-          video.muted = true;
-          card.classList.remove("playing");
-        });
-      });
-    </script>
 
     <div id="cookie-bar">
       <span>
@@ -225,14 +192,6 @@
       </span>
       <button
         onclick="sluitCookiebar()"
-        onmouseover="
-          this.style.borderColor = 'rgba(251,247,202,0.6)';
-          this.style.color = '#fbf7ca';
-        "
-        onmouseout="
-          this.style.borderColor = 'rgba(251,247,202,0.2)';
-          this.style.color = 'rgba(251,247,202,0.8)';
-        "
       >
         Begrepen
       </button>
