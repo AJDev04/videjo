@@ -25,6 +25,7 @@ export const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 export function sendContact(data: ContactData) {
   initEmailJs();
   return emailjs.send(SERVICE_ID, TEMPLATE_ID, {
+    to_email: "info@videjo.be",
     name: data.name,
     company: data.company || "Niet opgegeven",
     email: data.email,
