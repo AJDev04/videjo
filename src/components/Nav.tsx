@@ -2,13 +2,8 @@ import { useEffect, useState } from "react";
 import SmartLink from "./SmartLink";
 import VidejoLogo from "./VidejoLogo";
 import { useLenis } from "../lib/lenis";
-
-const LINKS: { to: string; label: string; dataText: string }[] = [
-  { to: "/#hero", label: "Home", dataText: "Home" },
-  { to: "/#expertise", label: "Expertise", dataText: "Expertise" },
-  { to: "/portfolio", label: "Portfolio", dataText: "Portfolio" },
-  { to: "/about", label: "Over Ons", dataText: "About" },
-];
+import { useLanguage, LANGS, LANG_LABELS } from "../lib/lang";
+import { useT } from "../lib/i18n";
 
 /**
  * Top-nav: logo linksboven, "Let's talk" + hamburger rechtsboven,
@@ -18,6 +13,17 @@ export default function Nav() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const lenis = useLenis();
+  const { lang, setLang } = useLanguage();
+  const t = useT();
+
+  // dataText (hover-effect) blijft taal-onafhankelijk; label volgt de taal.
+  const LINKS = [
+    { to: "/#hero", label: t.nav.home, dataText: "Home" },
+    { to: "/projecten", label: t.nav.projecten, dataText: "Projecten" },
+    { to: "/expertise", label: t.nav.expertise, dataText: "Expertise" },
+    { to: "/about", label: t.nav.about, dataText: "About" },
+    { to: "/contact", label: t.nav.contact, dataText: "Contact" },
+  ];
 
   useEffect(() => {
     document.body.classList.toggle("nav-open", open);
@@ -50,11 +56,11 @@ export default function Nav() {
 
       <div className="top-nav">
         <SmartLink
-          to="mailto:videjo.be@gmail.com"
+          to="/contact"
           className="contact-btn nav-btn"
           onNavigate={close}
         >
-          Let's talk
+          {t.nav.talk}
         </SmartLink>
         <button
           className={`menu-btn nav-btn${open ? " open" : ""}`}
@@ -70,9 +76,9 @@ export default function Nav() {
 
       <nav className="nav-overlay">
         <ul className="nav-links">
-          {LINKS.map((link) => (
+          {LINKS.map((link, i) => (
             <li key={link.to}>
-              {link.to !== "/#hero" && <div className="divider"></div>}
+              {i !== 0 && <div className="divider"></div>}
               <SmartLink
                 className="link-text"
                 to={link.to}
@@ -84,6 +90,17 @@ export default function Nav() {
             </li>
           ))}
         </ul>
+        <div className="lang-switcher">
+          {LANGS.map((l) => (
+            <button
+              key={l}
+              className={`lang-btn${l === lang ? " lang-btn--active" : ""}`}
+              onClick={() => setLang(l)}
+            >
+              {LANG_LABELS[l]}
+            </button>
+          ))}
+        </div>
       </nav>
     </>
   );

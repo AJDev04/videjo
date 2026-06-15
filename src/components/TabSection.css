@@ -1,0 +1,39 @@
+/* Gedeelde cream-sectie met een navy "tab" linksboven (gele uppercase titel +
+   holle hoek die vloeiend naar de cream overgaat). De tab sluit naadloos aan op
+   de navy hero erboven. Gebruikt door o.a. Klanten (Projecten) en Expertise. */
+.tab-section {
+  background: var(--color-cream);
+  padding-bottom: clamp(2.5rem, 6vw, 5rem);
+}
+
+.tab-section-tab {
+  position: relative;
+  display: inline-block;
+  background: var(--color-primary);
+  border-radius: 0 0 28px 0;
+  padding: 1.1rem clamp(2.5rem, 5vw, 4.5rem) 1rem clamp(36px, 6vw, 75px);
+}
+
+/* Holle hoek rechtsboven: vloeiende overgang van de tab naar de cream */
+.tab-section-tab::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: -28px;
+  width: 28px;
+  height: 28px;
+  background: radial-gradient(
+    circle at 100% 100%,
+    transparent 27.5px,
+    var(--color-primary) 28px
+  );
+}
+
+.tab-section-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+  color: var(--color-accent-light);
+}

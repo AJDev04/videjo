@@ -1,0 +1,74 @@
+/* Gedeelde landing-hero (Projecten, Expertise, ...): full-screen paarse hero
+   met het VIDEJO-woordmerk en daaronder een paginatitel die exact even breed is
+   als het woordmerk (de breedte-match gebeurt via JS in BrandHero.tsx). */
+.brand-hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-primary);
+  overflow: hidden;
+}
+
+.brand-hero-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: clamp(0.4rem, 1.2vw, 1rem);
+  padding: 0 var(--space-md);
+}
+
+/* "VIDEJO" = merknaam (woordmerk). Deze breedte is de referentie; de titel
+   eronder schaalt ernaartoe (JS-fit). */
+.brand-hero-mark {
+  width: clamp(280px, 42vw, 780px);
+  color: var(--color-cream);
+  opacity: 0;
+  animation: brand-hero-rise 1s 0.2s var(--ease-out) forwards;
+}
+
+.brand-hero-mark-svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* Paginatitel onder het woordmerk — wisselt mee met de taal (NL/FR/EN).
+   width:fit-content omhult de tekst; de font-size wordt in JS gezet zodat de
+   breedte exact die van het woordmerk wordt. De clamp is de pre-JS-fallback. */
+.brand-hero-title {
+  width: fit-content;
+  white-space: nowrap;
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+  line-height: 0.9;
+  font-size: clamp(2.5rem, 7.6vw, 7rem);
+  color: var(--color-accent-light);
+  opacity: 0;
+  animation: brand-hero-rise 1s 0.35s var(--ease-out) forwards;
+}
+
+@media (max-width: 768px) {
+  .brand-hero {
+    min-height: 88vh;
+  }
+  .brand-hero-mark {
+    width: min(80vw, 440px);
+  }
+}
+
+@keyframes brand-hero-rise {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

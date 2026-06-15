@@ -1,13 +1,6 @@
 import SmartLink from "./SmartLink";
 import VidejoWordmark from "./VidejoWordmark";
-
-const PAGES = [
-  { to: "/#hero", label: "Home" },
-  { to: "/#projecten", label: "Projecten" },
-  { to: "/#expertise", label: "Expertise" },
-  { to: "/about", label: "Over Ons" },
-  { to: "mailto:videjo.be@gmail.com", label: "Contact" },
-];
+import { useT } from "../lib/i18n";
 
 const SOCIALS = [
   { href: "https://www.linkedin.com/company/videjobe/", label: "LinkedIn" },
@@ -15,20 +8,30 @@ const SOCIALS = [
   { href: "https://www.tiktok.com/@videjo.be", label: "TikTok" },
 ];
 
-const LEGAL = [
-  { to: "/voorwaarden", label: "Policy" },
-  { to: "/cookies", label: "Cookies" },
-  { to: "/privacy", label: "Privacy" },
-];
-
 export default function Footer() {
+  const t = useT();
+
+  const PAGES = [
+    { to: "/#hero", label: t.nav.home },
+    { to: "/projecten", label: t.nav.projecten },
+    { to: "/expertise", label: t.nav.expertise },
+    { to: "/about", label: t.nav.about },
+    { to: "/contact", label: t.nav.contact },
+  ];
+
+  const LEGAL = [
+    { to: "/voorwaarden", label: t.footer.policy },
+    { to: "/cookies", label: t.footer.cookies },
+    { to: "/privacy", label: t.footer.privacy },
+  ];
+
   return (
     <footer className="footer">
       <div className="footer-panel">
         <div className="footer-top">
           <nav className="footer-cols">
             <div className="footer-col">
-              <h3>Pages</h3>
+              <h3>{t.footer.pages}</h3>
               <ul>
                 {PAGES.map((link) => (
                   <li key={link.label}>
@@ -38,7 +41,7 @@ export default function Footer() {
               </ul>
             </div>
             <div className="footer-col">
-              <h3>Links</h3>
+              <h3>{t.footer.links}</h3>
               <ul>
                 {SOCIALS.map((link) => (
                   <li key={link.label}>
@@ -50,7 +53,7 @@ export default function Footer() {
               </ul>
             </div>
             <div className="footer-col">
-              <h3>Legaal</h3>
+              <h3>{t.footer.legal}</h3>
               <ul>
                 {LEGAL.map((link) => (
                   <li key={link.label}>
@@ -60,14 +63,14 @@ export default function Footer() {
               </ul>
             </div>
           </nav>
-          <SmartLink to="mailto:videjo.be@gmail.com" className="footer-cta">
-            <span className="cta-line1">Let&rsquo;s work</span>
-            <span className="cta-line2">Together</span>
+          <SmartLink to="/contact" className="footer-cta">
+            <span className="cta-line1">{t.footer.ctaLine1}</span>
+            <span className="cta-line2">{t.footer.ctaLine2}</span>
           </SmartLink>
         </div>
         <VidejoWordmark className="footer-wordmark" />
         <p className="footer-copy">
-          BTW BE1037894456 | &copy; 2026 VIDEJO. Alle rechten voorbehouden
+          BTW BE1037894456 | &copy; 2026 VIDEJO. {t.footer.rights}
         </p>
       </div>
     </footer>

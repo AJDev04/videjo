@@ -1,5 +1,6 @@
 import { Outlet, useLocation } from "react-router-dom";
 import { LenisProvider } from "../lib/lenis";
+import { LangProvider } from "../lib/lang";
 import { useScrollReveal } from "../lib/useScrollReveal";
 import { NotificationProvider } from "./Notifications";
 import CookieBar from "./CookieBar";
@@ -24,10 +25,12 @@ function RootInner() {
 
 export default function Layout() {
   return (
-    <LenisProvider>
-      <NotificationProvider>
-        <RootInner />
-      </NotificationProvider>
-    </LenisProvider>
+    <LangProvider>
+      <LenisProvider>
+        <NotificationProvider>
+          <RootInner />
+        </NotificationProvider>
+      </LenisProvider>
+    </LangProvider>
   );
 }

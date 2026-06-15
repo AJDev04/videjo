@@ -1,5 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { useLenis } from "../lib/lenis";
+import { useT } from "../lib/i18n";
+import SmartLink from "./SmartLink";
 
 type Project = {
   title?: string;
@@ -15,6 +17,9 @@ const GAP = 24;
 const PIN_QUERY = "(min-width: 993px)";
 /** Lerp-factor: lager = zachter/trager naloop van de kaarten op de scroll. */
 const EASE = 0.12;
+/** Nav-hoogte: het panel pint hier vlak ónder. Moet gelijk lopen met
+ *  --nav-h in master.css. */
+const NAV_H = 88;
 
 const clamp = (v: number, lo: number, hi: number) =>
   Math.min(hi, Math.max(lo, v));
@@ -34,12 +39,15 @@ export default function ProjectsSection() {
   const viewportRef = useRef<HTMLDivElement>(null);
   const trackRef = useRef<HTMLDivElement>(null);
   const lenis = useLenis();
+  const t = useT();
 
   const overflowRef = useRef(0);
   const sectionTopRef = useRef(0);
   const targetXRef = useRef(0);
   const currentXRef = useRef(0);
   const [pinned, setPinned] = useState(false);
+  const [atStart, setAtStart] = useState(true);
+  const [atEnd, setAtEnd] = useState(false);
 
   const currentScroll = useCallback(
     () => lenis?.scroll ?? window.scrollY,
@@ -54,7 +62,9 @@ export default function ProjectsSection() {
       targetXRef.current = 0;
       return;
     }
-    const total = section.offsetHeight - window.innerHeight;
+    // De pin engaget NAV_H eerder (panel pint ónder de nav) en duurt dus
+    // overflow + NAV_H; sectionTopRef is al met NAV_H verlaagd.
+    const total = overflow + NAV_H;
     const p = clamp((scroll - sectionTopRef.current) / total, 0, 1);
     targetXRef.current = -(p * overflow);
   }, []);
@@ -73,8 +83,9 @@ export default function ProjectsSection() {
 
     if (overflow > 0) {
       section.style.height = `${window.innerHeight + overflow}px`;
+      // -NAV_H: de pin start zodra het panel de nav-onderkant raakt
       sectionTopRef.current =
-        section.getBoundingClientRect().top + currentScroll();
+        section.getBoundingClientRect().top + currentScroll() - NAV_H;
       setPinned(true);
       setTarget(currentScroll());
       // direct op het doel zetten zodat er geen sprong is bij (her)meten
@@ -98,19 +109,41 @@ export default function ProjectsSection() {
     };
   }, [measure]);
 
+  // Pijltjes-randstatus: linker dimt op het begin, rechter op het einde.
+  // Gepind (desktop) uit de horizontale voortgang; mobiel uit de native scroll.
+  const updateEdges = useCallback(() => {
+    const vp = viewportRef.current;
+    if (!vp) return;
+    if (overflowRef.current > 0) {
+      const x = -targetXRef.current;
+      setAtStart(x <= 1);
+      setAtEnd(x >= overflowRef.current - 1);
+    } else {
+      const max = vp.scrollWidth - vp.clientWidth;
+      setAtStart(vp.scrollLeft <= 1);
+      setAtEnd(max <= 1 || vp.scrollLeft >= max - 1);
+    }
+  }, []);
+
   // Scroll volgen (Lenis indien aanwezig, anders native) → zet alleen het doel
   useEffect(() => {
     if (lenis) {
-      const handler = ({ scroll }: { scroll: number }) => setTarget(scroll);
+      const handler = ({ scroll }: { scroll: number }) => {
+        setTarget(scroll);
+        updateEdges();
+      };
       lenis.on("scroll", handler);
       setTarget(lenis.scroll);
       return () => lenis.off("scroll", handler);
     }
-    const handler = () => setTarget(window.scrollY);
+    const handler = () => {
+      setTarget(window.scrollY);
+      updateEdges();
+    };
     window.addEventListener("scroll", handler, { passive: true });
     setTarget(window.scrollY);
     return () => window.removeEventListener("scroll", handler);
-  }, [lenis, setTarget]);
+  }, [lenis, setTarget, updateEdges]);
 
   // rAF-lus: kaarten zacht naar het doel laten lopen
   useEffect(() => {
@@ -133,6 +166,18 @@ export default function ProjectsSection() {
     return () => cancelAnimationFrame(raf);
   }, []);
 
+  useEffect(() => {
+    const vp = viewportRef.current;
+    if (!vp) return;
+    updateEdges();
+    vp.addEventListener("scroll", updateEdges, { passive: true });
+    window.addEventListener("resize", updateEdges);
+    return () => {
+      vp.removeEventListener("scroll", updateEdges);
+      window.removeEventListener("resize", updateEdges);
+    };
+  }, [updateEdges]);
+
   const nudge = (dir: 1 | -1) => {
     const track = trackRef.current;
     const viewport = viewportRef.current;
@@ -140,8 +185,9 @@ export default function ProjectsSection() {
     const card = track.querySelector<HTMLElement>(".project-card");
     const step = card ? card.offsetWidth + GAP : 320;
     if (overflowRef.current > 0) {
-      // gepind: één kaart komt overeen met evenveel verticale scroll
-      const target = currentScroll() + dir * step;
+      // gepind: horizontale stap → verticale scroll (pin-duur = overflow + NAV_H)
+      const vstep = (step * (overflowRef.current + NAV_H)) / overflowRef.current;
+      const target = currentScroll() + dir * vstep;
       if (lenis) lenis.scrollTo(target);
       else window.scrollTo({ top: target, behavior: "smooth" });
     } else {
@@ -158,18 +204,19 @@ export default function ProjectsSection() {
       <div className="projects-sticky">
         <div className="projects-panel">
           <div className="projects-intro">
-            <h2 className="projects-title">Projecten</h2>
-            <p className="projects-text">
-              Bekijk hier al onze projecten die we met veel enthousiasme hebben
-              aangenomen en waar we 100% voor hebben gegeven.
-            </p>
+            <h2 className="projects-title">{t.projectsSection.title}</h2>
+            <p className="projects-text">{t.projectsSection.text}</p>
+            <SmartLink to="/projecten" className="btn btn-primary section-cta">
+              {t.projectsSection.cta}
+            </SmartLink>
           </div>
           <div className="carousel">
             <div className="carousel-controls">
               <button
                 className="carousel-arrow"
                 onClick={() => nudge(-1)}
-                aria-label="Vorige projecten"
+                disabled={atStart}
+                aria-label={t.projectsSection.prev}
               >
                 <svg viewBox="0 0 24 24">
                   <polyline points="15 18 9 12 15 6" />
@@ -178,7 +225,8 @@ export default function ProjectsSection() {
               <button
                 className="carousel-arrow"
                 onClick={() => nudge(1)}
-                aria-label="Volgende projecten"
+                disabled={atEnd}
+                aria-label={t.projectsSection.next}
               >
                 <svg viewBox="0 0 24 24">
                   <polyline points="9 18 15 12 9 6" />

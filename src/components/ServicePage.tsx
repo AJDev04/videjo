@@ -92,7 +92,7 @@ export default function ServicePage(data: ServicePageData) {
           <div className="cta-content fade-up">
             <h2>{data.ctaHeading}</h2>
             <p>{data.ctaParagraph}</p>
-            <SmartLink to="mailto:videjo.be@gmail.com" className="btn btn-primary">
+            <SmartLink to="/contact" className="btn btn-primary">
               Neem contact op
             </SmartLink>
           </div>

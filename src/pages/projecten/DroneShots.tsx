@@ -1,5 +1,5 @@
 import PortfolioItemPage from "../../components/PortfolioItemPage";
-import itemsCss from "../../../css/portfolio/items.css?inline";
+import itemsCss from "../../../css/projecten/items.css?inline";
 
 const LOGO_ITEM = {
   videoSrc: "/images/LOGO_ANIMATION.mp4",
@@ -13,7 +13,7 @@ export const Component = () => (
     theme="pf-drone"
     title="Drone Shots"
     items={[LOGO_ITEM]}
-    canonical="https://videjo.be/portfolio/drone-shots"
+    canonical="https://videjo.be/projecten/drone-shots"
     pageCss={itemsCss}
   />
 );

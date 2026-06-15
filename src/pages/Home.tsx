@@ -3,6 +3,7 @@ import SmartLink from "../components/SmartLink";
 import VidejoLogo from "../components/VidejoLogo";
 import ProjectsSection from "../components/ProjectsSection";
 import ExpertiseSection from "../components/ExpertiseSection";
+import { useT } from "../lib/i18n";
 import indexCss from "../../css/index.css?inline";
 
 const JSON_LD = {
@@ -20,7 +21,19 @@ const JSON_LD = {
   ],
 };
 
+const CLIENTS = [
+  {
+    cls: "client-tmis",
+    src: "/images/clients/tmisverstand.svg",
+    alt: "Restaurant 't Misverstand",
+  },
+  { cls: "client-appel", src: "/images/clients/appelmans.svg", alt: "Appelmans" },
+  { cls: "client-moss", src: "/images/clients/mossmasters.svg", alt: "Mossmasters" },
+  { cls: "client-prim", src: "/images/clients/primero.svg", alt: "Primero" },
+];
+
 export const Component = () => {
+  const t = useT();
   return (
     <>
       <Seo
@@ -50,15 +63,15 @@ export const Component = () => {
         <div className="hero-content">
           <VidejoLogo className="hero-logo" />
           <h1 className="hero-title">
-            <span className="title-line">Stories in motion,</span>
-            <span className="title-line">captured from every angle.</span>
+            <span className="title-line">{t.home.heroLine1}</span>
+            <span className="title-line">{t.home.heroLine2}</span>
           </h1>
           <div className="hero-buttons">
-            <SmartLink to="mailto:videjo.be@gmail.com" className="btn btn-primary">
-              Let's talk
+            <SmartLink to="/contact" className="btn btn-primary">
+              {t.home.talk}
             </SmartLink>
-            <SmartLink to="/portfolio" className="btn btn-outline">
-              Projecten
+            <SmartLink to="/projecten" className="btn btn-outline">
+              {t.home.projecten}
             </SmartLink>
           </div>
         </div>
@@ -73,29 +86,35 @@ export const Component = () => {
       {/* Klanten Section */}
       <section className="clients" id="klanten">
         <div className="clients-tab">
-          <h2 className="clients-title">Klanten</h2>
+          <h2 className="clients-title">{t.home.clients}</h2>
         </div>
+
+        {/* Desktop: statische rij (doorlopende marquee komt hier later, als er
+            genoeg klanten zijn) */}
         <div className="clients-band">
-          <img
-            className="client-logo client-tmis"
-            src="/images/clients/tmisverstand.svg"
-            alt="Restaurant 't Misverstand"
-          />
-          <img
-            className="client-logo client-appel"
-            src="/images/clients/appelmans.svg"
-            alt="Appelmans"
-          />
-          <img
-            className="client-logo client-moss"
-            src="/images/clients/mossmasters.svg"
-            alt="Mossmasters"
-          />
-          <img
-            className="client-logo client-prim"
-            src="/images/clients/primero.svg"
-            alt="Primero"
-          />
+          {CLIENTS.map((c) => (
+            <img
+              key={c.cls}
+              className={`client-logo ${c.cls}`}
+              src={c.src}
+              alt={c.alt}
+            />
+          ))}
+        </div>
+
+        {/* Mobiel: doorlopende 1-rij marquee (lijst meermaals herhaald voor een
+            naadloze loop) */}
+        <div className="clients-marquee" aria-hidden="true">
+          <div className="clients-marquee-track">
+            {[...CLIENTS, ...CLIENTS, ...CLIENTS, ...CLIENTS].map((c, i) => (
+              <img
+                key={i}
+                className={`client-logo ${c.cls}`}
+                src={c.src}
+                alt=""
+              />
+            ))}
+          </div>
         </div>
       </section>
     </>

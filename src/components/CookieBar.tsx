@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 
 /**
@@ -9,12 +9,34 @@ import { Link } from "react-router-dom";
 export default function CookieBar() {
   const [hidden, setHidden] = useState(false);
   const [closing, setClosing] = useState(false);
+  const barRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (localStorage.getItem("videjo_cookie_ok")) {
       setHidden(true);
     }
   }, []);
+
+  // De balk staat fixed onderaan; zonder compensatie bedekt hij de onderkant van
+  // de pagina (bv. de BTW-regel in de footer). Reserveer onderaan de body exact
+  // de hoogte van de balk zolang hij zichtbaar is, en geef die ruimte weer vrij
+  // zodra hij wegschuift. Lenis pikt de nieuwe hoogte vanzelf op (ResizeObserver).
+  useEffect(() => {
+    if (hidden || closing) {
+      document.body.style.paddingBottom = "";
+      return;
+    }
+    const apply = () => {
+      const h = barRef.current?.offsetHeight ?? 0;
+      document.body.style.paddingBottom = h ? `${h}px` : "";
+    };
+    apply();
+    window.addEventListener("resize", apply);
+    return () => {
+      window.removeEventListener("resize", apply);
+      document.body.style.paddingBottom = "";
+    };
+  }, [hidden, closing]);
 
   if (hidden) return null;
 
@@ -27,6 +49,7 @@ export default function CookieBar() {
   return (
     <div
       id="cookie-bar"
+      ref={barRef}
       style={closing ? { transform: "translateY(100%)" } : undefined}
     >
       <span>

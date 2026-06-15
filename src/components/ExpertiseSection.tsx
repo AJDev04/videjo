@@ -2,12 +2,13 @@ import { useState } from "react";
 import SmartLink from "./SmartLink";
 import VidejoLogo from "./VidejoLogo";
 import RollText from "./RollText";
+import { useT } from "../lib/i18n";
 
 const TILES = [
   { to: "/film", cls: "tile-film", label: "Film" },
   { to: "/drones", cls: "tile-drones", label: "Drones" },
   { to: "/motion", cls: "tile-motion", label: "Motion" },
-  { to: "/portfolio/fotografie", cls: "tile-photo", label: "Photo" },
+  { to: "/projecten/fotografie", cls: "tile-photo", label: "Photo" },
 ];
 
 /**
@@ -17,6 +18,7 @@ const TILES = [
  */
 export default function ExpertiseSection() {
   const [active, setActive] = useState<string | null>(null);
+  const t = useT();
 
   return (
     <section className="expertise" id="expertise">
@@ -38,14 +40,14 @@ export default function ExpertiseSection() {
           ))}
         </div>
         <div className="expertise-intro">
-          <h2 className="expertise-title">Expertise</h2>
+          <h2 className="expertise-title">{t.expertiseSection.title}</h2>
           <p className="expertise-sub">
             <RollText text={active ?? "Videjo"} />
           </p>
-          <p className="expertise-text">
-            Hier zijn onze 4 expertises. We specialiseren hierin en zijn klaar
-            om iets top voor u neer te zetten.
-          </p>
+          <p className="expertise-text">{t.expertiseSection.text}</p>
+          <SmartLink to="/expertise" className="btn btn-primary section-cta">
+            {t.expertiseSection.cta}
+          </SmartLink>
         </div>
       </div>
     </section>

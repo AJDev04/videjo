@@ -44,7 +44,7 @@
 }
 
 .hero-title {
-	font-size: clamp(1.05rem, 4.6vw, 1.6rem);
+	font-size: clamp(1rem, 3.4vw, 1.2rem);
 	letter-spacing: 0;
 	line-height: 1.35;
 	color: var(--color-cream);
@@ -64,6 +64,8 @@
 
 .hero-buttons .btn {
 	flex: 1;
+	font-size: 0.92rem;
+	padding: 0.6rem 1rem;
 }
 
 /* ========================================
@@ -77,19 +79,20 @@
 /* Bij "pinned" wordt de sectie hoog (height via JS) en blijft het panel
    vastgepind terwijl de pagina scrollt; de carousel verschuift dan
    horizontaal. Daarbuiten (mobiel) is dit gewoon een normaal blok. */
+/* Pint vlak ónder de nav (top = nav-hoogte), niet erachter. De hoogte is
+   navlooshoogte zodat de sticky precies past en niet vroegtijdig losdrift. */
 .projects.is-pinned .projects-sticky {
 	position: sticky;
-	top: 0;
-	height: 100vh;
+	top: var(--nav-h);
+	height: calc(100vh - var(--nav-h));
 	display: flex;
 	align-items: flex-start;
 	overflow: hidden;
 }
 
-/* Gepind sluit het panel bovenaan aan (navy hero → navy panel, geen cream
-   ertussen); extra navy padding bovenin houdt de titel onder de nav vandaan */
+/* Kleine ademruimte bovenin; de nav-clearance zit nu in de sticky-top */
 .projects.is-pinned .projects-panel {
-	padding-top: clamp(96px, 12vh, 140px);
+	padding-top: clamp(28px, 4vh, 48px);
 }
 
 /* Donkerblauw panel: rechts full-bleed, grote ronde hoek linksonder */
@@ -99,7 +102,7 @@
 	gap: var(--space-md);
 	width: 100%;
 	background: var(--color-primary);
-	margin-left: clamp(36px, 10vw, 160px);
+	margin-left: clamp(36px, 16vw, 280px);
 	border-radius: 0 0 0 140px;
 	padding: var(--space-lg) 0 var(--space-lg) clamp(48px, 7vw, 110px);
 	overflow: hidden;
@@ -117,9 +120,9 @@
 	font-family: var(--font-main);
 	font-weight: 600;
 	font-size: 1.05rem;
-	line-height: 1.5;
+	line-height: 1.55;
 	color: var(--color-cream);
-	max-width: 26ch;
+	max-width: 32ch;
 }
 
 .carousel {
@@ -129,6 +132,7 @@
 	min-width: 0;
 }
 
+/* Pijltjes op mobiel én desktop (gepind: ze nudgen de verticale scroll) */
 .carousel-controls {
 	display: flex;
 	gap: 10px;
@@ -146,6 +150,19 @@
 	align-items: center;
 	justify-content: center;
 	cursor: pointer;
+	transition:
+		background 0.25s var(--ease-out),
+		opacity 0.25s var(--ease-out);
+}
+
+/* Op het begin/einde: pijltje wordt donker (uitgeschakeld) */
+.carousel-arrow:disabled {
+	background: color-mix(in srgb, var(--color-cream) 20%, var(--color-primary));
+	cursor: default;
+}
+
+.carousel-arrow:disabled svg {
+	stroke: color-mix(in srgb, var(--color-cream) 50%, var(--color-primary));
 }
 
 .carousel-arrow svg {
@@ -196,8 +213,7 @@
 	position: relative;
 }
 
-/* Gepind: kaarten schalen mee met de schermhoogte zodat het panel het
-   scherm vult en de cream-marge erboven/eronder klein blijft */
+/* Gepind: kaarten schalen mee met de schermhoogte */
 .projects.is-pinned .project-card {
 	width: auto;
 	height: clamp(320px, 60vh, 640px);
@@ -231,11 +247,11 @@
    Tegels links en intro rechts, beide verticaal gecentreerd. */
 .expertise-panel {
 	display: grid;
-	grid-template-columns: minmax(280px, 420px) 1fr;
-	gap: clamp(2.5rem, 6vw, 6rem);
-	align-items: center;
+	grid-template-columns: minmax(360px, 560px) 1fr;
+	gap: clamp(2.5rem, 5vw, 5rem);
+	align-items: start;
 	background: var(--color-primary);
-	margin-right: clamp(36px, 10vw, 160px);
+	margin-right: clamp(36px, 22vw, 380px);
 	border-radius: 0 140px 140px 0;
 	padding: clamp(3rem, 6vw, 5rem) clamp(48px, 7vw, 110px) clamp(3rem, 6vw, 5rem)
 		clamp(36px, 6vw, 90px);
@@ -312,7 +328,7 @@
 }
 
 .expertise-title {
-	font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+	font-size: clamp(2rem, 4vw, 3rem);
 	font-weight: 900;
 	text-transform: uppercase;
 	line-height: 1;
@@ -378,10 +394,16 @@
 .expertise-text {
 	font-family: var(--font-main);
 	font-weight: 600;
-	font-size: 1.05rem;
-	line-height: 1.5;
+	font-size: 1.1rem;
+	line-height: 1.55;
 	color: var(--color-cream);
-	max-width: 30ch;
+	max-width: 34ch;
+}
+
+/* CTA onder de projecten-/expertise-tekst: blok dat niet uitrekt */
+.section-cta {
+	align-self: flex-start;
+	margin-top: var(--space-md);
 }
 
 /* ========================================
@@ -457,6 +479,38 @@
 
 .client-prim {
 	height: clamp(48px, 7vw, 72px);
+}
+
+/* Doorlopende 1-rij klanten-marquee. Standaard verborgen: desktop toont de
+   statische band tot er genoeg klanten zijn voor een vloeiende loop. */
+.clients-marquee {
+	display: none;
+}
+
+.clients-marquee-track {
+	display: flex;
+	width: max-content;
+	align-items: center;
+	animation: clients-marquee 22s linear infinite;
+}
+
+/* Trailing-marge i.p.v. gap: zo staat er ook ná elk logo evenveel ruimte,
+   waardoor de -50%-loop exact naadloos aansluit (geen sprongetje). */
+.clients-marquee-track .client-logo {
+	margin-right: clamp(4rem, 20vw, 7rem);
+}
+
+@keyframes clients-marquee {
+	to {
+		/* lijst is 4× herhaald; -50% = 2 sets verder → naadloze loop */
+		transform: translateX(-50%);
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.clients-marquee-track {
+		animation: none;
+	}
 }
 
 /* ========================================
@@ -656,6 +710,10 @@
 	border-radius: var(--radius);
 	border: 2px solid transparent;
 	cursor: pointer;
+	transition:
+		background-color 0.3s var(--ease-out),
+		color 0.3s var(--ease-out),
+		border-color 0.3s var(--ease-out);
 }
 
 .btn-primary {
@@ -668,6 +726,19 @@
 	background: var(--color-primary);
 	color: var(--color-accent-light);
 	border-color: var(--color-accent-light);
+}
+
+/* Hover: geel ↔ paars wisselen */
+.btn-primary:hover {
+	background: var(--color-primary);
+	color: var(--color-accent-light);
+	border-color: var(--color-accent-light);
+}
+
+.btn-outline:hover {
+	background: var(--color-accent-light);
+	color: var(--color-primary);
+	border-color: var(--color-primary);
 }
 
 .btn-full {
@@ -687,26 +758,64 @@
 	}
 
 	/* Projecten: panel niet meer full-bleed-met-marge (dat liep buiten beeld),
-	   maar gewoon volle breedte; geen pinning, native horizontaal scrollen */
+	   maar gewoon volle breedte; geen pinning, native horizontaal scrollen.
+	   Compacte intro zodat de hele sectie (intro + volledige kaart) in ~één
+	   schermhoogte past. */
 	.projects-panel {
 		width: auto;
 		margin-left: 0;
+		gap: var(--space-md);
 		border-radius: 0 0 0 70px;
-		padding: var(--space-lg) 0 var(--space-lg) clamp(24px, 6vw, 48px);
+		padding: var(--space-md) 0;
+	}
+
+	/* Intro krijgt eigen inset; carousel blijft full-bleed zodat de kaart op
+	   het scherm gecentreerd staat (niet verschoven door panel-padding) */
+	.projects-intro {
+		padding-inline: clamp(24px, 6vw, 48px);
+	}
+
+	.projects-text {
+		font-size: 0.95rem;
+		line-height: 1.45;
+	}
+
+	.section-cta {
+		margin-top: var(--space-sm);
 	}
 
 	.carousel-controls {
 		padding-right: clamp(20px, 5vw, 40px);
 	}
 
+	/* Gesnapte kaart in het midden; kaarten faden links uit als ze (richting het
+	   einde van de carousel) naar buiten scrollen. De fade (80px) blijft binnen
+	   de linker-peek, dus de gecentreerde kaart blijft volledig zichtbaar. */
 	.carousel-viewport {
-		scroll-padding-left: 48px;
-		-webkit-mask-image: linear-gradient(to right, transparent 0, #000 48px);
-		mask-image: linear-gradient(to right, transparent 0, #000 48px);
+		scroll-padding-inline: 0;
+		-webkit-mask-image: linear-gradient(to right, transparent 0, #000 80px);
+		mask-image: linear-gradient(to right, transparent 0, #000 80px);
 	}
 
+	/* Kaart-hoogte = wat er onder de intro overblijft binnen één schermhoogte,
+	   zodat elke (portret-)kaart altijd volledig in beeld staat — ongeacht de
+	   scrollpositie. Breedte volgt uit de aspect-ratio (0.62). */
+	.carousel {
+		--card-h: clamp(220px, calc(100svh - 440px), 460px);
+	}
+
+	.project-card {
+		width: auto;
+		height: var(--card-h);
+		scroll-snap-align: center;
+	}
+
+	/* Symmetrische padding = (viewportbreedte − kaartbreedte) / 2, zodat de
+	   gesnapte kaart gecentreerd staat met gelijke randen links/rechts.
+	   Halve kaartbreedte = 0.31 × hoogte (aspect-ratio 0.62). */
 	.carousel-track {
-		padding-left: 48px;
+		padding-left: calc(50% - 0.31 * var(--card-h));
+		padding-right: calc(50% - 0.31 * var(--card-h));
 	}
 
 	/* Expertise: panel volle breedte, tegels gecentreerd boven de intro */
@@ -737,10 +846,16 @@
 }
 
 @media (max-width: 768px) {
-	/* Klantlogo's gecentreerd en gelijkmatig wanneer ze wrappen */
+	/* Klanten: statische band weg, doorlopende marquee aan */
 	.clients-band {
-		justify-content: center;
-		gap: clamp(2rem, 7vw, 3rem) clamp(2.5rem, 10vw, 4rem);
+		display: none;
+	}
+
+	.clients-marquee {
+		display: block;
+		overflow: hidden;
+		background: var(--color-primary);
+		padding: var(--space-lg) 0;
 	}
 
 	.portfolio-grid {

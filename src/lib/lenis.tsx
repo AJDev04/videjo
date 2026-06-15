@@ -24,6 +24,7 @@ export function LenisProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
     const instance = new Lenis();
     setLenis(instance);
+    if (import.meta.env.DEV) (window as unknown as { __lenis?: Lenis }).__lenis = instance;
 
     let rafId = 0;
     const loop = (time: number) => {

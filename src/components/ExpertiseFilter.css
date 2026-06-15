@@ -1,0 +1,164 @@
+/* Interactieve expertise-filter (FILM/DRONES/MOTION/PHOTO). De actieve categorie
+   zet --accent (via data-active); die kleur stuurt de titels, de tekstbox en de
+   tags. De navy media-blokken en de kaartrand blijven primary. */
+.exp-filter {
+  --accent: var(--color-film);
+  max-width: 1280px;
+  margin: clamp(1.5rem, 3vw, 2.5rem) auto 0;
+  padding: 0 clamp(20px, 4vw, 56px);
+}
+
+.exp-filter[data-active="film"] {
+  --accent: var(--color-film);
+}
+.exp-filter[data-active="drones"] {
+  --accent: var(--color-drones);
+}
+.exp-filter[data-active="motion"] {
+  --accent: var(--color-motion);
+}
+.exp-filter[data-active="photo"] {
+  --accent: var(--color-photography);
+}
+
+/* ----- Filterbar ----- */
+.exp-filter-bar {
+  position: relative;
+  display: flex;
+  gap: clamp(4px, 0.5vw, 8px);
+  padding: clamp(5px, 0.5vw, 9px);
+  background: var(--color-primary);
+  border-radius: 9999px;
+  margin-bottom: clamp(1.25rem, 2.5vw, 2.25rem);
+}
+
+/* Gleidende cream pill achter de actieve tab (positie via JS gezet) */
+.exp-filter-pill {
+  position: absolute;
+  left: 0;
+  z-index: 0;
+  background: var(--color-cream);
+  border-radius: 9999px;
+}
+
+.exp-filter-pill.is-animated {
+  transition:
+    transform 0.4s var(--ease-out),
+    width 0.4s var(--ease-out);
+}
+
+.exp-filter-tab {
+  position: relative;
+  z-index: 1;
+  flex: 1;
+  border: none;
+  background: transparent;
+  color: var(--color-cream);
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: clamp(0.8rem, 1.4vw, 1.25rem);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: clamp(0.55rem, 1vw, 1rem);
+  border-radius: 9999px;
+  cursor: pointer;
+  transition: color 0.3s var(--ease-out);
+}
+
+.exp-filter-tab.active {
+  color: var(--accent);
+}
+
+/* ----- Kaart ----- */
+.exp-card {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(1rem, 2vw, 2rem);
+  background: var(--color-cream);
+  border: clamp(8px, 1vw, 14px) solid var(--color-primary);
+  border-radius: clamp(20px, 2.4vw, 36px);
+  padding: clamp(1.25rem, 2.6vw, 2.75rem);
+}
+
+.exp-card-cell {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Navy media-placeholders (later beelden/video) */
+.exp-card-media {
+  background: var(--color-primary);
+  border-radius: clamp(12px, 1.4vw, 20px);
+  min-height: clamp(200px, 26vw, 340px);
+}
+
+/* Intro: titel + accent-tekstbox */
+.exp-card-title {
+  margin: 0 0 clamp(0.75rem, 1.6vw, 1.25rem);
+  font-family: var(--font-display);
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+  font-size: clamp(1.8rem, 3.4vw, 3rem);
+  line-height: 0.95;
+  color: var(--accent);
+  transition: color 0.3s var(--ease-out);
+}
+
+.exp-card-desc {
+  margin: 0;
+  background: var(--accent);
+  color: var(--color-cream);
+  border-radius: clamp(12px, 1.4vw, 20px);
+  padding: clamp(1rem, 1.8vw, 1.75rem);
+  font-weight: 700;
+  font-size: clamp(1rem, 1.5vw, 1.35rem);
+  line-height: 1.25;
+  transition: background-color 0.3s var(--ease-out);
+}
+
+/* "Wat we ..." + tags */
+.exp-card-subtitle {
+  margin: 0 0 clamp(0.75rem, 1.6vw, 1.25rem);
+  font-family: var(--font-display);
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+  font-size: clamp(1.4rem, 2.8vw, 2.6rem);
+  line-height: 0.95;
+  color: var(--accent);
+  transition: color 0.3s var(--ease-out);
+}
+
+.exp-card-tags {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(0.6rem, 1.2vw, 1rem);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.exp-card-tag {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: var(--accent);
+  color: var(--color-cream);
+  border-radius: clamp(8px, 1vw, 14px);
+  padding: clamp(0.7rem, 1.4vw, 1.15rem);
+  font-weight: 700;
+  font-size: clamp(0.9rem, 1.3vw, 1.2rem);
+  transition: background-color 0.3s var(--ease-out);
+}
+
+/* Mobiel: kaart in één kolom */
+@media (max-width: 768px) {
+  .exp-card {
+    grid-template-columns: 1fr;
+  }
+  .exp-card-media {
+    min-height: clamp(160px, 48vw, 240px);
+  }
+}

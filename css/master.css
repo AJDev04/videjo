@@ -34,6 +34,10 @@
   --radius: 11px;
   --radius-lg: 24px;
 
+  /* Hoogte van de (vaste) nav-balk; gebruikt om sticky/pin eronder te zetten.
+     Moet gelijk lopen met NAV_H in ProjectsSection.tsx. */
+  --nav-h: 88px;
+
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
   --ease-in-out: cubic-bezier(0.87, 0, 0.13, 1);
 }
@@ -94,6 +98,9 @@
 html {
   scroll-behavior: smooth;
   font-size: 16px;
+  /* Op de root (niet op body): voorkomt horizontale overflow zonder een
+     aparte scroll-container te maken, zodat position:sticky blijft werken. */
+  overflow-x: hidden;
 }
 
 body {
@@ -103,7 +110,6 @@ body {
   color: var(--color-cream);
 
   background-color: var(--color-primary);
-  overflow-x: hidden;
   -webkit-user-select: none; /* Safari */
   -ms-user-select: none; /* IE 10 and Elder */
   user-select: none;
@@ -212,6 +218,17 @@ ul {
   text-transform: uppercase;
   text-decoration: none;
   letter-spacing: 0.04em;
+  transition:
+    background-color 0.3s var(--ease-out),
+    color 0.3s var(--ease-out),
+    border-color 0.3s var(--ease-out);
+}
+
+/* Hover: geel "Let's talk" wisselt naar paars */
+.contact-btn:hover {
+  background: var(--color-primary);
+  color: var(--color-accent-light);
+  border-color: var(--color-accent-light);
 }
 
 /* MENU BUTTON */
@@ -223,6 +240,15 @@ ul {
   justify-content: center;
 }
 
+/* Hover: beige knop wisselt naar paars, streepjes worden beige */
+.menu-btn:hover {
+  background: var(--color-primary);
+}
+
+.menu-btn:hover .burger span {
+  background: var(--color-cream);
+}
+
 /* CONTACT BUTTON */
 .contact-btn {
   background: var(--color-accent-light);
@@ -232,39 +258,46 @@ ul {
 
 /* BURGER ICON: 2 dikke streepjes, onderste korter (rechts uitgelijnd) */
 .burger {
-  width: 20px;
+  position: relative;
+  width: 28px;
   height: 13px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
 }
 
+/* Beide streepjes hangen aan het midden (top/left 50% + translate), zodat de
+   open-staat een nette, gecentreerde X wordt. */
 .burger span {
-  display: block;
-  width: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
   height: 3px;
   background: var(--color-primary);
   border-radius: 3px;
-  transform-origin: left center;
   transition:
     transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
-    width 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+    width 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+    background-color 0.3s var(--ease-out);
+}
+
+/* gesloten: bovenste streep vol, onderste korter en rechts uitgelijnd */
+.burger span:first-child {
+  width: 28px;
+  transform: translate(-50%, -50%) translateY(-5px);
 }
 
 .burger span:last-child {
-  width: 60%;
-  align-self: flex-end;
+  width: 17px;
+  transform: translate(-50%, -50%) translateY(5px) translateX(5.5px);
 }
 
-/* OPEN STATE */
+/* OPEN STATE: nette gecentreerde X */
 .menu-btn.open .burger span:first-child {
-  transform: rotate(45deg);
-  width: 21px;
+  width: 26px;
+  transform: translate(-50%, -50%) rotate(45deg);
 }
 
 .menu-btn.open .burger span:last-child {
-  transform: rotate(-45deg);
-  width: 21px;
+  width: 26px;
+  transform: translate(-50%, -50%) rotate(-45deg);
 }
 
 /* ========================================
@@ -336,7 +369,7 @@ ul {
   color: var(--color-cream);
   text-decoration: none;
   text-transform: uppercase;
-  font-family: var(--font-main);
+  font-family: var(--font-display);
   opacity: 1;
   transition:
     opacity 0.3s ease,
@@ -365,6 +398,60 @@ ul {
 
 .nav-links a:hover .divider {
   opacity: 1;
+}
+
+/* ========================================
+   Language Switcher (in nav overlay)
+   ======================================== */
+
+.lang-switcher {
+  position: absolute;
+  bottom: 2.5rem;
+  right: 2.5rem;
+  display: flex;
+  gap: 10px;
+  z-index: 1;
+}
+
+.lang-btn {
+  background: none;
+  border: 2px solid rgba(250, 248, 206, 0.25);
+  border-radius: var(--radius);
+  color: rgba(250, 248, 206, 0.45);
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.45rem 0.9rem;
+  cursor: pointer;
+  transition:
+    border-color 0.25s ease,
+    color 0.25s ease,
+    background-color 0.25s ease;
+}
+
+.lang-btn:hover {
+  border-color: rgba(250, 248, 206, 0.6);
+  color: var(--color-cream);
+}
+
+.lang-btn--active {
+  border-color: var(--color-accent-light);
+  color: var(--color-accent-light);
+}
+
+@media (max-width: 480px) {
+  .lang-switcher {
+    bottom: 1.5rem;
+    right: 1.5rem;
+    gap: 8px;
+  }
+
+  .lang-btn {
+    font-size: 0.65rem;
+    padding: 0.4rem 0.7rem;
+  }
 }
 
 /* ========================================
@@ -459,21 +546,37 @@ ul {
   display: inline-flex;
   flex-direction: column;
   border: 3px solid var(--color-cream);
-  border-radius: 18px 28px 18px 18px;
+  border-radius: 18px;
   padding: 0.8rem 1.5rem;
   font-family: var(--font-display);
   font-weight: 900;
   text-transform: uppercase;
   font-size: clamp(1.3rem, 2vw, 1.7rem);
   line-height: 1.1;
+  transition:
+    background-color 0.3s var(--ease-out),
+    border-color 0.3s var(--ease-out);
 }
 
 .footer-cta .cta-line1 {
   color: var(--color-cream);
+  transition: color 0.3s var(--ease-out);
 }
 
 .footer-cta .cta-line2 {
   color: var(--color-accent-light);
+  transition: color 0.3s var(--ease-out);
+}
+
+/* Hover: vult geel, tekst wordt paars */
+.footer-cta:hover {
+  background: var(--color-accent-light);
+  border-color: var(--color-accent-light);
+}
+
+.footer-cta:hover .cta-line1,
+.footer-cta:hover .cta-line2 {
+  color: var(--color-primary);
 }
 
 .footer-wordmark {
@@ -555,6 +658,27 @@ ul {
   .nav-btn {
     padding: 0.55rem 1.2rem;
     font-size: 0.8rem;
+  }
+
+  /* Footer: 2-koloms raster zodat de CTA naast "Legaal" komt te staan.
+     display:contents tilt de 3 kolommen uit .footer-cols het raster in, samen
+     met de CTA → Pages | Links / Legaal | Let's work together. */
+  .footer-top {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-lg) var(--space-md);
+    align-items: start;
+  }
+
+  .footer-cols {
+    display: contents;
+  }
+
+  .footer-cta {
+    justify-self: start;
+    align-self: start;
+    font-size: clamp(0.85rem, 4vw, 1.5rem);
+    padding: 0.65rem 0.85rem;
   }
 }
 

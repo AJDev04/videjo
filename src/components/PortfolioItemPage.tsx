@@ -82,7 +82,7 @@ export default function PortfolioItemPage(data: PortfolioItemPageData) {
       <section className={`section pf-section ${data.theme}`}>
         <div className="container">
           <header className="section-header fade-up">
-            <p className="section-subtitle">Portfolio</p>
+            <p className="section-subtitle">Projecten</p>
             <h2 className="section-title">{data.title}</h2>
           </header>
 
