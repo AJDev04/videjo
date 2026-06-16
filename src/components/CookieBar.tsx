@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
+import { useT } from "../lib/i18n";
 
 /**
  * Cookie-balk — port van het inline cookie-script in de legacy-pagina's.
@@ -10,6 +11,7 @@ export default function CookieBar() {
   const [hidden, setHidden] = useState(false);
   const [closing, setClosing] = useState(false);
   const barRef = useRef<HTMLDivElement>(null);
+  const t = useT();
 
   useEffect(() => {
     if (localStorage.getItem("videjo_cookie_ok")) {
@@ -53,7 +55,7 @@ export default function CookieBar() {
       style={closing ? { transform: "translateY(100%)" } : undefined}
     >
       <span>
-        Deze site gebruikt technisch noodzakelijke cookies.{" "}
+        {t.cookie.text}{" "}
         <Link
           to="/cookies"
           style={{
@@ -61,10 +63,10 @@ export default function CookieBar() {
             textUnderlineOffset: "3px",
           }}
         >
-          Meer info
+          {t.cookie.more}
         </Link>
       </span>
-      <button onClick={accept}>Begrepen</button>
+      <button onClick={accept}>{t.cookie.ok}</button>
     </div>
   );
 }

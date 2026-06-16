@@ -1,49 +1,17 @@
 import { useEffect, useRef, useState } from "react";
+import { useSearchParams } from "react-router-dom";
+import { useT } from "../lib/i18n";
 import expertiseFilterCss from "./ExpertiseFilter.css?inline";
 
-type Filter = {
-  id: string;
-  label: string;
-  desc: string;
-  what: string;
-  tags: string[];
-};
-
-/**
- * Vertaalbare filterdata (FR/EN later). FILM is aangeleverd door Joren; drones/
- * motion/photo zijn voorlopige NL-placeholderteksten — vrij aan te passen.
- * De id stuurt de accentkleur via [data-active] in ExpertiseFilter.css.
- */
-const FILTERS: Filter[] = [
-  {
-    id: "film",
-    label: "Film",
-    desc: "Laten we bespreken hoe videografie jouw project naar een hoger niveau kan tillen.",
-    what: "Wat we filmen",
-    tags: ["Sociale Media", "Events", "Bedrijven", "Vastgoed"],
-  },
-  {
-    id: "drones",
-    label: "Drones",
-    desc: "Laten we bespreken hoe luchtbeelden jouw verhaal een uniek perspectief geven.",
-    what: "Wat we capteren",
-    tags: ["Vastgoed", "Events", "Natuur", "Bedrijven"],
-  },
-  {
-    id: "motion",
-    label: "Motion",
-    desc: "Laten we bespreken hoe motion graphics jouw boodschap echt tot leven brengen.",
-    what: "Wat we maken",
-    tags: ["Logo-animaties", "Explainers", "Intro's", "Socials"],
-  },
-  {
-    id: "photo",
-    label: "Photo",
-    desc: "Laten we bespreken hoe fotografie jouw merk scherp en stijlvol in beeld brengt.",
-    what: "Wat we fotograferen",
-    tags: ["Producten", "Portretten", "Events", "Bedrijven"],
-  },
-];
+// De id stuurt de accentkleur via [data-active] in ExpertiseFilter.css; het
+// label (Film/Drones/Motion/Photo) is een merk-term en vertaalt niet mee.
+// desc/what/tags komen vertaald uit i18n (gekoppeld op id).
+const FILTER_META = [
+  { id: "film", label: "Film" },
+  { id: "drones", label: "Drones" },
+  { id: "motion", label: "Motion" },
+  { id: "photo", label: "Photo" },
+] as const;
 
 /**
  * Expertise-filter: een navy tab-bar (FILM/DRONES/MOTION/PHOTO) boven een kaart.
@@ -51,7 +19,18 @@ const FILTERS: Filter[] = [
  */
 export default function ExpertiseFilter() {
   const [active, setActive] = useState("film");
+  const t = useT();
+  const FILTERS = FILTER_META.map((f) => ({ ...f, ...t.expertise.filters[f.id] }));
   const current = FILTERS.find((f) => f.id === active) ?? FILTERS[0];
+
+  // Start-filter uit de URL (?filter=…), bv. vanaf de homepage-tegels. Pas ná
+  // mount toegepast (niet in de initializer) zodat de eerste client-render
+  // overeenkomt met de statisch voor-gerenderde HTML (geen hydration-mismatch).
+  const [searchParams] = useSearchParams();
+  useEffect(() => {
+    const f = searchParams.get("filter");
+    if (f && FILTER_META.some((m) => m.id === f)) setActive(f);
+  }, [searchParams]);
 
   // Cream "pill" achter de actieve tab: meet de actieve tab en schuif de pill
   // ernaartoe (swipe). De transitie zetten we pas ná de eerste meting aan, zodat

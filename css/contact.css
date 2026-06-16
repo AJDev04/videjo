@@ -173,6 +173,16 @@
   color: var(--color-accent-light);
 }
 
+.contact-submit:disabled {
+  opacity: 0.55;
+  cursor: progress;
+}
+
+.contact-submit:disabled:hover {
+  background: var(--color-accent-light);
+  color: var(--color-primary);
+}
+
 .contact-note {
   font-family: var(--font-main);
   font-weight: 600;
@@ -180,6 +190,10 @@
   color: var(--color-primary);
   min-height: 1.2em;
   margin: 0;
+}
+
+.contact-note--error {
+  color: var(--color-film);
 }
 
 @media (max-width: 820px) {

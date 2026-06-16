@@ -6,7 +6,12 @@
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://videjo.be/portfolio</loc>
+    <loc>https://videjo.be/projecten</loc>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://videjo.be/expertise</loc>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
@@ -16,18 +21,8 @@
     <changefreq>yearly</changefreq>
   </url>
   <url>
-    <loc>https://videjo.be/film</loc>
+    <loc>https://videjo.be/contact</loc>
     <priority>0.7</priority>
-    <changefreq>monthly</changefreq>
-  </url>
-  <url>
-    <loc>https://videjo.be/drones</loc>
-    <priority>0.7</priority>
-    <changefreq>monthly</changefreq>
-  </url>
-  <url>
-    <loc>https://videjo.be/motion</loc>
-    <priority>0.7</priority>
-    <changefreq>monthly</changefreq>
+    <changefreq>yearly</changefreq>
   </url>
 </urlset>

@@ -1,0 +1,22 @@
+{
+  // VIDEJO project-API. Deploy met `npx wrangler deploy`.
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "videjo-api",
+  "main": "src/index.ts",
+  "compatibility_date": "2025-06-01",
+  "observability": { "enabled": true },
+
+  // KV-namespace voor de projecten. Maak 'm aan met:
+  //   npx wrangler kv namespace create PROJECTS
+  // en plak het gegenereerde id hieronder.
+  "kv_namespaces": [{ "binding": "PROJECTS", "id": "c6d8079241a74758aea53611b3517b6b" }],
+
+  // Toegelaten origins voor CORS (komma-gescheiden). Zet je live site-URL erbij.
+  "vars": {
+    "ALLOWED_ORIGIN": "https://videjo.be,http://localhost:5173"
+  }
+
+  // Secrets (NIET hier; via `npx wrangler secret put ...`):
+  //   ADMIN_PASSWORD   – wachtwoord voor /admin
+  //   SESSION_SECRET   – willekeurige lange string om tokens te ondertekenen
+}

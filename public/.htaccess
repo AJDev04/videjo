@@ -1,0 +1,36 @@
+# VIDEJO — routing voor klassieke (Apache/LiteSpeed) hosting via FTP.
+# Zorgt dat schone URL's (/about, /projecten) werken, dat de dynamische
+# projectpagina's (/projecten/:slug) door de React-app afgehandeld worden, en
+# behoudt de oude 301-redirects. (Op Cloudflare Pages/Netlify doet public/_redirects dit.)
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+
+  # --- Oude .html-paden -> nieuwe schone URL's (301) ---
+  RewriteRule ^pages/portfolio\.html$              /projecten                 [R=301,L]
+  RewriteRule ^pages/about\.html$                  /about                     [R=301,L]
+  RewriteRule ^pages/drones\.html$                 /expertise?filter=drones   [R=301,L]
+  RewriteRule ^pages/film\.html$                   /expertise?filter=film     [R=301,L]
+  RewriteRule ^pages/motion\.html$                 /expertise?filter=motion   [R=301,L]
+  RewriteRule ^pages/privacy\.html$                /privacy                   [R=301,L]
+  RewriteRule ^pages/voorwaarden\.html$            /voorwaarden               [R=301,L]
+  RewriteRule ^pages/cookies\.html$                /cookies                   [R=301,L]
+  RewriteRule ^pages/portfolio/auto-shots\.html$       /projecten/auto-shots       [R=301,L]
+  RewriteRule ^pages/portfolio/cinematic-shots\.html$  /projecten/cinematic-shots  [R=301,L]
+  RewriteRule ^pages/portfolio/drone-shots\.html$      /projecten/drone-shots      [R=301,L]
+  RewriteRule ^pages/portfolio/fotografie\.html$       /projecten/fotografie       [R=301,L]
+  RewriteRule ^pages/portfolio/motion-graphics\.html$  /projecten/motion-graphics  [R=301,L]
+
+  # --- Bestaande bestanden en mappen direct serveren (assets, afbeeldingen, …) ---
+  RewriteCond %{REQUEST_FILENAME} -f [OR]
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteRule ^ - [L]
+
+  # --- Schone URL -> bijbehorend .html-bestand (bv. /about -> about.html) ---
+  RewriteCond %{REQUEST_FILENAME}.html -f
+  RewriteRule ^(.+?)/?$ $1.html [L]
+
+  # --- Al de rest -> de app (React-Router neemt over, bv. /projecten/appelmans) ---
+  RewriteRule ^ /index.html [L]
+</IfModule>

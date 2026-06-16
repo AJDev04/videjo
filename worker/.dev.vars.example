@@ -1,0 +1,3 @@
+# Lokale secrets voor `wrangler dev` (kopieer naar `.dev.vars`, niet committen).
+ADMIN_PASSWORD=kies-een-wachtwoord
+SESSION_SECRET=een-willekeurige-lange-geheime-string

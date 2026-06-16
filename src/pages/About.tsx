@@ -1,32 +1,21 @@
 import Seo from "../components/Seo";
 import BrandHero from "../components/BrandHero";
 import TabSection from "../components/TabSection";
+import { useT } from "../lib/i18n";
 import aboutCss from "../../css/about.css?inline";
 
-// Vertaalbare paginatitel (FR/EN later); "VIDEJO" (woordmerk) vertaalt niet mee.
-// Leest samen met het woordmerk als "OVER VIDEJO" (titel boven het merk).
-const PAGE_TITLE = "Over";
-
-// Bio's van de oprichters. De foto's komen op /images/{joren,alexandre}.jpg;
-// tot ze er zijn toont een navy placeholder met de naam.
-const FOUNDERS = [
-  {
-    name: "Joren",
-    photo: "/images/joren.jpg",
-    lead: "Mijn passie voor beeld ontstond niet achter een scherm, maar door familie. Ik kreeg die fascinatie mee van mijn vader, die het meekreeg van mijn grootvader.",
-    body: "Ik volg ondertussen al 4 jaar Multimedia (2 in het middelbaar en 2 in mijn bacheloropleiding). Ik ben zelf ook constant bezig met cinematografie, drones, motion graphics, .... Het is dan ook iets waar ik enorm veel interesse in heb.",
-    reverse: false,
-  },
-  {
-    name: "Alexandre",
-    photo: "/images/alexandre.jpg",
-    lead: "Mijn passie voor filmen is iets dat altijd al aanwezig was, maar deze is alleen maar sterker geworden. Ik ontdekte hoe krachtig beelden kunnen zijn en hoe deze worden geïnterpreteerd.",
-    body: "Ik volg momenteel Sales en Marketing, hierbij leer ik hoe belangrijk het is om de klant centraal te stellen. Die klantgerichte mindset probeer ik ook door te trekken in al onze projecten: verhalen creëren die aansluiten bij de doelgroep en echt impact maken.",
-    reverse: true,
-  },
+// Naam/foto/layout van de oprichters zijn taal-onafhankelijk; de bio-tekst
+// (lead/body) komt vertaald uit i18n (gekoppeld op index). De foto's komen op
+// /images/{joren,alexandre}.jpg; tot ze er zijn toont een navy placeholder.
+const FOUNDER_META = [
+  { name: "Joren", photo: "/images/joren.jpg", reverse: false },
+  { name: "Alexandre", photo: "/images/alexandre.jpg", reverse: true },
 ];
 
-export const Component = () => (
+export const Component = () => {
+  const t = useT();
+  const FOUNDERS = FOUNDER_META.map((f, i) => ({ ...f, ...t.about.founders[i] }));
+  return (
   <>
     <Seo
       title="Over Ons | VIDEJO — Joren & Alexandre"
@@ -44,9 +33,9 @@ export const Component = () => (
       pageCss={aboutCss}
     />
 
-    <BrandHero title={PAGE_TITLE} titleAbove />
+    <BrandHero title={t.about.title} titleAbove />
 
-    <TabSection title="Ons Team">
+    <TabSection title={t.about.team}>
       <div className="founders">
         {FOUNDERS.map((f) => (
           <article
@@ -76,4 +65,5 @@ export const Component = () => (
       </div>
     </TabSection>
   </>
-);
+  );
+};

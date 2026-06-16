@@ -4,11 +4,13 @@ import VidejoLogo from "./VidejoLogo";
 import RollText from "./RollText";
 import { useT } from "../lib/i18n";
 
+// Elke tegel linkt naar de Expertise-pagina met het bijhorende filter actief
+// (?filter=…). ExpertiseFilter leest die parameter en opent op die tab.
 const TILES = [
-  { to: "/film", cls: "tile-film", label: "Film" },
-  { to: "/drones", cls: "tile-drones", label: "Drones" },
-  { to: "/motion", cls: "tile-motion", label: "Motion" },
-  { to: "/projecten/fotografie", cls: "tile-photo", label: "Photo" },
+  { to: "/expertise?filter=film", cls: "tile-film", label: "Film" },
+  { to: "/expertise?filter=drones", cls: "tile-drones", label: "Drones" },
+  { to: "/expertise?filter=motion", cls: "tile-motion", label: "Motion" },
+  { to: "/expertise?filter=photo", cls: "tile-photo", label: "Photo" },
 ];
 
 /**

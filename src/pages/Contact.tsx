@@ -2,14 +2,12 @@ import { useState, type ChangeEvent, type FormEvent } from "react";
 import Seo from "../components/Seo";
 import BrandHero from "../components/BrandHero";
 import TabSection from "../components/TabSection";
+import { useT } from "../lib/i18n";
+import { sendContact } from "../lib/contact";
 import contactCss from "../../css/contact.css?inline";
 
-// Vertaalbare paginatitel (FR/EN later); "VIDEJO" (woordmerk) vertaalt niet mee.
-// Leest samen met het woordmerk als "CONTACT VIDEJO" (titel boven het merk).
-const PAGE_TITLE = "Contact";
-
-// Centrale contactgegevens. E-mail loopt gelijk met nav/footer (videjo.be@gmail.com).
-const EMAIL = "videjo.be@gmail.com";
+// Centraal contactadres (zelfde als waar het EmailJS-formulier naartoe stuurt).
+const EMAIL = "info@videjo.be";
 const PHONES = [
   { label: "+32 494 27 62 76", tel: "+32494276276" },
   { label: "+32 475 83 13 51", tel: "+32475831351" },
@@ -58,31 +56,31 @@ const Icon = ({ name }: { name: "mail" | "phone" | "linkedin" | "instagram" | "t
 };
 
 export const Component = () => {
+  const t = useT();
   const [form, setForm] = useState({ naam: "", bedrijf: "", email: "", project: "" });
-  const [sent, setSent] = useState(false);
+  const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
 
   const update =
     (key: keyof typeof form) =>
     (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) =>
       setForm((f) => ({ ...f, [key]: e.target.value }));
 
-  // Statische site (geen backend): we stellen een mailto op met de ingevulde
-  // velden, zodat het bericht meteen in het e-mailprogramma klaarstaat.
+  // Verstuurt via EmailJS (src/lib/contact.ts → naar info@videjo.be). Geen
+  // backend nodig; bij succes leegt het formulier, bij fout tonen we een melding.
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const subject = `Nieuwe aanvraag — ${form.naam || "website"}`;
-    const body = [
-      `Naam: ${form.naam}`,
-      `Bedrijf: ${form.bedrijf}`,
-      `E-mail: ${form.email}`,
-      "",
-      "Project:",
-      form.project,
-    ].join("\n");
-    window.location.href = `mailto:${EMAIL}?subject=${encodeURIComponent(
-      subject,
-    )}&body=${encodeURIComponent(body)}`;
-    setSent(true);
+    setStatus("sending");
+    sendContact({
+      name: form.naam,
+      company: form.bedrijf,
+      email: form.email,
+      message: form.project,
+    })
+      .then(() => {
+        setStatus("sent");
+        setForm({ naam: "", bedrijf: "", email: "", project: "" });
+      })
+      .catch(() => setStatus("error"));
   };
 
   return (
@@ -103,14 +101,12 @@ export const Component = () => {
         pageCss={contactCss}
       />
 
-      <BrandHero title={PAGE_TITLE} titleAbove />
+      <BrandHero title={t.contact.title} titleAbove />
 
-      <TabSection title={PAGE_TITLE}>
+      <TabSection title={t.contact.title}>
         <div className="contact-inner">
           <div className="contact-info">
-            <h2 className="contact-tagline">
-              Laten we jouw visie een realiteit maken.
-            </h2>
+            <h2 className="contact-tagline">{t.contact.tagline}</h2>
 
             <ul className="contact-details">
               <li>
@@ -143,7 +139,7 @@ export const Component = () => {
 
           <form className="contact-form" onSubmit={handleSubmit}>
             <div className="contact-field">
-              <label htmlFor="naam">Naam</label>
+              <label htmlFor="naam">{t.contact.naam}</label>
               <input
                 id="naam"
                 name="naam"
@@ -151,24 +147,24 @@ export const Component = () => {
                 required
                 value={form.naam}
                 onChange={update("naam")}
-                placeholder="Je naam"
+                placeholder={t.contact.naamPh}
               />
             </div>
 
             <div className="contact-field">
-              <label htmlFor="bedrijf">Bedrijf</label>
+              <label htmlFor="bedrijf">{t.contact.bedrijf}</label>
               <input
                 id="bedrijf"
                 name="bedrijf"
                 type="text"
                 value={form.bedrijf}
                 onChange={update("bedrijf")}
-                placeholder="Optioneel"
+                placeholder={t.contact.bedrijfPh}
               />
             </div>
 
             <div className="contact-field">
-              <label htmlFor="email">E-mail</label>
+              <label htmlFor="email">{t.contact.email}</label>
               <input
                 id="email"
                 name="email"
@@ -176,30 +172,36 @@ export const Component = () => {
                 required
                 value={form.email}
                 onChange={update("email")}
-                placeholder="jij@voorbeeld.be"
+                placeholder={t.contact.emailPh}
               />
             </div>
 
             <div className="contact-field">
-              <label htmlFor="project">Project</label>
+              <label htmlFor="project">{t.contact.project}</label>
               <textarea
                 id="project"
                 name="project"
                 required
                 value={form.project}
                 onChange={update("project")}
-                placeholder="Vertel kort waar we je mee kunnen helpen…"
+                placeholder={t.contact.projectPh}
               />
             </div>
 
-            <button type="submit" className="contact-submit">
-              Verstuur bericht
+            <button
+              type="submit"
+              className="contact-submit"
+              disabled={status === "sending"}
+            >
+              {status === "sending" ? t.contact.sending : t.contact.submit}
             </button>
 
-            {sent && (
-              <p className="contact-note">
-                Bedankt! Je e-mailprogramma opent met je bericht klaar om te
-                versturen.
+            {status === "sent" && (
+              <p className="contact-note">{t.contact.note}</p>
+            )}
+            {status === "error" && (
+              <p className="contact-note contact-note--error">
+                {t.contact.error}
               </p>
             )}
           </form>

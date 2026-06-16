@@ -1,0 +1,69 @@
+/* Landing-hero van een individuele projectpagina. Vult altijd de volledige
+   zichtbare schermhoogte (svh = rekening met de mobiele adresbalk, vol op elke
+   gsm-hoogte; vh als fallback). */
+.proj-landing {
+  position: relative;
+  min-height: 100vh;
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-primary);
+  padding: calc(var(--nav-h) + 1rem) var(--space-md) var(--space-md);
+  overflow: hidden;
+}
+
+/* Klantlogo gecentreerd (de SVG's zijn al cream-gevuld). max-height vangt de
+   sterk verschillende verhoudingen op zodat geen enkel logo te hoog wordt. */
+.proj-landing-logo {
+  display: block;
+  width: min(82vw, 600px);
+  height: auto;
+  max-height: 46vh;
+  object-fit: contain;
+  opacity: 0;
+  animation: proj-landing-rise 1s 0.2s var(--ease-out) forwards;
+}
+
+/* Ronde terug-knop linksboven, net onder de nav. */
+.proj-back {
+  position: absolute;
+  top: calc(var(--nav-h) + clamp(0.5rem, 2.5vw, 1.6rem));
+  left: clamp(1rem, 4vw, 2.5rem);
+  display: grid;
+  place-items: center;
+  width: clamp(52px, 8vw, 64px);
+  height: clamp(52px, 8vw, 64px);
+  border-radius: 50%;
+  background: var(--color-cream);
+  color: var(--color-primary);
+  transition:
+    background-color 0.3s var(--ease-out),
+    transform 0.3s var(--ease-out);
+}
+
+.proj-back:hover {
+  background: var(--color-accent-light);
+  transform: translateX(-3px);
+}
+
+.proj-back svg {
+  width: 42%;
+  height: 42%;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+@keyframes proj-landing-rise {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

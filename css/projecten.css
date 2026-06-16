@@ -14,7 +14,21 @@
   padding: clamp(1.75rem, 3vw, 2.75rem) clamp(36px, 6vw, 75px) 0;
 }
 
-/* Kaarten vullen hun grid-cel; gelijke hoogte, logo gecentreerd. */
+/* De link is de grid-cel (draagt de is-xxx klasse → grid-column span op desktop);
+   de 3D-tilt-lagen (perspectief → kantelvlak → kaart) zitten erbinnen en vullen
+   de cel volledig. Logo steekt bij hover uit via CardItem translateZ. */
+.proj-client-link {
+  display: block;
+}
+
+.proj-client-persp,
+.proj-client-tilt {
+  width: 100%;
+  height: 100%;
+}
+
+/* Kaarten vullen hun grid-cel; gelijke hoogte, logo gecentreerd. Bij hover
+   kantelt de kaart (3D) en krijgt ze diepte via een schaduw. */
 .proj-client-card {
   display: flex;
   align-items: center;
@@ -23,32 +37,29 @@
   padding: clamp(1.25rem, 3vw, 2.75rem);
   background: var(--color-primary);
   border-radius: 22px;
+  transition: box-shadow 0.3s var(--ease-out);
 }
 
+.proj-client-link:hover .proj-client-card {
+  box-shadow: 0 24px 48px -18px rgba(0, 0, 0, 0.45);
+}
+
+/* Logo-wrapper = het uitstekende (translateZ) element. */
+.proj-client-logo-wrap {
+  display: block;
+  line-height: 0;
+}
+
+/* Uniforme logo-sizing: elk logo (ongeacht verhouding) past binnen dezelfde
+   box via object-fit/contain. Zo staan logo's die via /admin worden geüpload
+   meteen goed, zonder per-logo CSS. */
 .proj-client-logo {
   display: block;
   width: auto;
   height: auto;
-  max-width: 100%;
+  max-width: 80%;
+  max-height: clamp(56px, 9vw, 120px);
   object-fit: contain;
-}
-
-/* Per logo afgestemd zodat de sterk verschillende verhoudingen optisch in
-   balans staan (Appelmans/'t Misverstand brede woordmerken; Primero/Moss marks). */
-.is-prim .proj-client-logo {
-  height: clamp(64px, 11vw, 150px);
-}
-
-.is-tmis .proj-client-logo {
-  height: clamp(48px, 7vw, 104px);
-}
-
-.is-moss .proj-client-logo {
-  height: clamp(56px, 9vw, 132px);
-}
-
-.is-appel .proj-client-logo {
-  height: clamp(40px, 5.5vw, 92px);
 }
 
 /* ========================================
@@ -119,22 +130,10 @@
   }
 }
 
-/* Desktop: het 'puzzel'-raster uit het ontwerp — rij 1 = Primero / 't Misver-
-   stand / Mossmasters (3 + 5 + 4 van 12), rij 2 = Appelmans (6 van 12). */
+/* Desktop: uniform raster van 3 kolommen. Werkt met een variabel aantal
+   projecten (CMS) — laatste rij vult netjes aan. */
 @media (min-width: 992px) {
   .proj-clients-grid {
-    grid-template-columns: repeat(12, 1fr);
-  }
-  .proj-client-card.is-prim {
-    grid-column: span 3;
-  }
-  .proj-client-card.is-tmis {
-    grid-column: span 5;
-  }
-  .proj-client-card.is-moss {
-    grid-column: span 4;
-  }
-  .proj-client-card.is-appel {
-    grid-column: span 6;
+    grid-template-columns: repeat(3, 1fr);
   }
 }

@@ -3,7 +3,12 @@
    als het woordmerk (de breedte-match gebeurt via JS in BrandHero.tsx). */
 .brand-hero {
   position: relative;
+  /* Vult altijd de volledige zichtbare schermhoogte. svh = "small viewport
+     height": houdt rekening met de mobiele adresbalk, dus de hero is op elke
+     gsm-hoogte exact vol (geen volgende sectie die eronder uitpiept). vh als
+     fallback voor oudere browsers. */
   min-height: 100vh;
+  min-height: 100svh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -54,9 +59,6 @@
 }
 
 @media (max-width: 768px) {
-  .brand-hero {
-    min-height: 88vh;
-  }
   .brand-hero-mark {
     width: min(80vw, 440px);
   }

@@ -3,18 +3,14 @@ import Seo from "../components/Seo";
 import { ClientOnly } from "vite-react-ssg";
 import BrandHero from "../components/BrandHero";
 import TabSection from "../components/TabSection";
+import SmartLink from "../components/SmartLink";
 import DomeGallery from "../components/DomeGallery";
+import { CardContainer, CardBody, CardItem } from "../components/ThreeDCard";
 import { useT } from "../lib/i18n";
+import { useLanguage } from "../lib/lang";
+import { localized } from "../lib/projects";
+import { useProjects } from "../lib/useProjects";
 import projectenCss from "../../css/projecten.css?inline";
-
-// De klantnamen zijn merknamen en blijven ongewijzigd; cls stuurt de per-logo
-// sizing (verschillende ratio's). Titels/intro komen vertaald uit i18n.
-const CLIENTS = [
-  { cls: "is-prim", src: "/images/clients/primero.svg", alt: "Primero" },
-  { cls: "is-tmis", src: "/images/clients/tmisverstand.svg", alt: "Restaurant 't Misverstand" },
-  { cls: "is-moss", src: "/images/clients/mossmasters.svg", alt: "Mossmasters" },
-  { cls: "is-appel", src: "/images/clients/appelmans.svg", alt: "Appelmans" },
-];
 
 // Gallerij-afbeeldingen zijn voorlopig placeholders uit de bestaande assets;
 // Joren levert later de echte "niet-voor-een-klant"-foto's aan.
@@ -60,6 +56,8 @@ function GalleryDome() {
 
 export const Component = () => {
   const t = useT();
+  const { lang } = useLanguage();
+  const { projects } = useProjects();
   return (
   <>
     <Seo
@@ -82,10 +80,24 @@ export const Component = () => {
 
     <TabSection title={t.projecten.clients}>
       <div className="proj-clients-grid">
-        {CLIENTS.map((c) => (
-          <div className={`proj-client-card ${c.cls}`} key={c.cls}>
-            <img className="proj-client-logo" src={c.src} alt={c.alt} />
-          </div>
+        {projects.map((p) => (
+          <SmartLink
+            className="proj-client-link"
+            to={`/projecten/${p.slug}`}
+            key={p.slug}
+            aria-label={localized(p.name, lang)}
+          >
+            <CardContainer
+              containerClassName="proj-client-persp"
+              className="proj-client-tilt"
+            >
+              <CardBody className="proj-client-card">
+                <CardItem translateZ={80} className="proj-client-logo-wrap">
+                  <img className="proj-client-logo" src={p.logo} alt="" />
+                </CardItem>
+              </CardBody>
+            </CardContainer>
+          </SmartLink>
         ))}
       </div>
     </TabSection>

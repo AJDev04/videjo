@@ -20,26 +20,6 @@ interface FilterContent {
   what: string;
   tags: string[];
 }
-interface Stat {
-  number: string;
-  label: string;
-}
-interface ServiceItem {
-  number: string;
-  title: string;
-  desc: string;
-}
-interface ServiceContent {
-  label: string;
-  titleLines: [string, string];
-  subtitle: string;
-  showcaseDescription: string;
-  stats: Stat[];
-  servicesTitle: string;
-  services: ServiceItem[];
-  ctaHeading: string;
-  ctaParagraph: string;
-}
 
 const nl = {
   nav: {
@@ -85,6 +65,12 @@ const nl = {
     clients: "Klanten",
     galleryTitle: "Gallerij",
     galleryText: "Dit is een fotogallerij van beelden die niet voor een klant waren.",
+  },
+  project: {
+    about: "Het project",
+    placeholder: "Uitleg van het project.",
+    prev: "Vorige",
+    next: "Volgende",
   },
   expertise: {
     title: "Expertise",
@@ -137,92 +123,15 @@ const nl = {
     project: "Project",
     projectPh: "Vertel kort waar we je mee kunnen helpen…",
     submit: "Verstuur bericht",
-    note: "Bedankt! Je e-mailprogramma opent met je bericht klaar om te versturen.",
-    subject: (naam: string) => `Nieuwe aanvraag — ${naam || "website"}`,
-    bodyNaam: "Naam",
-    bodyBedrijf: "Bedrijf",
-    bodyEmail: "E-mail",
-    bodyProject: "Project:",
+    sending: "Versturen…",
+    note: "Bedankt! Je bericht is verstuurd — we nemen snel contact op.",
+    error: "Er ging iets mis. Probeer het opnieuw of mail ons rechtstreeks.",
   },
   cookie: {
     text: "Deze site gebruikt technisch noodzakelijke cookies.",
     more: "Meer info",
     ok: "Begrepen",
   },
-  service: {
-    material: "Ons Materiaal",
-    applications: "Toepassingen",
-    scrollHint: "Scroll om te verkennen",
-    contactCta: "Neem contact op",
-  },
-  services: {
-    film: {
-      label: "Videografie",
-      titleLines: ["Unique visions", "set in frame"],
-      subtitle: "Dynamische beelden vastgelegd en verwerkt.",
-      showcaseDescription:
-        "We maken gebruik van hoogwaardig en doordacht gekozen camera gear om elk project visueel tot zijn recht te laten komen. Dankzij onze focus op kwaliteit en detail creëren we sterke, professionele beelden die perfect inspelen op de verwachtingen van onze klanten. Van opname tot afwerking streven we telkens naar het beste resultaat.",
-      stats: [
-        { number: "4K", label: "Resolutie" },
-        { number: "Voor Elke", label: "Situatie" },
-        { number: "Ultieme", label: "Stabilisatie" },
-      ],
-      servicesTitle: "Waar wij voor filmen",
-      services: [
-        { number: "01", title: "Vastgoed", desc: "Shots vanbinnen en buiten." },
-        { number: "02", title: "Events", desc: "De mooiste momenten van evenementen vastleggen." },
-        { number: "03", title: "Commercials", desc: "Professionele reclamevideo's voor uw merk." },
-        { number: "04", title: "Toerisme", desc: "Prachtige beelden van toeristische bestemmingen." },
-        { number: "05", title: "Auto Shots", desc: "Buiten en binnen shots van uw auto." },
-        { number: "06", title: "Sociale Media", desc: "Een reclameboost voor uw sociale media presence." },
-      ],
-      ctaHeading: "Klaar om visies naar realiteit te brengen?",
-      ctaParagraph: "Laten we bespreken hoe videografie jouw project naar een hoger niveau kan tillen.",
-    },
-    drones: {
-      label: "Drone Video",
-      titleLines: ["Perspectives", "from above"],
-      subtitle: "Cinematische dronebeelden die jouw verhaal naar nieuwe hoogtes tillen.",
-      showcaseDescription:
-        "Wij werken met moderne en performante drones om hoogwaardige luchtbeelden te realiseren. Dankzij onze flexibele en compacte apparatuur kunnen we op uiteenlopende locaties vliegen en inspelen op de noden van elk project. Dit stelt ons in staat om creatieve, professionele beelden te leveren die perfect passen binnen commerciële toepassingen.",
-      stats: [
-        { number: "4K", label: "Cinematisch" },
-        { number: "ActiveTrack", label: "Functie" },
-        { number: "3-Axis", label: "Gimbal" },
-      ],
-      servicesTitle: "Waar wij voor vliegen",
-      services: [
-        { number: "01", title: "Vastgoed", desc: "Luchtopnames die gebouwen en terreinen vanuit hun meest indrukwekkende hoeken tonen — ideaal voor makelaars, projectontwikkelaars en architecten." },
-        { number: "02", title: "Events", desc: "Dynamische luchtperspectieven van festivals, sportwedstrijden en bedrijfsevents die de sfeer vastleggen zoals geen cameraman op de grond dat kan." },
-        { number: "03", title: "Commercials", desc: "Cinematische droneshots die jouw merkvideo’s onmiddellijk naar een hoger niveau tillen." },
-        { number: "04", title: "Toerisme", desc: "Aantrekkelijke dronebeelden die regio’s, hotels en bestemmingen visueel onweerstaanbaar maken." },
-        { number: "05", title: "Auto Shots", desc: "Unieke beelden waar uw voertuig in perspectief wordt gezet op een manier die u nog nooit eerder heeft gezien." },
-        { number: "06", title: "Natuur & Landschap", desc: "Adembenemende beelden van bossen, bergen, kustlijnen en open velden." },
-      ],
-      ctaHeading: "Klaar om op te stijgen?",
-      ctaParagraph: "Benieuwd hoe drone cinematografie jouw video nog sterker maakt? Dankzij onze A1/A3 certificatie, opleiding in dronebouw en professionele DJI‑uitrusting vliegen wij veilig en legaal op de meeste locaties. (Niet alle locaties zijn legaal om te vliegen door geografische UAS-Zones, maar wij helpen je graag de mogelijkheden te verkennen!)",
-    },
-    motion: {
-      label: "Motion Graphics",
-      titleLines: ["Graphic Designs", "Brought To Life"],
-      subtitle: "Grafische elementen die worden geanimeerd om verhalen te vertellen.",
-      showcaseDescription:
-        "Wij werken met professionele software en krachtige hardware om motion graphics van hoge kwaliteit te creëren. Onze setup is geoptimaliseerd voor snelheid, stabiliteit en flexibiliteit, waardoor we efficiënt complexe projecten kunnen uitwerken en verfijnen. Zowel in onze vaste werkomgeving als onderweg beschikken we over performante systemen en voldoende opslag, zodat we altijd en overal vlot kunnen werken en consistente resultaten kunnen leveren.",
-      stats: [
-        { number: "Krachtigste PC", label: "Op De Markt" },
-        { number: "Beste Software", label: "Beschikbaar" },
-        { number: "30+ Terrabyte", label: "Aan Totale Opslag" },
-      ],
-      servicesTitle: "Waar we voor editen",
-      services: [
-        { number: "01", title: "Logo Animaties", desc: "Een prachtig logo tot leven brengen door middel van animatie." },
-        { number: "02", title: "Infographics", desc: "Informatieve video op een creatieve manier gebracht." },
-        { number: "03", title: "Commerciële Video's", desc: "Korte, impactvolle Motion Graphics verwerken in uw video's." },
-      ],
-      ctaHeading: "Klaar om designs tot leven te brengen?",
-      ctaParagraph: "Laten we bespreken hoe Motion Graphics jouw project naar een hoger niveau kan tillen.",
-    },
-  } as Record<"film" | "drones" | "motion", ServiceContent>,
 };
 
 export type Strings = typeof nl;
@@ -271,6 +180,12 @@ const fr: Strings = {
     clients: "Clients",
     galleryTitle: "Galerie",
     galleryText: "Voici une galerie de photos qui n'ont pas été réalisées pour un client.",
+  },
+  project: {
+    about: "Le projet",
+    placeholder: "Description du projet.",
+    prev: "Précédent",
+    next: "Suivant",
   },
   expertise: {
     title: "Expertise",
@@ -323,91 +238,14 @@ const fr: Strings = {
     project: "Projet",
     projectPh: "Dites-nous brièvement comment nous pouvons vous aider…",
     submit: "Envoyer le message",
-    note: "Merci ! Votre logiciel de messagerie s'ouvre avec votre message prêt à être envoyé.",
-    subject: (naam: string) => `Nouvelle demande — ${naam || "site web"}`,
-    bodyNaam: "Nom",
-    bodyBedrijf: "Entreprise",
-    bodyEmail: "E-mail",
-    bodyProject: "Projet :",
+    sending: "Envoi…",
+    note: "Merci ! Votre message a été envoyé — nous vous recontactons rapidement.",
+    error: "Une erreur s'est produite. Réessayez ou envoyez-nous un e-mail directement.",
   },
   cookie: {
     text: "Ce site utilise des cookies techniquement nécessaires.",
     more: "Plus d'infos",
     ok: "Compris",
-  },
-  service: {
-    material: "Notre Matériel",
-    applications: "Applications",
-    scrollHint: "Faites défiler pour explorer",
-    contactCta: "Prenez contact",
-  },
-  services: {
-    film: {
-      label: "Vidéographie",
-      titleLines: ["Unique visions", "set in frame"],
-      subtitle: "Des images dynamiques captées et travaillées.",
-      showcaseDescription:
-        "Nous utilisons du matériel caméra haut de gamme et soigneusement choisi pour mettre en valeur chaque projet sur le plan visuel. Grâce à notre attention à la qualité et au détail, nous créons des images fortes et professionnelles qui répondent parfaitement aux attentes de nos clients. De la prise de vue à la finition, nous visons toujours le meilleur résultat.",
-      stats: [
-        { number: "4K", label: "Résolution" },
-        { number: "Pour Chaque", label: "Situation" },
-        { number: "Stabilisation", label: "Ultime" },
-      ],
-      servicesTitle: "Ce que nous filmons",
-      services: [
-        { number: "01", title: "Immobilier", desc: "Des plans intérieurs et extérieurs." },
-        { number: "02", title: "Événements", desc: "Capturer les plus beaux moments des événements." },
-        { number: "03", title: "Publicités", desc: "Des vidéos publicitaires professionnelles pour votre marque." },
-        { number: "04", title: "Tourisme", desc: "De superbes images de destinations touristiques." },
-        { number: "05", title: "Auto Shots", desc: "Des plans extérieurs et intérieurs de votre voiture." },
-        { number: "06", title: "Réseaux Sociaux", desc: "Un coup de boost publicitaire pour votre présence sur les réseaux." },
-      ],
-      ctaHeading: "Prêt à transformer vos visions en réalité ?",
-      ctaParagraph: "Voyons ensemble comment la vidéographie peut faire passer votre projet au niveau supérieur.",
-    },
-    drones: {
-      label: "Vidéo par Drone",
-      titleLines: ["Perspectives", "from above"],
-      subtitle: "Des images de drone cinématiques qui élèvent votre histoire vers de nouveaux sommets.",
-      showcaseDescription:
-        "Nous travaillons avec des drones modernes et performants pour réaliser des images aériennes de haute qualité. Grâce à notre matériel flexible et compact, nous pouvons voler sur des lieux très variés et répondre aux besoins de chaque projet. Cela nous permet de livrer des images créatives et professionnelles qui s'intègrent parfaitement dans des applications commerciales.",
-      stats: [
-        { number: "4K", label: "Cinématique" },
-        { number: "ActiveTrack", label: "Fonction" },
-        { number: "3-Axis", label: "Gimbal" },
-      ],
-      servicesTitle: "Ce pour quoi nous volons",
-      services: [
-        { number: "01", title: "Immobilier", desc: "Des prises de vue aériennes qui montrent bâtiments et terrains sous leurs angles les plus impressionnants — idéal pour les agents, promoteurs et architectes." },
-        { number: "02", title: "Événements", desc: "Des perspectives aériennes dynamiques de festivals, compétitions sportives et événements d'entreprise qui captent l'ambiance comme aucun caméraman au sol ne le peut." },
-        { number: "03", title: "Publicités", desc: "Des plans de drone cinématiques qui élèvent immédiatement vos vidéos de marque." },
-        { number: "04", title: "Tourisme", desc: "Des images de drone attrayantes qui rendent régions, hôtels et destinations visuellement irrésistibles." },
-        { number: "05", title: "Auto Shots", desc: "Des images uniques où votre véhicule est mis en perspective d'une manière que vous n'avez jamais vue auparavant." },
-        { number: "06", title: "Nature & Paysage", desc: "Des images à couper le souffle de forêts, montagnes, littoraux et champs ouverts." },
-      ],
-      ctaHeading: "Prêt à décoller ?",
-      ctaParagraph: "Curieux de savoir comment la cinématographie par drone renforce encore votre vidéo ? Grâce à notre certification A1/A3, notre formation en construction de drones et notre équipement DJI professionnel, nous volons en toute sécurité et en toute légalité sur la plupart des sites. (Tous les lieux ne sont pas autorisés au vol en raison des zones géographiques UAS, mais nous vous aidons volontiers à en explorer les possibilités !)",
-    },
-    motion: {
-      label: "Motion Graphics",
-      titleLines: ["Graphic Designs", "Brought To Life"],
-      subtitle: "Des éléments graphiques animés pour raconter des histoires.",
-      showcaseDescription:
-        "Nous travaillons avec des logiciels professionnels et du matériel puissant pour créer des motion graphics de haute qualité. Notre configuration est optimisée pour la vitesse, la stabilité et la flexibilité, ce qui nous permet d'élaborer et d'affiner efficacement des projets complexes. Aussi bien dans notre environnement de travail fixe qu'en déplacement, nous disposons de systèmes performants et d'un stockage suffisant, afin de travailler partout sans accroc et de livrer des résultats constants.",
-      stats: [
-        { number: "PC Le Plus Puissant", label: "Du Marché" },
-        { number: "Meilleur Logiciel", label: "Disponible" },
-        { number: "30+ Téraoctets", label: "De Stockage Total" },
-      ],
-      servicesTitle: "Ce que nous montons",
-      services: [
-        { number: "01", title: "Animations de Logo", desc: "Donner vie à un superbe logo grâce à l'animation." },
-        { number: "02", title: "Infographies", desc: "De la vidéo informative présentée de manière créative." },
-        { number: "03", title: "Vidéos Commerciales", desc: "Intégrer des motion graphics courts et percutants dans vos vidéos." },
-      ],
-      ctaHeading: "Prêt à donner vie à vos designs ?",
-      ctaParagraph: "Voyons ensemble comment le Motion Graphics peut faire passer votre projet au niveau supérieur.",
-    },
   },
 };
 
@@ -455,6 +293,12 @@ const en: Strings = {
     clients: "Clients",
     galleryTitle: "Gallery",
     galleryText: "This is a photo gallery of images that weren't made for a client.",
+  },
+  project: {
+    about: "The project",
+    placeholder: "Project description.",
+    prev: "Previous",
+    next: "Next",
   },
   expertise: {
     title: "Expertise",
@@ -507,91 +351,14 @@ const en: Strings = {
     project: "Project",
     projectPh: "Tell us briefly what we can help you with…",
     submit: "Send message",
-    note: "Thank you! Your email program will open with your message ready to send.",
-    subject: (naam: string) => `New request — ${naam || "website"}`,
-    bodyNaam: "Name",
-    bodyBedrijf: "Company",
-    bodyEmail: "Email",
-    bodyProject: "Project:",
+    sending: "Sending…",
+    note: "Thank you! Your message has been sent — we'll get back to you soon.",
+    error: "Something went wrong. Please try again or email us directly.",
   },
   cookie: {
     text: "This site uses technically necessary cookies.",
     more: "More info",
     ok: "Got it",
-  },
-  service: {
-    material: "Our Gear",
-    applications: "Applications",
-    scrollHint: "Scroll to explore",
-    contactCta: "Get in touch",
-  },
-  services: {
-    film: {
-      label: "Videography",
-      titleLines: ["Unique visions", "set in frame"],
-      subtitle: "Dynamic visuals captured and crafted.",
-      showcaseDescription:
-        "We use high-end, carefully chosen camera gear to let every project shine visually. Thanks to our focus on quality and detail, we create strong, professional images that perfectly meet our clients' expectations. From shooting to finishing, we always aim for the best result.",
-      stats: [
-        { number: "4K", label: "Resolution" },
-        { number: "For Every", label: "Situation" },
-        { number: "Ultimate", label: "Stabilization" },
-      ],
-      servicesTitle: "What we film for",
-      services: [
-        { number: "01", title: "Real Estate", desc: "Interior and exterior shots." },
-        { number: "02", title: "Events", desc: "Capturing the finest moments of events." },
-        { number: "03", title: "Commercials", desc: "Professional advertising videos for your brand." },
-        { number: "04", title: "Tourism", desc: "Beautiful footage of tourist destinations." },
-        { number: "05", title: "Auto Shots", desc: "Exterior and interior shots of your car." },
-        { number: "06", title: "Social Media", desc: "An advertising boost for your social media presence." },
-      ],
-      ctaHeading: "Ready to turn visions into reality?",
-      ctaParagraph: "Let's talk about how videography can take your project to the next level.",
-    },
-    drones: {
-      label: "Drone Video",
-      titleLines: ["Perspectives", "from above"],
-      subtitle: "Cinematic drone footage that lifts your story to new heights.",
-      showcaseDescription:
-        "We work with modern, high-performance drones to capture high-quality aerial footage. Thanks to our flexible and compact equipment, we can fly at a wide range of locations and respond to the needs of each project. This allows us to deliver creative, professional images that fit perfectly within commercial applications.",
-      stats: [
-        { number: "4K", label: "Cinematic" },
-        { number: "ActiveTrack", label: "Feature" },
-        { number: "3-Axis", label: "Gimbal" },
-      ],
-      servicesTitle: "What we fly for",
-      services: [
-        { number: "01", title: "Real Estate", desc: "Aerial footage that shows buildings and grounds from their most impressive angles — ideal for agents, developers and architects." },
-        { number: "02", title: "Events", desc: "Dynamic aerial perspectives of festivals, sports matches and corporate events that capture the atmosphere like no ground-based camera operator can." },
-        { number: "03", title: "Commercials", desc: "Cinematic drone shots that instantly elevate your brand videos." },
-        { number: "04", title: "Tourism", desc: "Appealing drone footage that makes regions, hotels and destinations visually irresistible." },
-        { number: "05", title: "Auto Shots", desc: "Unique footage that puts your vehicle in perspective in a way you've never seen before." },
-        { number: "06", title: "Nature & Landscape", desc: "Breathtaking footage of forests, mountains, coastlines and open fields." },
-      ],
-      ctaHeading: "Ready for takeoff?",
-      ctaParagraph: "Curious how drone cinematography makes your video even stronger? Thanks to our A1/A3 certification, training in drone building and professional DJI equipment, we fly safely and legally at most locations. (Not all locations are legal to fly due to geographic UAS zones, but we're happy to help you explore the possibilities!)",
-    },
-    motion: {
-      label: "Motion Graphics",
-      titleLines: ["Graphic Designs", "Brought To Life"],
-      subtitle: "Graphic elements animated to tell stories.",
-      showcaseDescription:
-        "We work with professional software and powerful hardware to create high-quality motion graphics. Our setup is optimized for speed, stability and flexibility, allowing us to efficiently develop and refine complex projects. Both in our fixed workspace and on the go, we have high-performance systems and ample storage, so we can always work smoothly anywhere and deliver consistent results.",
-      stats: [
-        { number: "Most Powerful PC", label: "On The Market" },
-        { number: "Best Software", label: "Available" },
-        { number: "30+ Terabytes", label: "Of Total Storage" },
-      ],
-      servicesTitle: "What we edit for",
-      services: [
-        { number: "01", title: "Logo Animations", desc: "Bringing a beautiful logo to life through animation." },
-        { number: "02", title: "Infographics", desc: "Informative video brought in a creative way." },
-        { number: "03", title: "Commercial Videos", desc: "Adding short, impactful motion graphics to your videos." },
-      ],
-      ctaHeading: "Ready to bring designs to life?",
-      ctaParagraph: "Let's talk about how Motion Graphics can take your project to the next level.",
-    },
   },
 };
 
