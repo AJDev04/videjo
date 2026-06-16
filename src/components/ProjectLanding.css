@@ -25,6 +25,14 @@
   animation: proj-landing-rise 1s 0.2s var(--ease-out) forwards;
 }
 
+/* Mobiel: logo's kleiner zodat ze niet het hele scherm vullen. */
+@media (max-width: 600px) {
+  .proj-landing-logo {
+    width: min(58vw, 340px);
+    max-height: 30vh;
+  }
+}
+
 /* Ronde terug-knop linksboven, net onder de nav. */
 .proj-back {
   position: absolute;

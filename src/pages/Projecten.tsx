@@ -12,15 +12,26 @@ import { localized } from "../lib/projects";
 import { useProjects } from "../lib/useProjects";
 import projectenCss from "../../css/projecten.css?inline";
 
-// Gallerij-afbeeldingen zijn voorlopig placeholders uit de bestaande assets;
-// Joren levert later de echte "niet-voor-een-klant"-foto's aan.
+// Gallerij-foto's (Cloudflare Images). De volgorde is bewust dooreengehaald
+// zodat opeenvolgende foto's uit de aangeleverde lijst (bv. auto-shots) niet
+// naast elkaar in de dome belanden.
+const CF_IMAGES = "https://imagedelivery.net/VikWnsttIHX_i1Cykp4eeA";
+const img = (id: string) => ({ src: `${CF_IMAGES}/${id}/public`, alt: "VIDEJO fotografie" });
+
 const GALLERY_IMAGES = [
-  { src: "/images/film.jpg", alt: "Film" },
-  { src: "/images/drone.jpg", alt: "Drone" },
-  { src: "/images/auto.jpg", alt: "Auto" },
-  { src: "/images/fotografie.JPG", alt: "Fotografie" },
-  { src: "/images/mg.png", alt: "Motion graphics" },
-  { src: "/images/og-image.jpg", alt: "VIDEJO" },
+  img("e7c8e39e-411c-4406-3986-30488edc5900"),
+  img("492f18a7-2a6f-49fc-1b34-57cea66a0400"),
+  img("7d95e18a-cb43-4938-8159-284d601f2c00"),
+  img("0c7738bc-f9a7-4309-5be2-f2dc56abcb00"),
+  img("5cda2b1f-4bc5-427e-db61-72c66a578900"),
+  img("29d3894e-e755-4d2f-6143-71ec165b0600"),
+  img("e0e734d0-8954-4387-bf35-cd9ef4441200"),
+  img("eb21fcb0-9e10-4428-b206-72172fbc6500"),
+  img("7ae99c53-1080-47c2-a385-eed4acf8f500"),
+  img("5cb327d0-11da-4550-3adb-2fa84ae84d00"),
+  img("58427d05-a4a8-42bf-df91-e97f2df4d800"),
+  img("d5db942e-81c6-4637-7e7d-e909e6907000"),
+  img("2472d0ef-7a9a-4896-72b3-693815991a00"),
 ];
 
 /**

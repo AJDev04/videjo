@@ -9,14 +9,28 @@
 	background: #0a0916;
 }
 
-/* Foto-achtergrond (wordt later een video); de gradient blijft als
-   fallback zichtbaar tot /images/hero-bg.jpg is toegevoegd */
+/* Achtergrond van de hero: de Cloudflare Stream-video (zie .hero-video) vult
+   deze laag; de gradient blijft als fallback zichtbaar terwijl de video laadt. */
 .hero-bg {
 	position: absolute;
 	inset: 0;
-	background:
-		url("/images/hero-bg.jpg") center / cover no-repeat,
-		linear-gradient(135deg, var(--color-primary) 0%, #0a0916 100%);
+	overflow: hidden;
+	background: linear-gradient(135deg, var(--color-primary) 0%, #0a0916 100%);
+}
+
+/* Stream-iframe als full-bleed achtergrond-loop: 16:9 behouden én altijd de
+   hele hero bedekken (cover), gecentreerd. Puur decoratief → geen muis-/focus. */
+.hero-video {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 100vw;
+	height: 56.25vw; /* 16:9 t.o.v. breedte */
+	min-width: 177.78vh; /* 16:9 t.o.v. hoogte */
+	min-height: 100vh;
+	border: 0;
+	pointer-events: none;
 }
 
 .hero-overlay {
@@ -211,6 +225,9 @@
 	scroll-snap-align: start;
 	overflow: hidden;
 	position: relative;
+	display: block;
+	text-decoration: none;
+	color: inherit;
 }
 
 /* Gepind: kaarten schalen mee met de schermhoogte */
@@ -225,13 +242,51 @@
 	object-fit: cover;
 }
 
+/* Fallback wanneer een project (nog) geen video-thumbnail heeft: navy vlak met
+   het cream logo gecentreerd (zoals de KLANTEN-kaarten). */
+.project-card-logo {
+	position: absolute;
+	inset: 0;
+	display: grid;
+	place-items: center;
+	background: var(--color-primary);
+	padding: 14%;
+}
+.project-card-logo img {
+	width: 100%;
+	height: auto;
+	max-height: 55%;
+	object-fit: contain;
+}
+
+/* Donker verloop onderaan zodat de (cream) projecttitel leesbaar blijft op het beeld. */
+.project-card-scrim {
+	position: absolute;
+	inset: 0;
+	pointer-events: none;
+	background: linear-gradient(to top, rgba(7, 6, 15, 0.72) 0%, rgba(7, 6, 15, 0) 45%);
+}
+
 .project-card-title {
 	position: absolute;
 	left: 1.25rem;
+	right: 1.25rem;
 	bottom: 1rem;
+	z-index: 2;
 	font-family: var(--font-display);
 	font-weight: 900;
-	color: var(--color-primary);
+	font-size: clamp(1.05rem, 2.2vw, 1.5rem);
+	line-height: 1.05;
+	color: var(--color-cream);
+}
+
+/* Subtiele hover-feedback dat de kaart klikbaar is. */
+.project-card {
+	transition: transform 0.35s var(--ease-out), box-shadow 0.35s var(--ease-out);
+}
+.project-card:hover {
+	transform: translateY(-6px);
+	box-shadow: 0 24px 48px -18px rgba(0, 0, 0, 0.5);
 }
 
 /* ========================================

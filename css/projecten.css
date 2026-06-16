@@ -56,9 +56,11 @@
 .proj-client-logo {
   display: block;
   width: auto;
-  height: auto;
-  max-width: 80%;
-  max-height: clamp(56px, 9vw, 120px);
+  /* Expliciete hoogte: de client-SVG's hebben enkel een viewBox (geen intrinsieke
+     px-maat), dus met height:auto klappen ze in. object-fit + max-width vangt de
+     sterk verschillende verhoudingen op (brede woordmerken vs. vierkante marks). */
+  height: clamp(56px, 9vw, 120px);
+  max-width: 100%;
   object-fit: contain;
 }
 

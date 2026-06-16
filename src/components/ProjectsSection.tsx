@@ -1,16 +1,19 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { useLenis } from "../lib/lenis";
 import { useT } from "../lib/i18n";
+import { useLanguage } from "../lib/lang";
+import { localized } from "../lib/projects";
+import { useProjects } from "../lib/useProjects";
 import SmartLink from "./SmartLink";
 
-type Project = {
-  title?: string;
-  image?: string;
-  href?: string;
-};
-
-/** Placeholder-kaarten tot de echte projecten (beelden + links) zijn aangeleverd. */
-const PROJECTS: Project[] = Array.from({ length: 6 }, () => ({}));
+/** Poster-thumbnail van de eerste Cloudflare Stream-video van een project (of null). */
+function streamThumb(videos: string[]): string | null {
+  for (const url of videos) {
+    const cf = url.match(/(customer-[a-z0-9]+\.cloudflarestream\.com)\/([a-f0-9]{32})/i);
+    if (cf) return `https://${cf[1]}/${cf[2]}/thumbnails/thumbnail.jpg?time=1s&height=640`;
+  }
+  return null;
+}
 
 const GAP = 24;
 /** Pinnen alleen op desktop; daaronder gewoon native horizontaal scrollen. */
@@ -40,6 +43,8 @@ export default function ProjectsSection() {
   const trackRef = useRef<HTMLDivElement>(null);
   const lenis = useLenis();
   const t = useT();
+  const { lang } = useLanguage();
+  const { projects } = useProjects();
 
   const overflowRef = useRef(0);
   const sectionTopRef = useRef(0);
@@ -107,7 +112,8 @@ export default function ProjectsSection() {
       cancelAnimationFrame(raf);
       window.removeEventListener("resize", measure);
     };
-  }, [measure]);
+    // `projects` erbij: hermeten zodra de kaarten geladen/veranderd zijn.
+  }, [measure, projects]);
 
   // Pijltjes-randstatus: linker dimt op het begin, rechter op het einde.
   // Gepind (desktop) uit de horizontale voortgang; mobiel uit de native scroll.
@@ -235,16 +241,28 @@ export default function ProjectsSection() {
             </div>
             <div className="carousel-viewport" ref={viewportRef}>
               <div className="carousel-track" ref={trackRef}>
-                {PROJECTS.map((project, i) => (
-                  <div className="project-card" key={i}>
-                    {project.image && (
-                      <img src={project.image} alt={project.title ?? ""} />
-                    )}
-                    {project.title && (
-                      <span className="project-card-title">{project.title}</span>
-                    )}
-                  </div>
-                ))}
+                {projects.map((p) => {
+                  const name = localized(p.name, lang);
+                  const thumb = streamThumb(p.videos);
+                  return (
+                    <SmartLink
+                      className="project-card"
+                      to={`/projecten/${p.slug}`}
+                      key={p.slug}
+                      aria-label={name}
+                    >
+                      {thumb ? (
+                        <img src={thumb} alt="" loading="lazy" />
+                      ) : (
+                        <span className="project-card-logo">
+                          <img src={p.logo} alt="" />
+                        </span>
+                      )}
+                      <span className="project-card-scrim" aria-hidden="true" />
+                      <span className="project-card-title">{name}</span>
+                    </SmartLink>
+                  );
+                })}
               </div>
             </div>
           </div>

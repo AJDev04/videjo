@@ -21,6 +21,10 @@ const JSON_LD = {
   ],
 };
 
+// Landing-video (Cloudflare Stream) als gedempte achtergrond-loop in de hero.
+const HERO_VIDEO =
+  "https://customer-el0steweaibtzxvs.cloudflarestream.com/4bd5f8eab7ec02fa0f4d3e702473773f/iframe?autoplay=true&loop=true&muted=true&controls=false&preload=auto";
+
 const CLIENTS = [
   {
     cls: "client-tmis",
@@ -58,6 +62,14 @@ export const Component = () => {
       {/* Hero Section */}
       <section className="hero" id="hero">
         <div className="hero-bg">
+          <iframe
+            className="hero-video"
+            src={HERO_VIDEO}
+            title="VIDEJO showreel"
+            allow="autoplay; fullscreen"
+            tabIndex={-1}
+            aria-hidden="true"
+          />
           <div className="hero-overlay"></div>
         </div>
         <div className="hero-content">

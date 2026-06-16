@@ -5,14 +5,25 @@ import { useLanguage } from "../lib/lang";
 import { localized, type AdminProject } from "../lib/projects";
 import projectBodyCss from "./ProjectBody.css?inline";
 
-/** Zet een video-URL om naar een embed (YouTube/Vimeo via iframe, anders <video>). */
+/**
+ * Zet een video-URL om naar een embed. Herkent Cloudflare Stream
+ * (customer-<code>.cloudflarestream.com/<id> of de legacy videodelivery-host),
+ * YouTube en Vimeo → iframe; al de rest → een gewone <video> (bv. een mp4).
+ */
 function toEmbed(url: string): { kind: "iframe" | "video"; src: string } {
+  // Cloudflare Stream — met of zonder trailing /iframe.
+  const cf = url.match(/(customer-[a-z0-9]+\.cloudflarestream\.com)\/([a-f0-9]{32})/i);
+  if (cf) return { kind: "iframe", src: `https://${cf[1]}/${cf[2]}/iframe` };
+  const cfAlt = url.match(/(?:iframe\.videodelivery\.net|watch\.cloudflarestream\.com)\/([a-f0-9]{32})/i);
+  if (cfAlt) return { kind: "iframe", src: `https://iframe.videodelivery.net/${cfAlt[1]}/iframe` };
+
   const yt = url.match(
     /(?:youtube\.com\/(?:watch\?v=|embed\/|shorts\/|v\/)|youtu\.be\/)([\w-]{11})/,
   );
   if (yt) return { kind: "iframe", src: `https://www.youtube.com/embed/${yt[1]}` };
   const vimeo = url.match(/vimeo\.com\/(?:video\/)?(\d+)/);
   if (vimeo) return { kind: "iframe", src: `https://player.vimeo.com/video/${vimeo[1]}` };
+
   return { kind: "video", src: url };
 }
 

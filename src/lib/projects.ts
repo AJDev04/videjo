@@ -32,7 +32,7 @@ const tri = (s: string): LocalizedText => ({ nl: s, fr: s, en: s });
  */
 export const DEFAULT_PROJECTS: AdminProject[] = [
   { slug: "primero", order: 1, logo: "/images/clients/primero.svg", name: tri("Primero"), videos: [], info: tri("") },
-  { slug: "t-misverstand", order: 2, logo: "/images/clients/tmisverstand.svg", name: tri("Restaurant 't Misverstand"), videos: [], info: tri("") },
+  { slug: "t-misverstand", order: 2, logo: "/images/clients/tmisverstand.svg", name: tri("'t Misverstand"), videos: [], info: tri("") },
   { slug: "mossmasters", order: 3, logo: "/images/clients/mossmasters.svg", name: tri("Mossmasters"), videos: [], info: tri("") },
   { slug: "appelmans", order: 4, logo: "/images/clients/appelmans.svg", name: tri("Appelmans"), videos: [], info: tri("") },
 ];

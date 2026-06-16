@@ -46,7 +46,7 @@ const TOKEN_TTL = 7 * 24 * 3600; // 7 dagen
 /** De 4 bestaande projecten — getoond zolang KV nog leeg is. */
 const DEFAULTS: AdminProject[] = [
   { slug: "primero", order: 1, logo: "/images/clients/primero.svg", name: tri("Primero"), videos: [], info: tri("") },
-  { slug: "t-misverstand", order: 2, logo: "/images/clients/tmisverstand.svg", name: tri("Restaurant 't Misverstand"), videos: [], info: tri("") },
+  { slug: "t-misverstand", order: 2, logo: "/images/clients/tmisverstand.svg", name: tri("'t Misverstand"), videos: [], info: tri("") },
   { slug: "mossmasters", order: 3, logo: "/images/clients/mossmasters.svg", name: tri("Mossmasters"), videos: [], info: tri("") },
   { slug: "appelmans", order: 4, logo: "/images/clients/appelmans.svg", name: tri("Appelmans"), videos: [], info: tri("") },
 ];
@@ -63,7 +63,10 @@ function corsHeaders(req: Request, env: Env): Record<string, string> {
     .split(",")
     .map((s) => s.trim())
     .filter(Boolean);
-  const allow = allowed.includes(origin) ? origin : allowed[0] || "*";
+  // Sta elke localhost-poort toe (Vite-dev kiest soms 5174/5175/…), naast de
+  // expliciet toegelaten origins (bv. https://videjo.be).
+  const isLocal = /^https?:\/\/(localhost|127\.0\.0\.1)(:\d+)?$/.test(origin);
+  const allow = allowed.includes(origin) || isLocal ? origin : allowed[0] || "*";
   return {
     "Access-Control-Allow-Origin": allow,
     "Access-Control-Allow-Methods": "GET,POST,PUT,DELETE,OPTIONS",
