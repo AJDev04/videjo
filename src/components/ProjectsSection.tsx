@@ -123,6 +123,14 @@ export default function ProjectsSection() {
     // `projects` erbij: hermeten zodra de kaarten geladen/veranderd zijn.
   }, [measure, projects]);
 
+  // Nadat is-pinned de kaartgroottes verandert (width:auto + aspect-ratio),
+  // opnieuw meten zodat de sectie-hoogte klopt met de werkelijke overflow.
+  useEffect(() => {
+    if (!pinned) return;
+    const raf = requestAnimationFrame(measure);
+    return () => cancelAnimationFrame(raf);
+  }, [pinned, measure]);
+
   // Pijltjes-randstatus: linker dimt op het begin, rechter op het einde.
   // Gepind (desktop) uit de horizontale voortgang; mobiel uit de native scroll.
   const updateEdges = useCallback(() => {

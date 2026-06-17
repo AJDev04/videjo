@@ -13,7 +13,7 @@
 
   // Toegelaten origins voor CORS (komma-gescheiden). Zet je live site-URL erbij.
   "vars": {
-    "ALLOWED_ORIGIN": "https://videjo.be,http://localhost:5173"
+    "ALLOWED_ORIGIN": "https://videjo.be,https://www.videjo.be,http://localhost:5173"
   }
 
   // Secrets (NIET hier; via `npx wrangler secret put ...`):
