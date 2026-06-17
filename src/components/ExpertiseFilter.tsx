@@ -96,10 +96,9 @@ export default function ExpertiseFilter() {
       <div className="exp-card">
         <div className="exp-card-cell exp-card-intro">
           <h3 className="exp-card-title">{current.label}</h3>
+          <p className="exp-card-lead">{current.lead}</p>
           <p className="exp-card-desc">{current.desc}</p>
         </div>
-        <div className="exp-card-cell exp-card-media" aria-hidden="true" />
-        <div className="exp-card-cell exp-card-media" aria-hidden="true" />
         <div className="exp-card-cell exp-card-what">
           <h4 className="exp-card-subtitle">{current.what}</h4>
           <ul className="exp-card-tags">

@@ -16,6 +16,7 @@ interface Founder {
   body: string;
 }
 interface FilterContent {
+  lead: string;
   desc: string;
   what: string;
   tags: string[];
@@ -76,21 +77,25 @@ const nl = {
     title: "Expertise",
     filters: {
       film: {
+        lead: "Van merkfilms tot socialcontent: we vertalen jouw verhaal naar beeld dat blijft hangen. Van het eerste concept tot de finale cut bouwen we alles in eigen beheer op.",
         desc: "Laten we bespreken hoe videografie jouw project naar een hoger niveau kan tillen.",
         what: "Wat we filmen",
         tags: ["Sociale Media", "Events", "Bedrijven", "Vastgoed"],
       },
       drones: {
+        lead: "Met luchtbeelden geven we je project een perspectief dat vanop de grond onmogelijk is. Vergunde piloten, cinematische bewegingen en scherpe beelden in elk seizoen.",
         desc: "Laten we bespreken hoe luchtbeelden jouw verhaal een uniek perspectief geven.",
         what: "Wat we capteren",
         tags: ["Vastgoed", "Events", "Natuur", "Bedrijven"],
       },
       motion: {
+        lead: "Met motion graphics breng je logo's, cijfers en ideeën in beweging. Van strakke explainers tot pakkende intro's die je boodschap echt laten leven.",
         desc: "Laten we bespreken hoe motion graphics jouw boodschap echt tot leven brengen.",
         what: "Wat we maken",
         tags: ["Logo-animaties", "Explainers", "Intro's", "Socials"],
       },
       photo: {
+        lead: "Scherpe, stijlvolle beelden die je merk in de verf zetten. Van producten en portretten tot sfeerbeelden die de juiste indruk nalaten.",
         desc: "Laten we bespreken hoe fotografie jouw merk scherp en stijlvol in beeld brengt.",
         what: "Wat we fotograferen",
         tags: ["Producten", "Portretten", "Events", "Bedrijven"],
@@ -191,21 +196,25 @@ const fr: Strings = {
     title: "Expertise",
     filters: {
       film: {
+        lead: "Du film de marque au contenu social : nous traduisons votre histoire en images mémorables. Du concept initial au montage final, tout est réalisé en interne.",
         desc: "Voyons ensemble comment la vidéographie peut faire passer votre projet au niveau supérieur.",
         what: "Ce que nous filmons",
         tags: ["Réseaux sociaux", "Événements", "Entreprises", "Immobilier"],
       },
       drones: {
+        lead: "Les images aériennes offrent à votre projet une perspective impossible depuis le sol. Pilotes agréés, mouvements cinématographiques et netteté en toute saison.",
         desc: "Voyons ensemble comment les images aériennes donnent à votre histoire une perspective unique.",
         what: "Ce que nous capturons",
         tags: ["Immobilier", "Événements", "Nature", "Entreprises"],
       },
       motion: {
+        lead: "Avec le motion graphics, vos logos, chiffres et idées prennent vie. Des explainers épurés aux intros percutantes qui font vraiment vivre votre message.",
         desc: "Voyons ensemble comment le motion graphics donne vraiment vie à votre message.",
         what: "Ce que nous créons",
         tags: ["Animations de logo", "Explainers", "Intros", "Réseaux"],
       },
       photo: {
+        lead: "Des images nettes et élégantes qui mettent votre marque en valeur. Des produits et portraits aux ambiances qui laissent la bonne impression.",
         desc: "Voyons ensemble comment la photographie met votre marque en valeur avec netteté et style.",
         what: "Ce que nous photographions",
         tags: ["Produits", "Portraits", "Événements", "Entreprises"],
@@ -304,21 +313,25 @@ const en: Strings = {
     title: "Expertise",
     filters: {
       film: {
+        lead: "From brand films to social content, we turn your story into images that stick. From the first concept to the final cut, everything is built in-house.",
         desc: "Let's talk about how videography can take your project to the next level.",
         what: "What we film",
         tags: ["Social Media", "Events", "Business", "Real Estate"],
       },
       drones: {
+        lead: "Aerial footage gives your project a perspective that's impossible from the ground. Licensed pilots, cinematic moves and crisp images in every season.",
         desc: "Let's talk about how aerial footage gives your story a unique perspective.",
         what: "What we capture",
         tags: ["Real Estate", "Events", "Nature", "Business"],
       },
       motion: {
+        lead: "With motion graphics, your logos, numbers and ideas start moving. From clean explainers to striking intros that truly bring your message to life.",
         desc: "Let's talk about how motion graphics truly bring your message to life.",
         what: "What we create",
         tags: ["Logo animations", "Explainers", "Intros", "Socials"],
       },
       photo: {
+        lead: "Sharp, stylish images that put your brand in the spotlight. From products and portraits to atmosphere that leaves the right impression.",
         desc: "Let's talk about how photography puts your brand in the picture, sharp and stylish.",
         what: "What we photograph",
         tags: ["Products", "Portraits", "Events", "Business"],

@@ -5,11 +5,12 @@ import { useT } from "../lib/i18n";
 import aboutCss from "../../css/about.css?inline";
 
 // Naam/foto/layout van de oprichters zijn taal-onafhankelijk; de bio-tekst
-// (lead/body) komt vertaald uit i18n (gekoppeld op index). De foto's komen op
-// /images/{joren,alexandre}.jpg; tot ze er zijn toont een navy placeholder.
+// (lead/body) komt vertaald uit i18n (gekoppeld op index). Foto's (tijdelijk) op
+// Cloudflare Images; bij een laadfout valt een navy placeholder in (onError).
+const CF_IMAGES = "https://imagedelivery.net/VikWnsttIHX_i1Cykp4eeA";
 const FOUNDER_META = [
-  { name: "Joren", photo: "/images/joren.jpg", reverse: false },
-  { name: "Alexandre", photo: "/images/alexandre.jpg", reverse: true },
+  { name: "Joren", photo: `${CF_IMAGES}/fcb08dcc-95ab-4999-3c90-9010702abe00/public`, reverse: false },
+  { name: "Alexandre", photo: `${CF_IMAGES}/9dff8007-7404-4780-325c-62aa65190a00/public`, reverse: true },
 ];
 
 export const Component = () => {

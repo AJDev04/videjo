@@ -6,8 +6,16 @@ import { localized } from "../lib/projects";
 import { useProjects } from "../lib/useProjects";
 import SmartLink from "./SmartLink";
 
-/** Poster-thumbnail van de eerste Cloudflare Stream-video van een project (of null). */
-function streamThumb(videos: string[]): string | null {
+const CF_THUMBS: Record<string, string> = {
+  "t-misverstand": "https://imagedelivery.net/VikWnsttIHX_i1Cykp4eeA/26136925-7e9f-4c77-8e30-b4bfc98d6d00/public",
+  appelmans:    "https://imagedelivery.net/VikWnsttIHX_i1Cykp4eeA/e0823330-e015-4957-a57e-eca0110b6b00/public",
+  primero:      "https://imagedelivery.net/VikWnsttIHX_i1Cykp4eeA/841a3c47-60ef-482d-a0e2-3b45ce2d4e00/public",
+  mossmasters:  "https://imagedelivery.net/VikWnsttIHX_i1Cykp4eeA/7ee640f1-31da-43f9-72f7-44a36cf0f900/public",
+};
+
+/** Thumbnail voor een project: expliciete CF Images-URL heeft voorrang, anders auto-gegenereerd van Stream. */
+function getThumb(slug: string, videos: string[]): string | null {
+  if (CF_THUMBS[slug]) return CF_THUMBS[slug];
   for (const url of videos) {
     const cf = url.match(/(customer-[a-z0-9]+\.cloudflarestream\.com)\/([a-f0-9]{32})/i);
     if (cf) return `https://${cf[1]}/${cf[2]}/thumbnails/thumbnail.jpg?time=1s&height=640`;
@@ -243,7 +251,7 @@ export default function ProjectsSection() {
               <div className="carousel-track" ref={trackRef}>
                 {projects.map((p) => {
                   const name = localized(p.name, lang);
-                  const thumb = streamThumb(p.videos);
+                  const thumb = getThumb(p.slug, p.videos);
                   return (
                     <SmartLink
                       className="project-card"

@@ -85,14 +85,7 @@
   flex-direction: column;
 }
 
-/* Navy media-placeholders (later beelden/video) */
-.exp-card-media {
-  background: var(--color-primary);
-  border-radius: clamp(12px, 1.4vw, 20px);
-  min-height: clamp(200px, 26vw, 340px);
-}
-
-/* Intro: titel + accent-tekstbox */
+/* Intro: titel + beschrijvende paragraaf + accent-tekstbox */
 .exp-card-title {
   margin: 0 0 clamp(0.75rem, 1.6vw, 1.25rem);
   font-family: var(--font-display);
@@ -103,6 +96,14 @@
   line-height: 0.95;
   color: var(--accent);
   transition: color 0.3s var(--ease-out);
+}
+
+.exp-card-lead {
+  margin: 0 0 clamp(1rem, 1.8vw, 1.6rem);
+  color: var(--color-primary);
+  font-weight: 700;
+  font-size: clamp(1rem, 1.4vw, 1.25rem);
+  line-height: 1.35;
 }
 
 .exp-card-desc {
@@ -157,8 +158,5 @@
 @media (max-width: 768px) {
   .exp-card {
     grid-template-columns: 1fr;
-  }
-  .exp-card-media {
-    min-height: clamp(160px, 48vw, 240px);
   }
 }
