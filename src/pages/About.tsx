@@ -9,8 +9,8 @@ import aboutCss from "../../css/about.css?inline";
 // Cloudflare Images; bij een laadfout valt een navy placeholder in (onError).
 const CF_IMAGES = "https://imagedelivery.net/VikWnsttIHX_i1Cykp4eeA";
 const FOUNDER_META = [
-  { name: "Joren", photo: `${CF_IMAGES}/fcb08dcc-95ab-4999-3c90-9010702abe00/public`, reverse: false },
-  { name: "Alexandre", photo: `${CF_IMAGES}/9dff8007-7404-4780-325c-62aa65190a00/public`, reverse: true },
+  { name: "Joren", photo: `${CF_IMAGES}/638e1a0a-f519-4925-7010-785e149d2000/public`, reverse: false },
+  { name: "Alexandre", photo: `${CF_IMAGES}/a9d9e459-5811-43ac-2605-4f97a8a2df00/public`, reverse: true },
 ];
 
 export const Component = () => {
