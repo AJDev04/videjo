@@ -15,7 +15,7 @@
 	position: absolute;
 	inset: 0;
 	overflow: hidden;
-	background: linear-gradient(135deg, var(--color-primary) 0%, #0a0916 100%);
+	background: #0a0916 center/cover no-repeat;
 }
 
 /* Stream-iframe als full-bleed achtergrond-loop: 16:9 behouden én altijd de
@@ -429,21 +429,24 @@
 .roll-glyph {
 	display: block;
 	line-height: 1.15em;
-	transform: translateY(0);
 }
 
 .roll-glyph.roll-in {
-	transform: translateY(115%);
+	animation: roll-in 0.46s cubic-bezier(0.7, 0, 0.2, 1) both;
 }
 
-.roll-glyph.roll-in.play {
-	transform: translateY(0);
-	transition: transform 0.46s cubic-bezier(0.7, 0, 0.2, 1);
+.roll-glyph.roll-out {
+	animation: roll-out 0.46s cubic-bezier(0.7, 0, 0.2, 1) forwards;
 }
 
-.roll-glyph.roll-out.play {
-	transform: translateY(-115%);
-	transition: transform 0.46s cubic-bezier(0.7, 0, 0.2, 1);
+@keyframes roll-in {
+	from { transform: translateY(115%); }
+	to   { transform: translateY(0); }
+}
+
+@keyframes roll-out {
+	from { transform: translateY(0); }
+	to   { transform: translateY(-115%); }
 }
 
 .expertise-text {

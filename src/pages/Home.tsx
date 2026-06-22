@@ -1,3 +1,5 @@
+import { useState } from "react";
+import { Head } from "vite-react-ssg";
 import Seo from "../components/Seo";
 import SmartLink from "../components/SmartLink";
 import VidejoLogo from "../components/VidejoLogo";
@@ -21,9 +23,9 @@ const JSON_LD = {
   ],
 };
 
-// Landing-video (Cloudflare Stream) als gedempte achtergrond-loop in de hero.
-const HERO_VIDEO =
-  "https://customer-el0steweaibtzxvs.cloudflarestream.com/4bd5f8eab7ec02fa0f4d3e702473773f/iframe?autoplay=true&loop=true&muted=true&controls=false&preload=auto";
+const CF_STREAM_BASE = "https://customer-el0steweaibtzxvs.cloudflarestream.com/4bd5f8eab7ec02fa0f4d3e702473773f";
+const HERO_VIDEO = `${CF_STREAM_BASE}/iframe?autoplay=true&loop=true&muted=true&controls=false&preload=auto`;
+const HERO_THUMBNAIL = `${CF_STREAM_BASE}/thumbnails/thumbnail.jpg?time=0s&height=1080`;
 
 const CLIENTS = [
   {
@@ -38,8 +40,13 @@ const CLIENTS = [
 
 export const Component = () => {
   const t = useT();
+  const [videoReady, setVideoReady] = useState(false);
   return (
     <>
+      <Head>
+        <link rel="preconnect" href="https://customer-el0steweaibtzxvs.cloudflarestream.com" />
+        <link rel="dns-prefetch" href="https://customer-el0steweaibtzxvs.cloudflarestream.com" />
+      </Head>
       <Seo
         title="VIDEJO | Commerciële Videoproductie in België"
         description="VIDEJO maakt commerciële video's die merken tot leven brengen. Van concept tot eindproduct — wij vertellen jouw verhaal. Gevestigd in België."
@@ -61,7 +68,10 @@ export const Component = () => {
 
       {/* Hero Section */}
       <section className="hero" id="hero">
-        <div className="hero-bg">
+        <div
+          className="hero-bg"
+          style={{ backgroundImage: `url(${HERO_THUMBNAIL})` }}
+        >
           <iframe
             className="hero-video"
             src={HERO_VIDEO}
@@ -69,6 +79,8 @@ export const Component = () => {
             allow="autoplay; fullscreen"
             tabIndex={-1}
             aria-hidden="true"
+            style={{ opacity: videoReady ? 1 : 0, transition: "opacity 0.8s ease" }}
+            onLoad={() => setVideoReady(true)}
           />
           <div className="hero-overlay"></div>
         </div>
