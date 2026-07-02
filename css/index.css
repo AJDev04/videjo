@@ -18,17 +18,14 @@
 	background: #0a0916 center/cover no-repeat;
 }
 
-/* Stream-iframe als full-bleed achtergrond-loop: 16:9 behouden én altijd de
-   hele hero bedekken (cover), gecentreerd. Puur decoratief → geen muis-/focus. */
+/* Native <video> als full-bleed achtergrond-loop: vult altijd de hele hero
+   (cover), gecentreerd. Puur decoratief → geen muis-/focus. */
 .hero-video {
 	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	width: 100vw;
-	height: 56.25vw; /* 16:9 t.o.v. breedte */
-	min-width: 177.78vh; /* 16:9 t.o.v. hoogte */
-	min-height: 100vh;
+	inset: 0;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
 	border: 0;
 	pointer-events: none;
 }

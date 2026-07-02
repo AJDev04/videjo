@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Head } from "vite-react-ssg";
 import Seo from "../components/Seo";
 import SmartLink from "../components/SmartLink";
@@ -24,7 +24,7 @@ const JSON_LD = {
 };
 
 const CF_STREAM_BASE = "https://customer-el0steweaibtzxvs.cloudflarestream.com/f8659fb1515bf433a909b062d8b6fff4";
-const HERO_VIDEO = `${CF_STREAM_BASE}/iframe?autoplay=true&loop=true&muted=true&controls=false&preload=auto`;
+const HERO_HLS = `${CF_STREAM_BASE}/manifest/video.m3u8`;
 const HERO_THUMBNAIL = `${CF_STREAM_BASE}/thumbnails/thumbnail.jpg?time=0s&height=1080`;
 
 const CLIENTS = [
@@ -41,6 +41,43 @@ const CLIENTS = [
 export const Component = () => {
   const t = useT();
   const [videoReady, setVideoReady] = useState(false);
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    const play = () => video.play().catch(() => {});
+
+    // Safari (and iOS) play HLS natively — no extra library needed.
+    if (video.canPlayType("application/vnd.apple.mpegurl")) {
+      video.src = HERO_HLS;
+      play();
+      return;
+    }
+
+    // Chrome/Firefox: lazy-load hls.js only where it's actually needed.
+    let hls: import("hls.js").default | null = null;
+    let cancelled = false;
+    import("hls.js").then(({ default: Hls }) => {
+      if (cancelled || !videoRef.current) return;
+      if (Hls.isSupported()) {
+        hls = new Hls({ autoStartLoad: true });
+        hls.loadSource(HERO_HLS);
+        hls.attachMedia(video);
+        hls.on(Hls.Events.MANIFEST_PARSED, play);
+      } else {
+        video.src = HERO_HLS;
+        play();
+      }
+    });
+
+    return () => {
+      cancelled = true;
+      hls?.destroy();
+    };
+  }, []);
+
   return (
     <>
       <Head>
@@ -72,15 +109,19 @@ export const Component = () => {
           className="hero-bg"
           style={{ backgroundImage: `url(${HERO_THUMBNAIL})` }}
         >
-          <iframe
+          <video
+            ref={videoRef}
             className="hero-video"
-            src={HERO_VIDEO}
-            title="VIDEJO showreel"
-            allow="autoplay; fullscreen"
+            poster={HERO_THUMBNAIL}
+            muted
+            loop
+            autoPlay
+            playsInline
+            preload="auto"
             tabIndex={-1}
             aria-hidden="true"
             style={{ opacity: videoReady ? 1 : 0, transition: "opacity 0.8s ease" }}
-            onLoad={() => setVideoReady(true)}
+            onPlaying={() => setVideoReady(true)}
           />
           <div className="hero-overlay"></div>
         </div>
