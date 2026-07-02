@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
 import { Head } from "vite-react-ssg";
 import Seo from "../components/Seo";
 import SmartLink from "../components/SmartLink";
@@ -24,7 +24,7 @@ const JSON_LD = {
 };
 
 const CF_STREAM_BASE = "https://customer-el0steweaibtzxvs.cloudflarestream.com/f8659fb1515bf433a909b062d8b6fff4";
-const HERO_HLS = `${CF_STREAM_BASE}/manifest/video.m3u8`;
+const HERO_MP4 = `${CF_STREAM_BASE}/downloads/default.mp4`;
 const HERO_THUMBNAIL = `${CF_STREAM_BASE}/thumbnails/thumbnail.jpg?time=0s&height=1080`;
 
 const CLIENTS = [
@@ -41,42 +41,6 @@ const CLIENTS = [
 export const Component = () => {
   const t = useT();
   const [videoReady, setVideoReady] = useState(false);
-  const videoRef = useRef<HTMLVideoElement>(null);
-
-  useEffect(() => {
-    const video = videoRef.current;
-    if (!video) return;
-
-    const play = () => video.play().catch(() => {});
-
-    // Safari (and iOS) play HLS natively — no extra library needed.
-    if (video.canPlayType("application/vnd.apple.mpegurl")) {
-      video.src = HERO_HLS;
-      play();
-      return;
-    }
-
-    // Chrome/Firefox: lazy-load hls.js only where it's actually needed.
-    let hls: import("hls.js").default | null = null;
-    let cancelled = false;
-    import("hls.js").then(({ default: Hls }) => {
-      if (cancelled || !videoRef.current) return;
-      if (Hls.isSupported()) {
-        hls = new Hls({ autoStartLoad: true });
-        hls.loadSource(HERO_HLS);
-        hls.attachMedia(video);
-        hls.on(Hls.Events.MANIFEST_PARSED, play);
-      } else {
-        video.src = HERO_HLS;
-        play();
-      }
-    });
-
-    return () => {
-      cancelled = true;
-      hls?.destroy();
-    };
-  }, []);
 
   return (
     <>
@@ -110,8 +74,8 @@ export const Component = () => {
           style={{ backgroundImage: `url(${HERO_THUMBNAIL})` }}
         >
           <video
-            ref={videoRef}
             className="hero-video"
+            src={HERO_MP4}
             poster={HERO_THUMBNAIL}
             muted
             loop
