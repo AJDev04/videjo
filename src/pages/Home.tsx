@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Head } from "vite-react-ssg";
 import Seo from "../components/Seo";
 import SmartLink from "../components/SmartLink";
@@ -41,6 +41,17 @@ const CLIENTS = [
 export const Component = () => {
   const t = useT();
   const [videoReady, setVideoReady] = useState(false);
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+    // On a cached refresh the video can already be playing before hydration
+    // attaches onPlaying — so reveal it immediately if it already has a frame,
+    // and nudge autoplay in case the browser paused it before hydration.
+    if (video.readyState >= 2) setVideoReady(true);
+    video.play().catch(() => {});
+  }, []);
 
   return (
     <>
@@ -74,6 +85,7 @@ export const Component = () => {
           style={{ backgroundImage: `url(${HERO_THUMBNAIL})` }}
         >
           <video
+            ref={videoRef}
             className="hero-video"
             src={HERO_MP4}
             poster={HERO_THUMBNAIL}
@@ -85,6 +97,7 @@ export const Component = () => {
             tabIndex={-1}
             aria-hidden="true"
             style={{ opacity: videoReady ? 1 : 0, transition: "opacity 0.8s ease" }}
+            onLoadedData={() => setVideoReady(true)}
             onPlaying={() => setVideoReady(true)}
           />
           <div className="hero-overlay"></div>
