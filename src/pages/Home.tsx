@@ -23,7 +23,7 @@ const JSON_LD = {
   ],
 };
 
-const CF_STREAM_BASE = "https://customer-el0steweaibtzxvs.cloudflarestream.com/4bd5f8eab7ec02fa0f4d3e702473773f";
+const CF_STREAM_BASE = "https://customer-el0steweaibtzxvs.cloudflarestream.com/f8659fb1515bf433a909b062d8b6fff4";
 const HERO_VIDEO = `${CF_STREAM_BASE}/iframe?autoplay=true&loop=true&muted=true&controls=false&preload=auto`;
 const HERO_THUMBNAIL = `${CF_STREAM_BASE}/thumbnails/thumbnail.jpg?time=0s&height=1080`;
 
